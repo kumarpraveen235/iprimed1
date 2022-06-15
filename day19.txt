@@ -1,0 +1,213 @@
+JUNIT   4 Exception handling
+
+@Test  annotation  provides attribute called   expected  used to specify   handler
+Acts as a  catch statement. If the  exception occured  in TestCase class and  
+in @Test annotation  specifies  same  Exception class  in  expected attribute then
+Exception  is handled and  test passes
+else  test fails
+
+JUNIT  4 time test
+some  times   test  cases  will  take  more  time  to execute  than  expected
+time. to   make  such test cases  fail,  JUNIT 4  provides  time test
+
+
+u can  achieve  this  through  timeout attribute of @Test annoatation
+it  takes   value in milli seconds  where  test case  must  execute within these  many milli seconds
+else  test will be treated as  failed
+
+
+Optionally specify timeout in milliseconds to cause a test method to fail if ittakes longer than 
+that number of milliseconds.
+
+JUNIT  4 parameterized testing
+it allows   developer   to the same test  over    and over again using  different
+values
+u  can achieve it  with  the  help of  2 annotations
+1) @RunWith  it is class level  present in   org.junit.runners.*
+2) @Parameterized  it is static  method level   present in org.junit.runners.*
+
+Steps to conduct  parameterized test
+1)   create  a   business logic  of test case
+2) annotate TestCase class with   @RunWith(Parameterized.class) annotation tells  in which mode
+you want to run  test case?
+
+3) using  contructor  initilize  i/p  valrible  required for testing
+4) create  a   public  static  method annotated  with @Parameterized.Parameters annoattion to 
+prepare  data set  which returns  Collection
+
+5)  in the  test case class in the test method
+ using Assert class methods,  call the  business logic
+
+JUNIT  4 SuiteTest\
+Test Suite  is  used to bundle   multiple  unit test cases and run them  together
+we use  @RunWith(Suite.class) and @Suite annottaions
+Both are class level annotations
+@Suite annotation is present in org.junitrunners.* pkg
+specifies  Test case class for  bundelling
+
+
+Introduction  to JUNIT 5
+junit  5  architecture  contains  3  components
+1)JUNIT  platform
+launches the testing framework on JVM
+It has a test engine API  used to build a testing frame work  that runs on JUNIT
+
+2) JUNIT Jupiter
+provide  blend of new programming mode  for writing  test case
+supports  many annotations  like @DislpayName @RepeatedTest  @Nested   
+e.t.c
+3)JUNIT vintage
+supports to execute  old JUNIT versions  like JUNIT 4 JUNIT 3
+
+
+how  to install  JUNIT 5?
+better  we do it i built tool like maven / gradle
+
+Like  JUNIT 4 JUNIT 5  provides   2 class  to write  test case  logic
+they  are
+Assertions 
+it is present in  org.junit.jupiter.api.* pkg
+method
+
+methods
+
+public static  void  assertArrayEquals(Object[] c1, Object[]  c2)
+public static  void  assertEquals(Object c1, Object  c2)
+public static  void  assertIterableEquals(Iterable c1, Iterable  c2)
+public static  void  assertSame(Object c1, Object c2)
+public static  void  assertNotSame(Object c1, Object c2)
+public static  void  assertNull(Object c1)
+public static  void  assertNotNull(Object c1)
+public static  void  assertNotEquals(Object c1, Object c2)
+public static  void  assertTrue(boolean exp)
+public static  void  assertFalse(boolean exp)
+
+public  static  void   assertThrows(Exception class, Executable  e)
+Here  Executable is  functional  interface  which has  execute() method
+it is  present in  org.junit.jupiter.api.function.Executable; pkg
+
+used to  handle  the  error in test  case  if error  occured in ExcutableInterface
+public  static  void   assertDoesNotThrow( Executable  e)
+used  when  there  was  no error  in  executable
+public static  void assertTimeOut(Duration d,  Executable  e)
+used to execute  Excutable within specified  amt of time
+
+
+
+
+
+JUNIT  5  annotations
+@Test
+
+it is  method  level used to create a Test Method
+it is  present in org.junit.api.* pkg
+
+@BeforeEach
+it is  same as  @Before annotations   executes  before  each  test case
+it is  a method level
+@AfterEach
+it is  same as  @After annotation in junut 4   executes  after  each  test case
+it is  a method level
+@BeforeAll
+it is  same as  @BeforeClass annotations   executes  before  all test cases
+it is    a  static method level
+@AfterAll
+it is  same as  @AferClass annotations   executes  after  all test cases
+it is    a  static method level
+
+
+@DisplayName
+present in org.junit.jupiter.api  pkg
+it is  method level annottaion  used to  specify the  name for the   TestCase
+
+
+@RepeatedTest  annotation
+it is  method level annotation  used to conduct same test again and again
+
+
+
+how  to skip the  test?
+JUNIT provides   @Disable annotation
+it is  method level / class level
+it  also  supports
+@DisabledOnJre @DisabledOnOs  annotations
+to disable test wr.t.   os/jre's
+
+Testing in nested class
+when u write test cases  in inner classes
+with @Test annotation outer  class will  not scan  test cases  present inner classes
+for this  we need to use inner  class level annoattion called 
+@Nested  at  inner class  level
+
+
+Assumptions
+Assumptions  will  skip the  test  if the  condition  does not met/failed
+but  never allow  to fail the test
+
+this  class is  present in org.junit.jupiter.api.* pkg
+methods
+static  void assumeTrue(condition)
+
+if  the  condition is true  it executes  else  skips the test
+static  void assumeFalse(condition)
+
+if  the  condition is executes  it executes  else  skips the test
+
+
+static   void assumingThat(boolean  condition  , Executable e)
+
+if  condition is true  executes the Executable
+else  does  not execute the Executable(never fails/skips the test)
+
+
+To conduct  Parameterized  testing  in JUNIT 5  we must use
+junit-jupiter-params  depenedency
+
+
+annotations  used  in JUNIT 5 for  parameterized testing
+
+@ParameterizedTest
+it is  method level annottaion
+
+@ValueSource
+to   set the  data  of  diff  types  for the  testing  we use this annotation
+it is  method level
+
+@MethodSource
+to  test the  method   we use  this  annotation
+the  method must be static  method
+
+
+
+write  a  JDBC  program  to  obtain a  Coonnection  from   database
+hence   write  JUNIT5 TEST case  for  checking  connection  must not be null
+
+
+WRite    program  to insert  a row  into the data base
+and  write JUNIT5  test case  for  row inserted
+
+create  a class  called  Book  with  name  as  property
+insert  5 books  in an array  
+and  write   junit5  parameterized  test  for  the  books  name not null
+
+
+
+
+1)Using  Parameterized  test
+enter   7 interger values 
+Write  JUNIT5  test  using Assumption for  the all  +ve integer value
+
+
+2) write  JUNIT  4 parameterized test
+to  check   5 eneterd   no are  prime or not
+
+
+3)  write jdbc  java program  to update  the  book price and  name  of id 2
+and write JUNIT5  test case for that  using  JDBC
+
+
+
+
+
+
+

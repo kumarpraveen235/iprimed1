@@ -1,0 +1,357 @@
+
+
+what are  lamda expressions?
+it represents the  instance  of the  functional  interface
+A lamda  expression  is an anonymous block of code that encapsulates an expression
+or a block of statements  and returns a result
+Syntax
+(argumentlist)->implementation
+
+the  arrow operator -> is used to saperate the list of parameters  and body
+of the lamda expression
+These are basically allows for creation and use of single method  anonymous classes
+instead  of creating  saperate concrete class for  functional  interface
+implemenation
+These  can accept  0 or more parameters any of which can be passed  with or without type
+specification  since type is  automatically  derived from the context
+if there  are no parameters / no  arguments  then empty set of parenthesis
+can be used    No parenthses is required for single  argument
+()->implemetaion
+(i,i1)->imple
+i->implementation
+
+implementation  can also  contain  business logic
+
+why  lamda  expressions?
+improves the  maintainability, readability and improves the  productivity
+these are  used in many contexts raging from    simple  anonymous function to sorting   and filtering
+collections
+lamda expresssions are ASSIGNED TO VARIABLES(of type  functional interface)
+ and passed into another objects
+
+
+Create  a Thread  by implementing Runnable  interface   using Lamda Expression
+
+
+Built in functional  interfaces  (43  built in functional interfaces )
+these  falls in to 4 categories
+Supplier
+Consumer
+Predcate
+Function
+
+
+
+Supplier
+A supplier<T> represents a   function that   takes  no arguments   and returns    a  result
+of type T
+
+Syntax
+@FunctionalInterface
+public  interface  Supplier<T>
+{
+    T get();
+
+}
+Eg
+BooleanSupplier
+IntSupplier
+LongSupplier
+
+
+
+Consumer
+A Consumer<T> represents a   function that   takes an argument   and returns    nothing
+
+Syntax
+@FunctionalInterface
+public  interface  Consumer<T>
+{
+    void accept(T t);
+
+}
+Eg
+IntConsumer
+LongConsumer
+
+
+
+Predicate
+
+A Predicate<T> represents a function that takes an argument  and returns  true or false
+
+syntax
+@FunctionalInterface
+public interface Predicate<T>
+{
+  boolean test(T t);
+}
+
+Eg
+IntPredicate
+LongPredicate
+
+
+Function
+A  function<T>  represents   a  function that  takes an argument  and returns another type
+object
+
+syntax
+@FunctionalInterface
+public interface Function<T, R>
+{
+  R  apply  (T t);
+}
+
+Eg
+IntFunction<R>
+DoubleFunction<R>
+
+
+Functional interface     method                  implemenation through  lamda
+
+Supplier<String>       String get();               ()->"welcome to chennai";
+
+BooleanSupplier         Boolean get()             ()->    {   return  true;}
+
+Consumer<String>      void accept(String s)       (msg)->System.out.println("hi  "+msg);
+
+IntConsumer           void  accept(int n)           i->System.out.println(i);
+
+Predicate<Integer>  boolean   test(int i)             n->n%2==0;    
+
+Function<String,Integer>   Integer  apply(String s)   (str)->str.length();
+
+UnaryOperator<Integer>    Integer apply(Integer i)   n->n+10;
+
+BinaryOperator<Integer>   Integer  apply(Integer i1, Integer i2)         (n1,n2)->n1+n2;
+takes  2 parameter of one type and  returns another  type
+
+BiFunction<String,         Boolean  apply(String  uname,        (uname,pass)->
+String, Boolean>           String pass);                        {  return uname.equals(pass);}
+
+Stream API
+It  is present in java.util.stream.* pkg
+
+it allows   developers   to process data in declarative way
+it  can  leverage   multicore architecture  without writing   single
+line of multithreaded code
+it  enhances the  usability of  Java  Collection  types
+making it easy to   iterate and  performs  tasks  against each element in collection
+supports   sequential and  parallel aggregate  operations
+
+Collections  VS  streams
+collection is an  in memory  datastructure
+which holds all the values
+
+
+Stream is  a Pipeline  in  which elements are  computed  on demand
+
+
+Features of Stream
+Not a data structure
+designed for lamdas
+do not support  indexed access
+can  easily   be o/p as  Arrays  or   List
+lazy
+Parallelizable
+can be  unbounded
+
+
+operations  on Streams
+terminal operations
+these  returns the  result of certain type
+forEach()  toArray() reduce()  collect()  min()   max()  count()  anyMatch() allMatch() findFirst()
+intermmediate  operations
+these  returns the  resut of Stream  itself
+filer() map()   distinct() sorted()   limit() peek()
+
+Optional  class
+
+it is a  final class   used to deal  with  NullPointerException
+
+
+it is present in  java.util.Optional
+
+
+METHODS
+
+static  Optional<T> empty()   returns  empty optional  object
+
+static  Optional<T>   of(T  Value)   craetes  a   Optional  object  of  type T
+
+static    Optional<T>  ofNullable(T v)  returns  optional  if  not null else   returns  empty
+T get()    returns  the  object of type T
+boolean isPresent()   returns   boolean  by checking value is present or not in optional
+void  ifPresent(Consumer c)  if the  value is present it invokes the  consumer else nothing
+
+T orElse(T Other) returns the  value  if present else  returns other
+
+T orElseThrow(Supplier  s) it  returns  contained value else throw an exception  created by the  
+supplier
+
+
+Collectors  class
+it is also a  Final class
+extends  Object class
+it  provide  method   to perform  reduction  operation
+such as  accumulation elements  into  Collection   , Map  summarizing elements   according
+various criteria  e.t.c
+
+methods
+static  List  toList()
+static  Map  toMap()
+static  Set  toSet()
+
+this class is present in  java.util.stream.Collectors  pkg
+
+Methods  of Stream  API
+boolean allMatch(Predicate  p)
+boolean  anyMatch(Predicate  p)
+R collect(Collectors c)
+used  to store the  elements  of Stream and  converts to another  data structure
+long count()
+Stream  dictinct()
+static Stream empty()
+Stream  filter(Predicate  s)  filters the  Stream elements
+Optional<T>  findFirst()
+void forEach(Consumer   c)
+static generate(Supplier s)
+static Stream  iterate(T seed,   UnaryOperator)
+
+Stream  limit(long size)
+Stream map(Function f)
+returns the stream   consisting of  results  after  applying  function and forming  result
+Optional max(Comapartor  c)
+Optional  min(Comparator  c)
+static  Stream of(T t)  creates Stream of type T
+Optional  reduce(BinaryOprator b)
+Stream skip(long l)
+Stream  sorted()
+Object[] toArray()
+
+
+in java.util  like Collections  class  we have  Arrays class also
+it has  a one method  called asList
+
+List<T>  asList(T t)  Converts  to List
+
+enter  10 elements in ArrayList and  find  odd no
+
+enter  10 integers in Stream  and find  no  which is  > 30  and store  in to   Set   
+
+Find the  First String which starts  with b
+
+Find th min&max of ArrayList  elements
+
+Find  sum of ArrayList elements
+
+
+enter   10 Strings in list and  display   only  5  Strings   which  starts  with letter  a
+
+create  a  class called  student  with  id, name  and age
+insert   5 objects  in ArrayList  and  sort  on age and  name  using    lamda  expression
+
+
+create  a  class called  PRODUCT with  id, name price
+insert   5 objects  in ArrayList  and 
+display  
+product  list whose  price  >  10000
+display  max price
+
+
+Method references
+
+these are  shorthand way to write lamda expressions
+
+it is a new  way to refer the  method  by it's name
+instead of  calling it  directly
+denoted  by ::   operator
+
+used  provide  aimplementation  for  functional  interface  methods
+
+2 types
+1)static  method  references
+2) instance  method references
+
+
+
+Garbage  collection
+in  java    no need   to destroy  the  Objects  manually
+to   destoy the use less  / unreferenced objects   or to recollect the  memory
+of unreferenced  objects       just   we need to issue   gc() method from System class
+or Runtime class. Then  garbage  collector  back ground(daemon thread) automatically
+destroy/re collect the  memory of un referned objects
+
+This  makes java program  more ROBUST
+
+
+What is  grabage?
+if  created  object  don't have a reference  then  it is   a garbage or  waste
+object
+
+such objects wastes  lots of memory  we need to recollect the  memory of such
+objects  by using  System.gc() method
+
+
+How  to unreference the  object
+
+or  how  make object  eligible  for  gc?
+
+4 ways
+1) nullyfying object
+2) assigning reference of 1 object to other
+3) anonymous  object creation
+4)creating  objects  in methods 
+
+
+
+1)   
+class A
+{
+
+    void m(){}
+}
+public  static  void main(String [] args)
+{
+      A  aa=new A();
+         A  aa1=new A();
+     aa=null;    1 object eligible for  gc
+    aa1=null;    2 object eligible for  gc
+      }
+}
+
+if u try  to access  m() from aa / aa1  u will get NullPointerException
+
+
+
+2)
+class A
+{
+
+    void m(){}
+}
+public  static  void main(String [] args)
+{
+      A  aa=new A();
+         A  aa1=new A();
+
+   aa=aa1;//   aa1's refernece id is assigned to aa   So  aa is eligible  for gc
+}
+}
+
+Assignments
+1)using  the  Stream's iterate() method  display the  multiplication table of 5
+2)using the Stream's  generate method display 20 integer   no between  1 to 100
+3)create a  Class called  Book with  id, name and price
+insert  5 objects  in to the ArrayList
+Extract only   price   in the Set which is >  500.00
+4)create a  Class called Student with id, name and  age
+inasert  5 objects in TreeSet  and  Sort  on  name  using LamdaExpression
+5)create  a class called  Country  with   name and  capital
+insert   5 Objects  into  ArrayList and convert  into Map
+O/P must be
+{India=Delhi  France=Paris  UK=LOndon....}
+
+6)Insert  10 String in an ArrayList sort them,  convert in to UpperCase letter and
+store in Set

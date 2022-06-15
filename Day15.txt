@@ -1,0 +1,417 @@
+Garbage  collection
+in  java    no need   to destroy  the  Objects  manually
+to   destoy the use less  / unreferenced objects   or to recollect the  memory
+of unreferenced  objects       just   we need to issue   gc() method from System class
+or Runtime class. Then  garbage  collector  back ground(daemon thread) automatically
+destroy/re collect the  memory of un referned objects
+
+This  makes java program  more ROBUST
+
+
+What is  grabage?
+if  created  object  don't have a reference  then  it is   a garbage or  waste
+object
+
+such objects wastes  lots of memory  we need to recollect the  memory of such
+objects  by using  System.gc() method
+
+
+How  to unreference the  object
+
+or  how  make object  eligible  for  gc?
+
+4 ways
+1) nullyfying object
+2) assigning reference of 1 object to other
+3) anonymous  object creation
+4)creating  objects  in methods 
+
+
+
+1)   
+class A
+{
+
+    void m(){}
+}
+public  static  void main(String [] args)
+{
+      A  aa=new A();
+         A  aa1=new A();
+     aa=null;    1 object eligible for  gc
+    aa1=null;    2 object eligible for  gc
+      }
+}
+
+if u try  to access  m() from aa / aa1  u will get NullPointerException
+
+
+
+2)
+class A
+{
+
+    void m(){}
+}
+public  static  void main(String [] args)
+{
+      A  aa=new A();
+         A  aa1=new A();
+
+   aa=aa1;//   aa1's refernece id is assigned to aa   So  aa is eligible  for gc
+}
+}
+
+how  to recollect the  memory of   unreferenced Objects?
+to achieve the  garbage collection  we need to  reqeust to JVM   by  calling   gc() method
+
+gc()  method  is present in 2  places
+1)   System.gc()
+  public static void gc()
+
+2) Using  Runtime  class
+
+Runtime  r=Runtime.getRuntime();//  factory  method of creating an Object
+   r.gc();
+
+
+finalize() method
+Syntax
+public  void  finalize()  thows Throwable
+
+it is a  method of  Object class
+this  method is called  by   gc() method   before destroying the  Object
+in this  method  u can  write the  code  related to the   objects   before  u can  destroy the  
+object 
+eg if the  object  contains  any connections, files  sockets  then
+u can close all these in the  finalize() method
+then  gc() method call finalize()  method before  destroying
+
+Note: gc() method calls  that class's finalize() method before  destroying the Object
+
+
+
+Data base  Fundamentals  and  
+SQL programming  using MYsql  8
+
+
+introduction to DBMS
+it is  s/w  used   manage the  database
+i.e used  to insert /delete/update  /access /retrieve data from database
+u can achieve it through the  different   s/w  like Oracle  Mysql  post gre  db2  e.t.c
+
+advantages of  DBMS
+3  schema architecture
+
+internal schema  / physical schema
+specifies the  how the data  is stored internally  in the  memory
+how the  data is physically represented 
+eg wether  data is  stored  uisng  sequnetial  access  mode / indexed sequential access mode
+e.t.c
+Note there  will be only 1  internal  schema  for  database
+conceptual schema  / logical schema
+specifies the skeleton of the  database
+like attributes datatype  width  e.t.c
+If the  data is related to Student  then
+id, name , age, dob, sem, marks, address, e.t.c
+with  type like  Integer(10), varchar(10)  e.t.c
+Note there  will be only 1  logical  schema  for  database
+external schema
+it is  a  schema  how the  user views / sees the data
+Note there  will > 1 external  schema  for  database
+
+
+models  of DBMS
+
+3 models  are  available
+1) hierachical  model:
+here  data is represented  in the  form  of tree structure
+it supports  1 to many   relation ships
+2) network  model:
+here  data is represented  in the  form  of graphs
+it supports  1:m m:m  m:1 1:1   relation ships
+3)Realtional model
+Here  data is  represented in tables(relations)
+each  column is called attributes
+each  column  value is called  tuple
+each  row  is called  record
+
+
+Introduction to RDBMS
+it is  invented  by Mr F.Codd in 1970
+
+constraints/keys
+normalization
+ER  diagrams
+
+
+keys
+primary  key
+there must   be only 1 primary key per table
+it's  value  must be unique,   cannot be   duplicated  cannot  be  null also
+Eg   student(id, name  ,  marks)
+id is  primary key
+
+super key
+super key  is  a  set of  keys  which uniquely identifies the  rows
+Eg   student(id, name ,  phoneno)
+
+super  keys are {id}  {phoneno}   {id, name}  {phoneno, name}
+{id, phoneno} {id, name,phono}
+
+
+
+u can have more than 1 super key per table
+
+csndidate  key
+
+minimal set of  super key is called    candidate  key
+in the  above set  of super key  candidate key is  {id}
+
+
+composite key
+if the primary key is created by the combination  of   more than  1  column
+it is called  composite key
+
+eg   studentno+section
+
+
+
+and
+ foreign  key
+it is  a  copy of a  another  table
+though  this  u can establisg parent-child relationship
+between tables
+there  will be  more than 1  foreign  key  in a table
+
+Eg
+ emp
+id(pk)name   des   
+1    ajay   engg
+2   anil    mgr
+3    vijay  executive
+
+dept
+dno(pk)eid(fk)  dname
+  1      2       IT
+  2      3       HR
+  3      1      Sales
+
+
+in the  above table   dept is   child table
+as it contains   foreign key  as    eid   refering to  emp   for   id column
+so emp is parent table
+in this    emp table   id col  values  must match
+dept table  eid   col values
+forien key values  can contain   duplicate values
+
+Normalization 
+process of structuring/  or   filtering   the  columns of the  table
+to reduce the  redundancy is called  Normalization
+used to eliminate  upadation  insertion and  deletion anomalies
+
+1NF 2NF  3NF
+
+
+1NF
+IN this  all  column  must  contain a   single/scalar value
+there   must be  not  be more than  1  column  which  contains  same  data
+
+favplayer   table
+
+
+id   name            favplayername
+
+1     ajay        warne  ponting sachin
+2    vinay        akram   ambrose  develliers
+3    kiran        azar    rohit    waugh
+
+
+
+id   name        favplayer1  favplayter2 favplayer3
+
+1     ajay        warne       ponting    sachin
+2    vinay        akram      ambrose    develliers
+3    kiran        azar         rohit    waugh
+
+above  one is alos  not in  1st NF
+
+split the table
+
+person
+id (pk)  name
+ 1     ajay
+ 2     vinay
+ 3     kiran
+
+palyer table
+
+id(fk)  player
+ 1        wr
+ 1       pon
+ 1       sach
+ 2       akr
+ 2       ambr
+ 2       devil
+ 3         azar 
+ 3         rohi
+ 3        waug
+
+
+2nd NF
+table must be in a  1st NF
+NON  key column  must  entirely depend on  primary key
+
+product table
+
+prodname      price    suppliername   supplieraddress
+
+primarykey(prodname, suppliername) // composite primary key
+
+in the  above  table  non key col  supplieraddress  not entirely depenedent on
+primary  key(prodname and suppliername)
+as if i know  onlu suppliername  i will  getsupplier address
+so it is not in 2nd NF
+
+Split the table
+
+
+product table    primarykey(prodname, suppliername) 
+
+prodname      price    suppliername 
+
+supplier table
+
+suppliername(fk)     supplieraddress
+
+
+3rd  NF
+
+table  must be  in 2nd NF
+and also   there  must be  no  transitive  depenedency
+i.e. non key column must  not depend on another  non key column
+
+
+person
+
+adhaarno(Pk)   pname    dob    street  city    zipcode
+ 
+split the  table
+
+person   child table
+adhaarno (pk)  pname    dob   zipcode(fk)
+111	        a       xxx    222	
+	
+address   parent  table
+ 
+   zipcode(pk)  street  city
+      222          x      y
+
+ER Diagrams
+Entity Relationship Diagrams
+
+Entity
+it is  a  name  of a person / thing/ place/object
+entity is represented  in  rectangle
+
+each entity has a characteritic called  attribute
+represented in oval
+
+relationship is represented by  rombhus
+
+any  entity  does not have  primaty key it is called  weak  entity
+represented  by double  rectangle
+
+eg   instalment  (amt, date)
+     payment  (amt, date)
+relationship  between  such  entities are called  weak  relationships
+represented by double line rombhus
+
+
+
+SQL  programming  using MYSQL 8
+
+
+BJY6/ju(Tvo0
+
+
+Storage   engines  in mysql
+
+contains the  data  of the  mysql  stores the  entire data  of mysql
+
+MyISAM
+It  extends  old  ISAM storage  engine
+MyISAM tables are optimized    for compression and speed
+MyISAM tables are more portable between  os
+size is upto 256 TB
+These are not transaction safe
+before  mysql 5.5 it was  default storage engine
+
+InnoDB
+This  engine tables are  ACID  complient
+and supports transactions
+speed  in performance
+supports  foreign keys rollbacks   commits  e.t.c
+these can store upto 64TB
+InnoDB  tables are more portable between  os
+MERGE
+it is a virtual table
+COMBINES multiple   MyISAM tables
+improve the performance by joining tables
+
+MEMORY
+
+these  uses  hash indexes to improve the  performance faster than  MyISAM
+stored in  memory
+
+data types  of mysql
+boolean     it  internally  uses  tinyint
+char  it can hold up to 20 characters
+date   uses    yyyy-mm-dd  format
+datetime   uses   yyyy-mm-dd 00:00:00
+decimal(p,s)   p-->length    s->no of  fractional digits
+decimal(10,5)   979.97979
+int    ranges from -214 crore  + 214 crore
+tinyint   small int    mediumint (-83 lakh to 83lakh)    int    bigint   
+time 
+timestamp
+varchar   up to    65535 characters   
+length  will be  255  bytes
+
+Mysql support   4 kinds of  commads
+DDL   create  truncate  rename  alter  drop   
+
+
+creating tables   with  all  data  types and  contraints
+
+my sql supports 
+primary key
+unique
+foreign key
+default
+not null
+check
+
+
+
+
+create  table  student
+with   following
+
+id  int pk
+name  not null  unique  varchar
+city varchar  default  noida
+marks  int  >50 
+dob  date
+
+
+DML   update  delete  insert
+ DCL   grant  revoke
+ TCL   commit savepoint   rollback
+
+
+
+
+
+
+

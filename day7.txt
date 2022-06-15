@@ -1,0 +1,284 @@
+String class
+
+String   m(char  s, char y)  //error
+{
+    return  s+y;    //   adds    ascii  letters
+}
+
+as String is  a class  
+char  is  primitive type
+
+
+String is   sequence  of IMMUTABLE  characters
+
+immutable  means  cannot be  changed  /  modified / not altered
+
+
+class   A extends  String 
+{}
+above    code  will give  error  as   String is  IMMUTABLE  class
+internally  it is  final  class. It cannot be sub classed
+
+
+
+Implicitely  String class  impelemnts    
+java.io.Serializable, Comparable<String>, CharSequence  interfaces
+
+
+HOW  to create  a  String
+2 ways   to create  a  String
+
+1) using  String constructor
+
+String()
+String(char[] c)
+String(String s)
+
+
+it create    a  String   in  heap area
+
+String s1=new String("welcome");
+String s2=new String("welcome");
+
+
+In  the   above  code    2  Strings  are  created  in HEAP area
+
+
+char  c[]={'w','e','l','c','o','m','e'};
+String s1=new String(e);
+System.out.println(s1)   // produces  welcome  in HEAP area
+
+
+2)  using Literal  technique
+String  s="welcome"
+Here   s is  stored  in  String  Constant  Pool   in HEAP area
+For Eg
+String  s="welcome"
+String  s1="welcome"
+
+in the   above  statement   only  1 welcome  is stored in String Constant Pool
+
+
+why strings are   Immutable  in java
+
+if     5  reference  varaibles  are  refers to  same   String Object
+if any one referece  variable changes value of  that  String Object   it effects to
+other  reference  varaibles also That is why Strings are  IMMUTABLE
+
+
+
+what  is  O/P?
+
+
+String   s="naveen";
+s.concat("kumar");
+System.out.println(s);    // prints   naveen  as    no reference variable  is  pointed  
+to naveenkumar
+
+
+
+methods  of String class
+boolean   equals(String s)     compares the   values of  2 Strings
+boolean  ==   compares the references of  2 Strings
+int   compareTo(String s)  compares  values of  2 Strings 
+if  both are  equal  it returns  0  if 1st Str  >  2nd Str  it returns  +ve
+else  returns  negative  (+ve / -ve  values are  diff between  ascii values)
+boolean  equalsIgnoreCase(String s) compares  values of 2 Strings  by ignoring cases
+int   compareToIgnoreCase(String s)  compares  values of  2 Strings 
+
+
+char    charAt(int index)   extracts  one  character  of  a String at a  Time
+int  indexOf(String s)  returns    the  index   of a String where  first  time  ocuured
+int  lastIndexOf(String s)  returns    the  index   of a String where  LAST time  ocuured
+String   substring(int startindex, int end index)  returns the  sub String 
+boolean startsWith(String s)
+boolean  endsWith(String s)
+String  toUpperCase()
+String toLowerCase()
+String[]   split(String  pattern)
+String  trim()
+String  intern()  returns duplicate  copy  of String
+static  String   valueOf(Object  o) converts  java object  to string
+void   getChars(int start, iny end, char[] buf,  int startarrayindex)
+extracts  more than  1 character 
+byte[] getBytes() converts  to byte
+int length()   returns  length of String
+String concat(String  s)  concatenates the  2 Strings
+String replace( char  old, char new)
+char[]   toCharArray()   converts to array
+
+w.ap   to  extract  more than  1 character  in String
+by reading  string from keyboard
+use  getChars()  method
+
+this is a demo of getchars method
+demo
+0   empty
+1   d
+2   e
+3   m
+
+
+w.a.p   to  count  no of  Vowels   in a  String  using  switch  case
+
+
+
+
+How   to create   Mutable characters  of String?
+
+String Buffer and String Builder classes
+
+StringBuffer
+used  to create   Mutable/changable/modifiable  characters  of String
+it is   very  slow  as it is   Synchronized
+i.e   not more than one thread   cannot   access the  same   method
+of String Buffer  symultaneously
+i.e at a  time  only one thread can access   StringBuffer method
+
+
+Constructors
+
+StringBuffer()
+StringBuffer(int  size)
+StringBuffer(String s)
+
+Internally StringBuffer is also  final
+but used to create  Mutable  sequence of characters
+methods
+
+int capacity()
+default is   16
+if u enter    characters >  16   & < 35  then capacity  is  oldcapacity*2+2
+
+if  u enter characters  > 34   then  capacity =   no of characters
+
+void  setCharAt(int index, char c)
+sets the character
+void setLength(int length)
+StringBuffer  append(String s)   adds   strings at end
+StringBuffer  insert(int s, String s)   adds   string at specific position
+StringBuffer  delete(int start, int end)  delete  specific characters
+StringBuffer  replace(int start, int end, String s)   replace string
+StringBuffer  reverse()
+StringBuffer  deleteCharAt(int i)
+
+
+
+convert    Hello  to hi  using StringBuffer  methods
+
+
+w.ap to compare  2  String Buffer  value?
+
+
+w.a.p  to    check entered String is  pallindrome  or not  using   String/StringBuffer
+method
+
+StringBuilder
+used  to create   Mutable/changable/modifiable  characters  of String
+it is   very  fast  as it is not  Synchronized
+i.e    more than one thread   can   access the  same   method
+of StringBuilder  symultaneously
+i.e at a  time more than one thread can access   StringBuilder methods  parallelly
+
+
+Constructors
+
+StringBuilder()
+StringBuilder(int  size)
+StringBuilder(String s)
+
+Internally StringBuilder is also  final
+but used to create  Mutable  sequence of characters
+methods
+
+contains  same methods as  StringBuffer
+
+
+
+write a  program to create  a  class product  with  id name and  price
+and create   1 object and  display
+
+
+
+toString()   method
+it is a  method  of  Object  class
+converts  User defined class Object  into String
+
+
+note:   when u  display object  compiler  internally calls  toString() method
+u need to override in your  program  
+to convert  object to string
+
+
+Exception  handling
+
+
+Exception is an  abnormal   condition   occured  in code  sequnce at  runtime
+when   exception  ocuured  and  not handeled then   it   will terminate the program
+abnormally and   we can't maintain the smooth flow of an  application
+
+
+if the  exception occured  in a  method  then  in that  method
+if  we  handled it or transfered  to another method for  processing / handling
+thus  occured   exeption  some  how  handled  or processed
+if  we handled the  exception  then the program terminates  normally
+and  we can maintain smooth  flow of an appllication
+The  process of  handling exception  in code sequence  at  run time
+is called "EXCEPTION HANDLING"
+
+
+
+
+
+
+Exception   Hierachy
+
+super  class  of Exception class is Throwable
+Under  throwable  we have  Exception class and  Error class
+
+Exception class  has  2 types
+1)  CheckedException
+these extends  Throwable class except  RuntimeException and  Error
+These exception Occur at  compile  time
+These  are  not occured  due  to developer mistakes
+these are not under the  control of developers
+there are  used  lot in throws  key word
+occurs  due some  of  java built in methods  throws  exceptions
+
+eg:
+IOException  ClassNotFoundException
+InterruptedException  SQLException CloneNotSupportedException
+
+2)  Un CheckedException
+these extends  Throwable class 
+These exception Occur at  Runtime  time
+It's  super class  is RuntimeException
+These  are  occured  due  to developer mistakes
+these are  under the  control of developers
+there are also used in throws  key word
+
+
+eg:
+ArithmaticException  NullPointerException
+ClassCastException  NumberFormatException ArrayIndexOutOfBoundsException
+StringIndexOutOfBoundsException IllegalThreadStateException
+
+
+Error   
+it
+realtes  to   JVM error
+these are  irrocoverable
+
+StackOverFlow
+AssertionError
+VMError
+OutOfMemory error   e.t.c
+
+
+Write  a  program  to insert     8 strings  from keyboard   
+and  store  in an array and sort  on  asscending order
+
+Write  a  program to find the  permutations  of a String
+
+
+

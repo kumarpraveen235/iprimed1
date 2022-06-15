@@ -1,0 +1,282 @@
+JDBC?
+Java  Database Connectivity
+it is an API   used  talk  java  application  with database
+before  jdbc  ODBC(open database   connectivity)  was  used to connect to database
+but odbc  was  written  in   C  It is not platform  independent
+so it was dis couraged
+
+JDBC api  contains  couple of  important pkgs  
+1) java.sql.*
+2) javax.sql.*
+
+
+
+driver
+it is a  s/w  component  used to convert   jdbc calls  into database calls
+4 types  of drivers
+1) type I driver  JDBC+ODBC bridge
+this   driver  converts   java  / jdbc calls   into   odbc  calls
+before   reaching to a  odbc  driver  the  jDBC calls  passes  through jdbc+odbc
+bridge this   creates  lots of overhead and  hurts  performance
+it is very  slow   cannot be used for  development purpose
+used for production purpose
+this  driver must be  installed into  computer
+vendor  database libarries must aso be installed  into computer
+cannot  be  downloaded  from internet
+works only on windows  
+not a platform independent
+it is  written in C
+but can easily connect to any database 
+it database indepenedent
+
+
+2) type II driver  java native API driver
+3) type III driver    Network protocol driver  for  Middleware
+4)type IV driver  Pure java thin driver
+
+this   driver  converts   java  / jdbc calls   into directly  a database  calls
+
+it is very  fast  as   jdbc calls  directly   converted into  database calls
+ used for  development purpose
+and also for production purpose
+this  driver  downloaded  from internet
+it is written in java  it is also  called PURE JAVA  driver
+works  on all os  
+it is platform independent
+but   it is database dependent
+
+eg  to connect to  mysql  we need  mysql-java-connector-8.0.22 driver
+    to connect to oracle  we need  ojdbc7 driver
+
+
+
+how to connect to database?
+
+1) load the  driver
+to load the  Driver  we need to use  class Class's fornName() method
+Class.forName(String drivername)
+
+2) obtain the connection
+3)create the SQL statement
+4) execute the statement
+5) access the  database(CRUD)
+
+
+classes and  interfaces  of   java.sql.*
+DriverManager class
+used  to  register the driver
+by defult  the  drivers are  automatically  registered
+we need  to only load the  driver and  obtain the connection
+methods
+static  Connection  getConnection(String url, String username String password)
+throws SQLException
+connects to the  database where Connection is  an Interface
+
+void registerDriver(String  drivername)
+void deRegisterDriver(String drivername)
+
+interfacef  java.sql.*
+
+
+Connection
+it is an  interface
+
+used to connect to the database
+it is a session between application and database
+
+methods
+statement createStatement()  throws  SQLException
+  creates the  Simple SQL statements
+preparedStatement   prepareStatement(String s)   throws  SQLException
+creates  parameterized  SQL statements
+CallableStatement  prepareCall(String) throws  SQLException
+creates  statements  to call  stored  procedures
+
+
+
+void  commit()
+void  rollback()
+void setAutoCommit(boolean flag)
+
+Statement  interface
+creates   simple SQL statements 
+Contains  methods  to execute  SQL statements
+
+int executeUpdate(String s) executes DML DDL statements
+
+boolean  exeute(String s)  executes  DML DDL  statements and also executes
+stored procedures
+
+ResultSet  executeQuery(String s) executes  DQL statements (select queries)
+void   addBatch(Statement  st)
+creates  SQL statements in  batch
+int[]  executeBatch() executes   SQL  statements in batch
+
+
+w.a.p to create table  in mysql  using JDBC?
+
+ResultSet  interface  
+ResultSet  is a  table   which contains   infinite  rows and finite columns
+when u retrieve data from  database  in to java  it stores in ResultSet
+it has  pointer , by default placed at  top of the  row
+
+methods  of ResultSet
+
+booean  next() 
+checks  wether  next row is there or not
+
+boolean  afterLast()  places result set cursor after last row
+boolean  last()  places result set cursor at last row
+boolean  beforeFirst()  places result set cursor before  first row
+boolean  first()  places result set cursor at first row
+boolean previous() checks  wether  previous row is there or not
+String getString(int colindex) returns  column value  of int/short/string/double  type
+int  getInt(int colindex)  returns  column values  of int type
+int getRow() returns  the  row no of result set
+int  absolute(int  r) return the  specified row no
+int relative(int r)  returns  specified  row no from absolute it can alse take -ve
+void  updateInt(int colindex int value) updates the  colvalue  to int
+void updateString(int colindex, String value)  updates  col vlaue toString
+void  updateRow()  updates the  row
+void  deleteRow() deletes the  row
+ResultSetMetaData  getMetaData()  returns  ResultSetMetaData  reference
+
+wap to insert  1 row in book table and  display
+
+
+
+Updatable and  scrollable  ResultSets
+JDBC  provies   2  contants  for  ResultSet
+called
+1) TYPE_SCROLL_INSENSITVE
+which  moves the result set pointer  forward and  backward  direction
+2) CONCCUR_UPDATABLE
+update  the  ResultSet  
+to update the result set
+u need  to mention  colnames   in the  query select  statement instead  of *
+ur table must have  primary key
+
+these   2  costants  must  specified in the Statement() method
+
+display the   book  table  data in reverse  order
+
+
+executing multiple  DML statements 
+
+
+PreparedStatement interface
+used to execute the Parameterized and   pre compiled SQL statements
+it uses   place markers  called ?   in the  statements  rather than  actual  values
+once the  statement  got executed  ? are replaced  by actual  values  through  JDBC
+this   reduces the  burden on database engine
+
+
+
+how to get  the reference of  PreparedStatement?
+using Connection interface's
+preparedStatement   prepareStatement(String s)   throws  SQLException
+
+methods
+int executeUpdate() executes DML DDL statements
+
+boolean  exeute()  executes  DML DDL  statements and also executes
+stored procedures
+
+ResultSet  executeQuery() executes  DQL statements (select queries)
+
+void setString(int paramindex, String value)
+sets the  value
+void setInt(int parameterindex, int value)
+
+
+insert   1 row  into book table and  Display  using  PreparedStatement
+
+using the  prepared statement  update the name and  price  of  book  to
+struts and  1111  respectively of id 1  
+
+
+ResultSetMetaData  interface
+
+used to   provide the  characteristcs of table like
+column name,  no of  column in a table  (column count e.t.c)
+to  get the  reference of  ResultSetMetaData
+use  geMetaData()  method  of ResultSet  interface
+
+methods
+String getColumnName(int colindex)
+int getColumnCount()
+
+display  the   information of Book table  along with  Column names
+
+
+
+
+create  a  class called Student  with  id, name and age
+insert  5 object in LinkedList and  store in   Stud table using JDBC
+and  retrive  same  data  from the  stud table and store in  ArrayList and  display
+
+
+write  a  program  to update   name of book  id 17 to  typescript using  PrepareStatment
+through  result set?
+
+CallableInterface
+used to  execute   stored  procedures
+
+
+
+what are  stored  procedures?
+stored procedures are  the  block of SQL statements sent  as  whole  together
+to a  database  engine  on network
+it increases the performance of the  application
+and reduces  n/w traffic
+
+it uses  3 paramters 
+IN parameter  used  to set the  values
+OUT parameter  used to get  the  values
+INOUT parameter  used to set & get the values
+
+syntax
+create procedure procedurename
+code
+
+CallableInterface
+used to  execute   stored  procedures
+getting a  reference  of CallableStatement interface
+CallableStatement  prepareCall(String) throws  SQLException
+creates  statements  to call  stored  procedures
+
+methods
+boolean execute()  executes stored  procedure
+void setInt(int param index, int value)
+void setString(int paramindex, String value)
+void registerOutParameter(int paramindex, Types type)
+register the  out parameter
+String getString(int paramindex)
+returns the  out parameter value as String 
+
+int getInt(int paramindex)
+returns the  out parameter value as int
+
+create  a Stored procedure to add  2 nos and call from  JDBC?
+
+
+
+1)Using Statement interface write jdbc Program to
+   update  the  name of the  book to c++  and  price of  the book to 560.00 Rs
+whose  id is  3 in Book  table. Read    id, name and price from  keyboard
+
+
+2) 
+create  Product class wih id name and price
+insert  5 objects  in   HashSet
+Using Statement interface write jdbc Program to     insert  above HashSet  records  into 
+product  table  of Mysql database.
+and also  retrive  same data from the Product table and store in ArrayList and Display
+
+3) insert   4  rows  into  Book table once at a time using PreaparedStatement through  batch  Insert
+
+4) using  Statement  interface retrive the 1st  3 rows  of  BookTable
+use the  ResultSetMetaData's  getcolumnCount() & getColumnName() methods
+
+
+

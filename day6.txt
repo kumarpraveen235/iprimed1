@@ -1,0 +1,383 @@
+final   keyword
+
+it is allpied to varaibles   methods    classes    parameters
+un initilaized  variables
+
+
+
+
+final to variables
+
+when  u apply final  to varaibles
+   value  of  such variables   cannot be  changed
+
+they   kept constant through out the  program
+
+
+when  u apply final  to methods  such methods cannot be overridden
+but final methods can be inheritted
+
+
+
+final is also applied to the class
+such classes cannot be sub classed  or u cannot  extend  such classes   by  sub class
+
+such classes  executes  fast
+
+used to creates   IMMUTABLE  CLASSES
+(cannot be  changed)
+
+final  is also  used to method/ constructor parameters
+
+where it's value cannot be changed
+
+
+when u apply   final to uninitilaized   variables   such variables are called
+blank final  varaibles   and these are  initiliazed  in init block
+or constructors
+
+
+
+abstraction:
+it is an  object  oriented   concept  in which     only   functionalities
+can be  shown and  implementation  details are hidden
+abstract   class
+when u create a  class with abstract  key word  it is called abstract class
+abstract  class  contains   methods   with out body(abstract  methods)
+and  methods  with body (concrete  methods)
+absatract method
+
+any method   defined  with out implementation  that  method is called abstract method
+
+these   must   start  with  abstract keyword   and with  ;
+with  EMPTY body
+syntax
+public    abstract  void m();
+public   abstract  int   find(int a);
+public   abstract  class     abc
+{
+    public    abstract  void m();// abstract method
+    void  mm()    //  concrete method
+   {
+      System.out.println("hi");
+}
+}
+     
+
+abstract class  features
+1)  abstract class  contains   instance  varaibles,  constants,   constructors
+abstract methods   concrete methods  main methods.  So u cannot achieve 100% abstraction
+2) since  abstract class contains  both  concrete and  abstract  methods  u  cannot
+create  OBJECT  for   such classes
+3) if  any class  contains  alleast  one  abstract method then that  class can
+be declared as  abstract  class
+4) it is not mandatory that  abstract  class  must contain alleast one abstract  method
+5)abstract  class must  be extended   from  sub class. That is  why this  class is class
+is called  sub classers  responsibility
+6)   if  sub class  extends   abstract class  then  sub  class must  override the  method
+of   abstract class  or that   class must be declared  as  abstract
+6) abstract class can contain  static/final  concrete method
+7) abstract mathods  cannot declared as static /   final
+8) abstract  class  can also  achieve  upcasting but  does not support
+multiple inheritance at class level
+9) abstract class used show the impelmentaion for  interface  methods
+  
+
+interfaces
+interfaces   are  used  to achieve  100% abstraction
+used to achieve  multiple  inheritance
+
+used to  achieve  loose coupling
+interfaces are   always  impemented  by classes  /   extended  by interfaces
+interfaces  lack instance varaibles and  concrete  methods
+interfaces   achieve  inheritance  by extends  & implements keyword
+interfaces   not allows  contructors and  methods and blocks
+
+
+syntax
+
+
+public  interface   inter1
+{
+    int  i=19;
+    void m();
+}
+
+
+PT  abstract  classee are   used to show the  impelmenation for   interface  methods
+
+
+when  above  interface  is compiled
+
+
+   compiler adds  public static  final   keyword   behind i
+   and   adds   public  abstract  keyword   behind  m()
+
+
+syntax
+
+public  interface  inter1
+{
+     void  m();
+     datatype  varname=value;
+}
+
+how    interface   supports   multiple  inheritance?
+1 interface  can extend   1  or more interface
+1 class  implement 1 or more interface
+
+class cannot  extend   interface
+class cannot  implement class
+interface  cannot  extend class
+interface cannot imeplement interface
+like  abstract  class  any class   implements   the  interface  that  class  must
+override the methods of interface other  wise u will  get compile  time error
+u cannot achieve  multiple inheritance at class  level as you will get ambiguity
+class A
+{
+    void m()
+{
+     System.out.println("i am A's m()");
+     }
+}
+
+class B  
+{
+    void m()
+{
+     System.out.println("i am B's m()");
+     }
+}
+class C  extends  A,B 
+{
+    public static void main(String[] args)
+{
+         C cc=new C();
+       cc.m();//   which class m() method  called?
+}
+}
+
+
+wap to illustrate multiple  inheritance  throuh extends  key word
+using interfaces
+
+
+
+different types  of interfaces
+1)   bulit in interface
+eg :  Set  Map  List  e.t.c
+2)  user defined intreface
+when we create  interface  using  interface  keyword
+
+3)  functional interface
+contains  only  one abstract method and  more  than  1   default  concrete method
+created by using  @FunctionalInterface annotation  it is  1.8 feature
+lamda  expression and   method  referemces   uses  functional  interfaces  for
+the   method  implementation
+Eg  Runnable  Comparator  RowMapper
+4) marker  interface
+this  interface  does not contains  any body or  varaiable
+it contains  EMPTY implementations  Supplies Run  time info to JVM at run time
+Eg  Clonaeble, Serializable Remote   Repository   e.t.c
+
+
+Nested  Interfaces
+
+if one interface  is nested  within another  interface  it is called  nested  interface
+used to access the  members  of  outer  interface
+since  all  interfaces  are   specified at  same  place u can easily maintain the  code
+improves code  reusability, code optimization, code maintainability   e.t.c
+
+u can nest  
+interface  within interface
+class  within interface
+interface  within class
+
+
+w.ap  to illustrate    nesting of interface within interface
+
+
+
+w.ap  to illustrate    nesting of class within interface
+
+
+
+
+
+anonymous   objects and  anonymous inner classes
+
+any  object   which  is created   with  out any name  it is  called  anonymous  object
+such  objects  are automatically  eligible   for  garbage collection
+when  u finished invoking any  method /   accessed  any variable
+
+ 
+anonymous inner classes
+like  anonymous  objects   anonymous inner classes  also   don't  have  any name
+
+if the class  is created with out any name  it is called anonymous inner classes
+for  such  classes  compiler  assigns  name to it in  the  background
+these   classes reduces the  generation  of  dot class files
+used  lot in   awt  packages, multithreading  
+
+syntax
+
+  classname  refvariable=new classname()
+{
+      body
+};       anonymous inner class body closes
+
+to create   an anonymous inner classes   there  must  be  class  hierachy (IS-A relationship)
+
+create  a  abstract class  with  one  abstract  method and  show 
+it's  implementation through anonymous  inner class
+
+
+list   out the   diff between  interfaces and  abstract classes
+
+
+packages and   access specifiers
+
+mode  of access		private			default			protected		public
+
+
+within a class             y			   y                        y			  y				
+
+
+within same pkg            n                       y                         y                    y
+sub class
+
+within same pkg            n                       y                         y                    y
+non sub class
+
+
+
+different pkg              n                       n                        y                     y
+sub class
+
+
+different pkg              n                       n                         n                    y
+non sub class
+
+
+
+ packages
+
+package is a  collection of  classes  and interfaces sub classes
+
+partitioning of class  name  spaces into  managable  chunks  are called  packages
+it is  a container  for  classes and    interfaces
+
+
+2 types  of  packages
+
+1) built in pkg   Eg: java.util java.io   java.net   java.applet   java.awt  java.lang
+java.sql  e.t.c
+
+
+2)   user  defined pkg
+when  we create  our own pkg it is  called   user defined pkg
+
+to create   user defined pkg
+
+package praveen;
+it is  must be  TOP statement i program
+
+
+package name
+    |
+import  statement
+    |
+class name   
+
+
+how to execute pkg program  from command prompt?
+
+javac   -d  .      filename.java
+
+java pkgname.filename
+
+
+
+-d  :   tells  where to generate  class file?
+
+.  : specifies current  directory
+
+
+how   to access  from  one  pkg program  to another  pkg program?
+
+
+1)   by importing    whole  package using * (imports  all   ineterfaces/classes  except  sub pkg)
+2)  by imoorting    pkg with class/interface  name
+
+3) with out import (using FULLY QUALIFIED CLASS / INTERFACE name)
+
+
+when u defined   packages   within packages  it is called   sub packages
+
+syntax    pkgname1.pkgname2.pkgname3......
+
+
+wap  to  create   following    2    classes 
+class   A
+{
+     private    int id;
+     private   String name;
+     private  int age;
+}
+
+
+class  B
+{
+    MAIN  method
+}
+   o/p
+
+must  be
+
+1  ajit  22
+
+
+
+
+java.lang pkg  classes
+
+
+String  StringBuffer StringBuilder Excception Thread  Wrapper classes
+
+this   package is imported  by default in the  program
+
+String class
+
+String   m(char  s, char y)  //error
+{
+    return  s+y;    //   adds    ascii  letters
+}
+
+as String is  a class  
+char  is  primitive type
+
+
+String is   sequence  of IMMUTABLE  characters
+
+immutable  means  cannot be  changed  /  modified / not altered
+
+
+class   a extends  String 
+{}
+above    code  will give  error  as   String is  IMMUTABLE  class
+internally  it is  final  class. It cannot be sub classed
+
+
+
+Implicitely  String class  impelemnts    
+java.io.Serializable, Comparable<String>, CharSequence  interfaces
+
+
+using   interfaces  and  array and  switch   statement   write  a  program  to   impelement
+
+Stack  of inetgers
+
+
+
+using static   methods   w.a.p  to create   a   SingleTon class
+

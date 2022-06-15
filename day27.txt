@@ -1,0 +1,70 @@
+angular  forms
+angular  provides    2 kinds of  forms
+1) template driven  form
+
+form  logic  validation logic  every thing is   written  in   
+template  or html
+u need   to import forms  module
+2)  model driven form
+
+maximum  form logic part , validation logic is written  in  component 
+design   part is  written in     template  or html
+u need  to import  reactive  forms module
+
+
+create  a  class called  User  with   name , contact and city
+w.r.t  those   properties  using the  Template Driven   form
+
+insert  name, contact  city  in List  and  display also  perform  necessary validation
+
+
+u can  access  the  form  element in angular  using ngForm  directive
+
+
+the   angular  provides  lots of directives
+ngForm  used to  access the   form  elements
+
+ngModel   used  bind the  form  data with  with  component class variable
+
+[(ngModel)]   2 eay data  binding
+
+
+(ngSubmit)   is used  to   submit the form
+
+
+
+Model   driven forms
+
+here   ReactiveFormsModule   must be imported  in imports array   section
+this   module  is present  in   FormsModule  Only
+template   file  contains  design logic using html and boot strap
+In  this   form  handling  logic , validation logic will be  written in   Component class
+
+We  need to  import   ReactiveFormsModule which  come under Forms Module
+it  has  very important  classes  like  FormGroup    FormControl  e.t.c
+FormControl  is used to create  new Form  Element like text  field  
+in  this  u can  specify validation logic
+FormgGroup  class is used  contain  multiple   FormControl  classes
+
+create  a  class called  User  with   name , contact and email
+w.r.t  those   properties  using the  Model Driven   form
+
+insert  name, contact  email  in List  and  display also  perform  necessary validation
+
+
+[formGroup]="form" 
+
+
+fromGroup is  a   attribute  directive   assinged to a name  of  Component class
+Form Group
+
+
+
+
+
+
+
+
+
+
+

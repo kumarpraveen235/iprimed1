@@ -1,0 +1,172 @@
+Routing
+routing is  concept  in which   one  compoennt can be accessed from another component
+WITHOUT RELOADING the page
+steps
+
+1)import the  router  module   in app.module.ts
+and specify it in  imports array
+
+2)to navigate   from   1 component to other  component
+we use <a [routerLink]=["path"]/>  in template  file
+<router-outlet/>
+used to  specify the  location  of   displaying the  component  contents
+
+
+3)create  a  router table  of  type  Routes
+it is a array which tells
+the  path name  and  component  name
+
+4) configure the  router table in the  imports  array(app.module.ts)
+
+in the   RouterModule's  forRoot method
+
+Routing   with  parameters
+used  to access the  URL  parameters
+
+in the  router table 
+parameters  in the  url  path can be specified  by
+pathname/:id
+
+id is   paramter name
+
+in the  component class   parameters  can be  obtained/retrieved by using   the
+AcivatedRoute objects'  params.subscribe() method
+
+params.subscribe()  method  is used to  subscribe for the   route parameters
+
+here   unsubscribe() is a   method of   Subscription object used to  unsubscribe the  data
+Subscription  is  a  rxjs  object
+
+
+programmatic  routing?
+Using  Router's  navgate  method
+
+
+home    about
+home
+i am   home  component
+
+about
+home      itemone        itemtwo
+
+about home   item id: 1   item id: 2
+
+
+
+angular  life cycle  hooks
+when an anugular  application  starts  it creates and renders the  root component
+(app.component.ts)   then  it creates and renders it's children and  their  children
+It is  basically a tree of components
+
+
+3    life cycle  methods of angular
+
+ngOninit
+when the  angular  initilizes the  compoenent for the  first  time
+onNgChanges
+when the  component  i/p property changes angular invokes
+ngOnDestroy
+if the component is destroyed   angular invokes   ngOnDestroy
+
+fires  upon   components removal from the  view
+
+Here  is a  Complete list of Life Cycle Hooks
+1)  ngOnChanges
+2)  ngOnInit
+3)  ngDoCheck
+4)  ngAfterContentInit
+5)ngAfterContentChecked
+6)ngAfterViewInit
+7)  ngAfterViewChecked
+8) ngOnDestroy
+
+
+working with HttpClientModule  in anguar
+
+u can  develop  the  rest  applications  using angular
+REST : means  representation  state  transffer  application
+in this   url is  a  resource
+each api's  url is  processeed throgh get post put delete  methods
+
+means  u can  call  API and  process API url's  using
+get  post  put delete  methods
+trough   Angular's   HttpClientModule
+this  module  supports Object called
+HttpClient
+Eg import {HttpClient} from '@angular/common/http';
+it has  follwing methods
+  
+get(url)   uesed  retrieve  data   dynamically
+post(url, data, messagefromat)  used to   create resource   dynamically   
+put(url, id,  updatabledate)  used to update  resources  w.r.t id dynamically
+delete(url , id)   used to   delete   resource  w.r.t id  dynamically
+
+all these  4 methods   retrns  Observable   API
+It is  rxjs  API 
+it  generates  unlimited  amout of data   at a perticular interval of time
+it provides  lots  of methods  to subscribe for the  Obs
+ervable data
+one  such method is   
+subscribe()  subscribes  for   response  returned from
+http methods
+
+
+
+in  imports  array  u need to import httpclientmodule
+
+
+json is   a  message  format  which  uses  key and  value  both as a String
+
+
+install  the  json   server
+npm install  -g  json-server
+
+used to  create  fake rest  API
+
+
+assignments
+
+create   3  componets
+home  component
+department compoent
+and  designation compoennt
+
+default  display home  componet  welcome  to homepage
+when u click on dept component  displays  list of  departmnets
+1  it
+2  finance
+3    hr
+4   sales
+5    production
+6    sales
+
+when u click on des  
+it must display  list of  designations
+
+1  engineer
+2 manager
+3    executive
+4 analyst
+5   sr manager
+6  sr  executive
+7    sr engineer
+
+use  routing  for above
+
+2)create  a fake rest API
+EMP with  name, city and  age
+using json server
+
+write  angular  program  to create  text field to enter name
+when  i click the  submit button w.r.t.name   i must get  city and age  of that employee
+
+
+write  angular  program  to create 3 text field to enter name,city and age
+when  i click the  insert button it must  be inserted   and  displayed
+
+
+
+
+
+throgh  this  module  u can  integrate   angular with spring/spring boot
+& node  js

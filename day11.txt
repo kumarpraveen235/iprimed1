@@ -1,0 +1,301 @@
+Methods  of Collection interface
+boolean   add(Object o) adds   one  element to collection
+boolean  addAll(Collection c) adds the  elements of one collection to other collection
+boolean  remove(Object o)  deletes   one  element from   collection
+booolean  removeAll(Collection c)   removes the elements  of   specified   collection
+from  invoking collection
+boolean  retainAll(Collection c)  removes  elements  of invoking collection except specified
+collection
+boolean  contains(Object o) checks wether element is present in collection or not?
+void  clear() deletes  all elements
+int size()  returns size of the collection
+Iterator iterator() returns the  iterator of the Collection
+
+List
+it is an interface extends Collection interface
+it supports  duplicate  null   generic (same data type)  non generic (different data type)
+elements
+o/p is  insertion order  
+works on index basis  0 to n-1
+
+
+methods  of List interface
+void add(int index, Object  o)
+Object get(int index)    
+Object set(int index, Object o)
+Object remove(int index)
+Object  remove(Object  o)
+ListIterator  listIterator()
+int indexOf(Object o)
+int lastIndexOf(Object o)
+
+ArrayList
+it is a  Class implements  List interface
+it supports  duplicate  null   generic (same data type)  non generic (different data type)
+elements
+o/p is  insertion order  
+works on index basis  0 to n-1
+modification   is slow  as schuffling of elements required
+it works  on one end
+
+contructor
+ArrayList()
+ArrayList(int size)
+ArrayList(Collection c)
+
+
+Collection frameworks   accepts wrapper  class  data
+
+
+w.a.p  to find the  sum of integers of  Non generic array list
+
+creating   type  safe collections?
+jdk 1.5 support  new feature called   type  generics
+denoted by <class name>  symbol   It can be  a user defined/built in class name(wrapper type)
+used  to create   type   safe collection
+
+advantages
+
+improves  the type safety
+detects  compile time  bugs
+eliminates  type casting
+
+
+it uses <T> <E> <K, V> parameters
+also  used to create   Our own Generic  classes   methods e.t.c
+
+Iterating  using Iterator interface
+used for List  Queue and Set
+it iterates the elements  of collection  in only forward  direction
+Iterator  interface  has  3 methods
+1)  boolean hasNext()
+while  iterating  checks   wether  next element is there or not?
+
+2) Object  next()
+retrieves the  element of  current  Iteration
+3) void remove()
+
+deletes the element  while iterating
+
+  
+Iterating  using ListIterator interface
+used for  only List
+it iterates the elements  of collection  in forward and  reverse  direction
+ListIterator  interface  has  following methods
+1)  boolean hasNext()
+while  iterating  checks   wether  next element is there or not in while loop?
+
+2) Object  next()
+retrieves the  element of  current  Iteration
+3)  boolean hasPrevious()
+while  iterating  checks   wether previous element is there or not in while loop?
+
+4) Object  previous()
+retrieves the  revious element of  current  Iteration
+
+
+Inserting User  defined  class Objects  in Array List
+create a class Product with id, name  category and  price
+insert   3 Objects  in ArrayList and Display
+
+Array List is  used to build a  Dynamic Array
+u can increase it's  size at a Runtime
+
+Adding  elements  of   2 ArrayLists
+
+
+
+LinkedList
+it is a  Class implements  List interface
+it supports  duplicate  null   generic (same data type)  non generic (different data type)
+elements
+o/p is  insertion order  
+works on index basis  0 to n-1
+modification   is fast  as schuffling of elements are  not  required
+it works  on both ends  as   internally  it uses  Doubly linked  List
+it is fast  compared to ArrayList
+Like ArrayList it also builds Dynamic array
+contructor
+LinkedList()
+LinkedList(int size)
+LinkedList(Collection c)
+
+
+it provides   some extra  methods
+
+void addFirst(Object o)
+void addLast(Object o)
+Object  getFirst()
+Object  getLast()
+Object removeFirst()
+Object removeLast()
+Iterator  descendingIterator()
+
+
+w.a. p   to convert   ArrayList into  LinkedList
+
+Vector?
+It is   a  old / legacy class
+It contains   extra  methods
+Implements  List interface
+u can  traverse the elements of Vector  through Iterator/ Enumeration
+it also  builds  Dynamic Array
+it is   synchronized  / thread safe where
+ArrayList and  LinkedList  are not Synchronized
+
+Constructor
+Vector()
+Vector(Collection c)
+Vector(int capacity, int increment)
+Vector(int size)
+
+methods
+void add(int index, Object o)
+void addElement(Object o)
+Enumeration  elements()
+Object elementAt(int index)
+Object  getFirstElement()
+Object  getLastElement()
+int  capacity()
+int size()
+
+
+Enumeration interface
+
+used to iterate the elements of Legacy / old Collection framework classes
+Like  Vector Stack Hashtable  Properties
+u can also  traverse the Elements of Vector using Iterator
+for loop   for each loop 
+it contains   2 methods
+boolean   hasMoreElements()
+
+while  iterating  checks   wether  next element is there or not in while loop?
+
+Object nextElement()
+retrieves the  element of  current  Iteration
+
+w.a.p  to convert Vector  elements to ArrayList
+
+
+
+performing operations on Collection elements
+
+Collection Framework  supports  a  Class called  Collections
+It contains  static  methods   which are  used  to perform
+operations on List  interface  classes 
+Operations  can be sorting searching finding min max element reversing 
+e.t.c
+
+methods of  Collections  class
+
+public static  void sort(List l)
+public static  void sort(List l, Comparator c)
+public static  void reverse(List l)
+public static  int min(List l)
+public static  int max(List l)
+public static  int binarySearch(List l, int searchkey)
+
+
+w.ap  to insert  7 Strings  in ArrayList and  Sort on  descending order
+
+w.ap  to insert  7 integers  in Vector and  Search for  key element 17
+
+
+how to sort on   data members  of user  defined  class  stored in Collection?
+
+2  interfaces
+1)Comparable  interface
+it is  present in lang pkg
+
+used to sort on only one  data members  of user  defined  class  stored in Collection
+it has  method  called
+public  int compareTo(Object o)
+it compares  the  invoking object  with  specified  object
+if  invoking obj >   specified object  it returns +ve
+if  invoking obj ==   specified object  it returns 0
+else  returns -ve
+
+u can  compare  on only 1  data member of user  defined class
+like name/age/id. and  sort on only 1  data members  of user  defined  class
+  stored in Collection
+
+
+create  a class called  student  with   id, name and age
+and   insert  4 Objects  in LinkedList and  sort on  age
+
+2) Comparator  interface
+
+it is  present in util pkg
+
+used to sort on  1 or more than 1  data members  of user  defined  class  stored in Collection
+it has  method  called
+public  int compare(Object o1, Object o2)
+it compares  the  1st object  with  2nd  object
+if  1st obj >   2nd object  it returns +ve
+if  1st obj ==   2nd object  it returns 0
+else  returns -ve
+
+u can  compare  on 1 / more than 1  data member of user  defined class
+like name&age&id. and  sort on only 1 or more than 1  data members  of user  defined  class
+  stored in Collection
+  
+create  a class called  Book with   id, name author and price
+and   insert  4 Objects  in ArrayList and  sort on  price and  author 
+
+
+Queue interface
+
+it has  2 ineterfaces
+1)Queue  which extends  Collection  interface
+2)Deque  which extends  Queue interface
+
+it does  not supports  null elements
+if u entered null elements  it throws  NullPointerException
+it supports  duplicate  generic  non generic elements
+o/p is insertion order
+
+Methods  of Queue  Interface
+void offer(Object o)   void add(Object o)
+void push(Object o)
+Object element()   returns  top element
+Object  peek()    returns top element
+Object poll()    removes top element
+Object remove()   removes  top element
+Iterator descendingIterator()   displays elements in reverse order
+
+2 classes are there
+PriorityQueue  impements  Queue interface
+Constructor
+PriorityQueue()
+PriorityQueue(Collection c)
+PriorityQueue(int size)
+
+ArrayDeque  impements  Deque interface
+Constructor
+ArrayDeque()
+ArrayDeque(Collection c)
+ArrayDeque(int size)
+
+
+
+
+ u can also  traverse elements  of Queue using  iterator
+
+assignments
+
+
+1) enter   5  names  in ArrayList and  remove  "vinod"  from  arraylist
+using  Iterator's remove() method
+
+2) write  a  program  to insert  10 integer elements  in ArrayDeque  
+1) sort in ascending order
+2) find the  max element
+
+
+3)create a class called   Country  with name ,  language and  currency
+insert  5 objects  in  ArrayDeque and  sort on  Language
+
+4)
+create a class called  Student  with name, id, subjectname and  marks
+insert  5  objects of Student  in LinkedList and  sort on Marks and  Subjectnames
+

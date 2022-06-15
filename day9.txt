@@ -1,0 +1,219 @@
+Exception   Propagation
+Transfering  a exception from   one  method to another method is  called
+
+Exception propagation
+In program  suppose  in a method   an exception occured but not handeled
+then it is  propagated   to another  method.  if there also   not handled it is propagated
+to another  method. This   propagation continues  until  the IN ANY one method exception
+is  processed  and handled. If none of the method   handles the  exception then
+JVM uses  default exception handler and prints stack trace
+
+This  concept of propagating exception from one method to another  method is called
+Exception propagation.
+un checked execptions  are by default propagated
+ checked execptions  are propagated  by throws clause
+
+
+Methods   of THrowable  class
+
+void     printStackTrace()   prints the   error info
+
+String  getMessage()  prints the  Exception message
+
+
+How  to  create  a  Custom  exception  
+
+u    can create  a  Custom Exception  by extending your  class with Throwable /   Exception
+class. Through this  your custom exception involves  checked and un  checked
+
+
+u    can also create  a  Custom Exception  by extending your  class with RuntimeException
+class. Through this  your custom exception involves  only un  checked
+
+wap  to create  a Custom Exception called InvalidAgeException.   if entered age is > than 17
+display  ur  eligible  to vote else  throw  InvalidAgeException and  handle it
+
+
+Exception declaration  in method overriding
+2 rules
+1) if    super  class  method does not  declares any  Exception then   sub  class  overrriden method
+can declare   unchecked  exception  but  should not declare  checked  exception
+
+2) if    super  class  method   declares any  Exception then   sub  class  overrriden method
+can do the same  but  should not declare  parent  exception
+
+Multi Threading
+
+Thread is a  part of a  program
+if more than  1 thread  runs  symultaneously/ concurrently  it is  called
+multi thrading
+
+multithreading is  a   form  of  multi tasking
+
+if  we  perform  more than 1 task  symultaneously  it is called  multi tasking
+  multi tasking has  2 forms 
+1) multi processing
+process means  program
+ Runs  in os
+if more than  1 process  runs symultaneously    it is  called  multi processing
+Eg  Opening   notepad/eclipse/powerpoint/teams  applications  symultaneously  
+in this  process  is  seperate path  of execution
+process requires  saperate  memory  area  for  execution
+these are  heavvy weight  inter  process communication
+and context switching between 2 process are  more  difficult to achive and
+also more expensive
+2) multi threading
+thread   means part of a  program
+ Runs  in process
+if more than  1 thread  runs symultaneously    it is  called  multi threading
+Eg  Opening   microsoft  word  
+at a time  u r  formatting and also printing  2 threads   do these  functionalities 
+in this  thread  is  seperate path  of execution
+thread excutes  in  shared  memory  area in the  process  for  execution
+these are  light weight  inter  thread communication
+and context switching between 2 threads are very easy  to achive and
+also less expensive
+
+Multi threading  makes  best  use  of CPU time and  reduces the creation of IDLE  time
+Life  Cycle of a Thread
+
+1) new  
+when  a new  thread  object is  created  it is  in  new state
+2) runnable:  when   a thread  enters  into  ready  queue  but  not got  CPU time  for  execution
+it is  in  a Runnable state.   Thread  reaches to  Runnable  state
+from  new state  when start()  method  is called
+In this  state  thread is  not running
+3) running :   when thread  got CPU time  for   executing,  from  CPU scheduler
+then thread reaches  to running state
+Thread reaches  to   running state from   runnable  state  when  run()  method
+is called. start() method calls  run() method. In this state  thread is  running
+4) non runnable   : running thread  can  temporarily suspend it's  execution
+because of sleep() wait() methods i/o blocks then   thread  reaches to non runnable state
+when i/o block is  rectified/ sleep()/wait()  time is over
+thread again reaches from non runnable state to runnable state
+5) terminate: when thread  dies  it reaches to dead state. from here  thread won't be
+started again
+
+how  to create  a Thread?
+ 
+2 ways  to create a  Thread
+1) by extending Thread  class
+2) by implementing Runnable  interface
+
+
+Contructors of Thread  class
+Thread  class is  present in java.lang.* pkg
+
+Thread()
+Thread(Runnable  r)//   Runnable is a functional  interface  present in java.lang.* pkg
+Thread(Runnable r, String s)
+Thread(String s)
+
+methods  of Thread  class
+public  void  start()    creates   a thread  in new  call   stack(memory area)
+public  void run()  it is  an entry point  of thread  
+contains the business logic  of thread. start() method calls  run()  method
+public  static  void sleep(int millisec) throws InterruptedException
+allows  thread  to suspend it's  operation  with specified no of milli seconds
+String getId()
+String getName()
+void setName(String name)
+int getPriority()
+void setPriority(Priority p)
+static  Thread currentThread()   gets the reference of thread
+public  void join() throws InterruptedException
+called after start() method
+waits untill the  thread  dies
+boolean isAlive() checks  thread is running or not
+boolean isDaemon()
+void setDaemon(boolean flag)
+boolean  isInterrupted()
+void interrupt()
+void suspend()
+void stop()
+void resume()
+
+
+start()  method always  creats a  new Thread  in new call  stack
+
+mainthread        o thread       o1 thread
+
+cs		    cs		cs
+
+this makes performance of  application  fast
+but wastes  lots  of resources
+
+
+
+run()  method executes  all threads  including main thread  in a  same call satck
+
+main thread
+o thread
+o1 thread
+
+cs
+this makes performance of  application very slow
+but does not wastes  lots  of resources
+
+
+note: don't  call  start method  twice on a same  thread
+u will get  IllegalThreadStateException
+
+
+o/p  of the  multi threading program  not guaranteed
+running of threads  depends on JAVA CPU Schedular
+
+create   3 threads  which prints  1 to 10  no   by  pausing 1sec   for  each no
+
+
+f1   f2 f3 main
+cs      cs 
+
+
+
+Runnable is  a  Functional  Interface  present in java.lang.* pkg
+It has  only 1 method  called
+public  void run()
+
+
+Creating thread  by implementing  Runnable  interface  has  more advantageous  over
+extending Thread  class
+1) u can save    your class  for  extending with another  class
+2)  since  Runnable  interface has  only  1 method if ur class implements
+Runnable  interface  then it will  not take  too much time for  compilation
+3)  u can share  Runnable  Object  among many threads
+4) but  since  Runnable interface  does not contain start method
+u need to write some  extra code
+
+how to control main thraed?
+print 1 to 5  nos  using main thread?
+
+
+
+interrupt()  method
+
+when thread  is sleeping  when u call  interrupt method
+then   thread  breaks  from  sleep and  catches  interrupted  exception
+BUt  thread   continues to execute  
+
+when thread  is NOT sleeping  when u call  interrupt method
+thread  beahves  normal  manner
+
+
+1)write  a thread  program  to   print 5   no   by  pausing 1 sec  by reading data
+from  keyboard. Create  anonymous inner class  by  implementing  Runnable innterface
+
+2)implement the  stack program
+with   following exception  handling  features
+1)while pushing element, if  stack is full  then throw  Custom Exception  StackOverFlowException and
+  handle it
+2) while popping element ,if  stack is empty  then throw  Custom Exception  StackUnderFlowException and
+  handle it
+
+
+3) Write  thread  program calculate the  factorial of a no by implementing Runnable  interface
+
+4) write a  thread  program  to generate fibonessi no up to n by exteding Thread  class
+
+5) write  a thread  program to   find  the  fibonessi no  at   perticular position
+0 1 1 2 3 5

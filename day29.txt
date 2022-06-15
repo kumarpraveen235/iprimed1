@@ -1,0 +1,269 @@
+Hibernate   5.3.3. Final
+mysql 8
+eclispe  IDE
+jdk 1.8 > 
+maven
+Introduction  to Hibernate
+it is  developed by GAVIN KING  
+it is  an  ORM  (object  relational  mapping)  framework
+in this  JAVA CLASSES ARE  MAPPED TO DATABASE  TABLES
+
+Popular ORM frameworks are   Hibernate  Ibatis  Toplink Eclipse LINK
+
+Features
+1)hibernate is a Persistence/ORM framework
+used to map / persist the  java class into database tables
+2) In hibernate  no need  to write a  code to connect  to database,
+handle  transaction and  handle  exception as hibernate  supports  ALL  unchecked exceptions
+3) hibernate   supports database  indepenedent  queries
+4) hibernate is light  weight  no need to install
+5)  supports HQL (hibernate  query language)  Named  queries
+Criteria  queries  JPQL  persistence  queries , diff polymorphic queries
+6) supports  2 level cache to increase the performance
+7) easily u can integrate  with  spring , JUNIT and  struts
+8) generates  primary  key value  automatically
+9) creates the table  automatically
+10)  can connect to multiple databases  parallelly  through Dialect property
+11)supports inheritance association maping collection  mapping   sub queries
+group by order  by clauses  e.t.c
+12)  hiberante  generates/format the  query  rather than   developer writes  query
+13) supports   decalrative  approach  where  u  can  provide  configuration
+related  to mapping/database  through xml   file
+
+steps to  write  1st hibernate  program
+1)  configure   hibernate  jar  files  from required  folder in to java/web app
+project
+2)   create a  POJO class   it is also  called  Plain Old  Java  Object
+whcih contains  getters  setter methods  constrictors
+3)  create  a  hibernate mapping file and  hibernate  configuration file
+  hibernate mapping file : it is an  xml file denotes  which  class mapped to which table
+which  property of pojo class  mapped to which column of table
+also  specifies  which   column has  primary  key?
+also   specifies   which  technique to use to generate primary key  value
+Note: To map  java  class to  database  table using hibernate  pojo class must
+have a  primary key 
+The above  file  can also  be replaced  by JPA   annotations
+the  above above  must be saved with  .hbm.xml   extension
+
+ hibernate  configuration file
+this  file   tells  the   configuration of the database  like  username, drivername,
+password   url e.tc.  wether  table is created automatically,
+query is  generated automatically, which dialect property is  used  e.t.c
+it is  saved by name  hibernate.cfg.xml   extension
+
+4) write  a    hibernate  program  to access the database
+To  access the  database   hibernate  supports   2 pkgs
+1) org.hibernate.*
+2) org.hibernate.cfg.*
+these  provides  classes like Configuration
+and interfaces like SessionFactory Session Transaction  Query  CriteriaQuery e.t.c
+
+
+Configuration
+it is  a class  present in  org.hibernate.cfg.*  pkg   used  to load  the configuration file
+it has a   configure method
+void  configure(String  configfile)
+buildSessionFactory()
+
+SessionFactory
+It is a  2nd level cache
+Once  hibernate  loads   cfg file  in it's memory
+all   the  properties   of cfg  files  related to mappig and  configuration
+stored  in a    object   which forms a  SessionFactory  object
+It is an  interface  used to create a Object for   Session
+Internally  it uses  to  ConnectionFactory inetreface  to obtain the Connection
+
+SessionFactory  sf=configuration.buildSessionFactory()
+methods
+Session s=sf.openSession()   creates  Session object
+
+Session
+it represents the 1st level cache
+contains  lot of  methods  to access the  data from  database
+used  to create  a object for  Transaction  Query and CriteraiQuery  interfaces
+it represents the  connection between  application and  database
+Internally  it uses  to  ConnectionFactory inetreface  to obtain the Connection
+methods
+void persist(Object o)   persists  the OBJECT
+void  save(Object o)   saves object
+Object  load(Class  c, int primaty key) loads the fake object in to hibernate cache
+Object  get(Class c, int primary key)  loads the original object in to hibernate cache
+void  delete(Object o)  deletes  the  object
+Transaction  beginTransaction()  gets transaction object
+Query  createQuery(String HQL query)  creates  HQL qeury
+Criteria  createCritera(Class c)   creates    criteria query
+void close()
+void  beginTransaction()
+
+
+Transaction interface
+used to perform  transactions
+methods
+void commit()
+
+
+
+TransactionFactory
+it is  optional  it abstacts the Transaction interface
+
+ConnectionProvider
+it is also  optional
+it abstracts  DataSource or DriverManager
+used DataSource or  DriverManger  to connect to database
+
+   
+
+How  to create   table  in the  hibernate  autmatically
+
+Hibernate uses   hbm2ddl.auto feature to create  table automatically
+it has   followng values
+create:   creates  table every time  u run the  program
+if the table  exists  it  drops it and  re creates table again
+update:  hibernate creates  only  1st  time  later  it updates  rather
+than re creating for  every run
+
+how   to generates the primary key value  automatically
+in hebernate
+
+Hibernate  uses   <generator class=""/>  to genarate  primary key  values 
+
+following are the  generator claasses
+1)   assigned  here  developer specify  value  for  primary key
+2)   increment  here  hibernate  generates  primary key value  for int long short  e.t.c
+  supports all ralational  databases
+3) sequence  here  hibernate  generates  primary key value  for int long short  e.t.c
+  supports oracle  databases
+4) identity  here  hibernate  generates  primary key value  for int long short  e.t.c
+  supports all mysql  databases
+5)  uuid here  hibernate  generates primary key value  for Strings
+
+If  u are   using annotations
+
+@GeneratedValue  is used
+@GeneratedValue(statergy=GenerationType.AUTO|GenerationType.SEQUENCE|GenerationType.IDENTITY)
+
+
+how  hiberbnate   connects  to multiple  databases?
+Hibernate uses  Dialect  property for  this
+Following are the Dialect classes
+
+for  mysql  org.hibernate.dialect.MySQL5Dialect
+
+for  oracle  org.hibernate.dialect.OracleDialect
+
+
+
+create  a  class called  Product with  id name and price
+and  map/persist  into  Product table using hibernate
+
+
+in the   hibernate program   if  you r  using   jdk >= 11 12 13 ......17
+
+then  JAXB api  is   not avaialble  as  a built in
+it it avaialble  up to  jdk 10
+u need to configure   JAX B dependencies  jars in the project
+
+
+
+
+
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-core</artifactId>
+    <version>2.3.0.1</version>
+</dependency>
+ 
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.1</version>
+</dependency>
+ 
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>2.3.1</version>
+</dependency>
+  
+<dependency>
+    <groupId>org.javassist</groupId>
+    <artifactId>javassist</artifactId>
+    <version>3.25.0-GA</version>
+</dependency>
+
+
+hibernate  is also  called   3 layered  architecture
+1 st  layer reprsents  java  layer
+2nd  layer  represents   hibernate  layer
+3rd layer  represents   actulat database layer
+
+
+Life  cycle  of object
+
+transient state
+when the   object  of the  POJO class is created   it will be 
+in the  transient state when the object  is  In the transient state
+it does  not represent any  row in the database
+Eg  student s=new student()
+i.e  it does  not associate  with any session object
+  
+persistent state
+when  we  save  POJO class object  in the database  with save /  persist method
+then it is  in persistent  state. In  this  state it represents the row of the
+database
+if the object is  in persistent  state  then  object  associated with the  unique session
+
+
+
+detached state
+when  we close the session  then it is detached state
+if we want to move obj from persistent state to detached state  we need to either
+close   session  or clear the cache of the session
+
+
+if we want to move obj from persistent state to transient  state  we need delete
+an object  permanantly from database
+
+create  a  class called   Student with id  name and  city
+Persist into the database  using hibernate
+
+
+
+hibernate  JPA  api   supports  many annotations used to map int database
+if i specify these  annotations  in  the POJO class  no need of Mapping.xml file
+
+all the  below annotations are  present in  javax.persistence.* pkg
+
+@Table  
+it is  class level annnotation  specify  the  table  name  to persist
+the  POJO  class
+it is optional
+@Entity
+it is  a class level  annotation
+used  specify the  name of the class  which is to be persisted into the database
+marks the class  a  PERSISTENT ENTITY
+It is  a mandatory annotation
+@Column
+it is  field  level annottaion specify  the  column  name  of a table  to persist
+the  POJO  class  properties
+it is  optional
+@Id
+it is  field  level annotation
+it represents the primary key column it is mandatory
+@GeneratedValue
+it is optional it is  applied  at field  level
+it is used to specify the statergy to generate  primary  key
+
+if i used these annotations in pojo class, no need  to use  hbm.xml file
+
+1)
+
+use   fake  rest  api  using   json server  called   emp.json
+write a   angular program  to read  id from  keyboard which  exists in emp.json
+when i entered  id in txt field & i clicked  delete  buttom
+below the button, in the  table   list  of  emp displayed
+ after  deleting the  specified emp id
+
+
+2)  write  hibernate  program to illustrate  composite primary  key
+

@@ -1,0 +1,367 @@
+java.io.* pkg
+used  to perform read and write  operations
+in java   2 kinds  of data  are there
+1) stream data  represented in  0's & 1's
+it is  handeled by InputStream and OutputStream  classes
+2) Character data
+handeled by Reader & Writer  classes
+
+what is Stream?
+it is  continuous  flow  of a data
+
+
+InputStream  class
+
+it is  a  super class  of   InputStream   used to read   a data
+in this  data is read  from  sources like  Socket  File Array e.t.c
+
+
+OutputStream  class
+
+it is  a  super class  of   OutputStream   used to write   a data
+in this  data is written to  destination like  Socket  File Array e.t.c
+
+methods  of OutputStream class
+
+void   flush() thorows IOException
+void    write(byte[]   b) throws IOException
+void   close()  throws IOException
+
+
+methods  of InputStream class
+
+int read() throws IOException
+int available() throws IOException
+void  skip(long c) throws IOException
+void   close()  throws IOException
+
+
+
+java.io.*   pkg also  provide a  File  class used  to create  a File
+
+Constructor
+File(String s)
+
+methods
+boolean  createNewFile() throws IOException
+boolean  delete() 
+boolean  isNew()
+boolean isDirectory()
+boolean  isFile()
+String  getAbsolutePath()
+String getCanonicalPath()
+
+
+FileOutputStream
+
+used to write  information to  destination
+
+
+constructor
+FileOutputStream(String s) throws IOException
+FileOutputStream(String  s,  boolean append) throws IOException
+
+
+
+BufferedOutputStream class
+
+Contstructor
+
+BufferedOutputStream(OutputStream os,  int bufsize)
+USED to write a   info to  file  through buffer
+it reduces  the   performing of   write  operation   again & again
+whole  data  is stored in a buffer and  at time  once whole  data is wriiten  to file
+from  buffer  by reducing no of write operations
+it is  fast
+in this  technique  it is mandatory to call flush() method
+
+
+reading  a data  from  2  or  more than  2  files
+
+
+SequenceInputStream
+
+
+constructor
+
+SequenceInputStream(InputStream is1, InputStream  is2)
+reads   data from   2 files
+
+
+SequenceInputStream(Enumeration e)
+reads   data from more than  2 files
+
+ByteArrayInputStream
+
+it is  a class  used  to read  a  selected characters
+mean  it treats   byte array  as a  source
+
+
+Constructor
+
+ByteArrayInputStream(byte[] b,   int  offset,  int length)
+
+PrintStream
+used  to  write   all  kinds  of  data  to the   file/ console
+
+cosntructor
+PrintStream(OutputStream  os, boolean  flushonnew line)
+methods
+
+void println(String |  char[]| byte | long| double s)
+
+
+
+
+Writing a  state  of  an Object  in to byte Stream  is called
+Serialization
+
+To achive the  serialialization   our class  must implement   marker interface
+called  Serializable.
+Serializatio  is  used  in networking applications for  security
+
+u can transffer the  serilialized object  on network and in   another JVM
+u desrialize that object and  process it
+
+
+ObjectOutputStream  class is  used for  Serializetion
+Constructor
+ObjectOutputStream(OutputStream os)
+methods
+void writeObject(Object  o)
+serializes the object
+
+process  of   bringing  the   Object  back to it's  original state  from serialized state is
+called  Deserialization
+
+
+
+ObjectInputStream  class is  used for  DeSerializetion
+Constructor
+ObjectInputStream(InputStream is)
+methods
+Object readObject()
+Deserializes the object
+
+
+Rules
+datamembers  with  transient and  static modifiers  CANNOT be  serialized
+in case  these are   serialized  later  if they  deserialized  u will get null
+
+if u  serialize a Collection/ Array u must seriaize  the all  objects  of that Array
+/Collection. If any one Object is  not serilaized then Serilization fails
+
+In inheritance  if  super class implements  Serializable  interface
+then  if sub class extends  super class  and if u want to serialize the Object of
+Sub class  it  is not mandatory that  sub class  must also  implement  serializable interface
+
+create  a class called  Student with id name and age
+
+Create  one object &  serialize it and  de serialize it
+
+
+
+CharcterData
+
+to handle  character data   Sunmicrosystem   suggested  to use  Reader and Writer  classes
+These  hadles  both  Character and  Byte  data
+Used  prefferebly for  Character  data
+
+
+2  Super  classes are  used
+
+Writer  and  Reader
+
+
+methods  of Writer class
+
+void   flush() thorows IOException
+void    write(char[]   b) throws IOException
+void    write(String  b) throws IOException
+void    write(int   b) throws IOException
+void   close()  throws IOException
+
+Writer  class is  implemented  in such a manner that  when u write data to  file
+it is  mandatory that  u must call  flush() method
+
+
+methods  of Reader class
+
+int read() throws IOException
+int available() throws IOException
+
+void   close()  throws IOException
+
+
+different Writer class
+FileWriter
+CharArrayWriter
+
+BufferedWriter
+PipedWriter
+PrintWriter
+
+
+different Reader class
+FileReader
+CharArrayReader
+BufferedReader
+PipedReader
+
+
+using Reader and Writer  write to a File  and  Read it
+
+
+CharArrayWriter
+used to write  to more than 1 file
+Constructor
+CharArrayWriter()
+method
+void writeTo(Writer r)
+
+
+PipedWriter and  PipedReader
+
+these  used  to perform  read and  write  operations  symultaniously
+
+constructor
+PipedReader()
+method
+
+
+PipedWriter()
+PipedWriter(Reader  r)
+
+
+write  5  nos  using THread  on PipedWriter & through  PipedReader
+read   5  nos and  Display
+
+
+PrintWriter  class
+
+used to write  any kind  of data   to file  or console
+
+Constructor
+PrintWriter(Writer w, boolean  flushonnewline)
+
+no need to call  flush method
+
+write  a  program to read a  data  from  key board  using  BufferedReader
+
+Constructor
+BufferedReader(InputStreamReader is)
+
+reads  the  characters
+method
+String  readLine()
+
+
+InputStreamReader(InputStream is)
+reads  the  byte from  i/p stream and  converts  to  character
+
+
+RandomAccessFile  clas
+
+it allows  data  to be read and  written   to any  location   in the  file
+it also  used to create a  file   along with  reading and writing
+
+RandomAccess means   access to stored data   in any order
+that user desires
+For this  purpose it uses  one pointer
+
+it is uses  a special  pointer called File Poiner
+which indicates  current  position in the file
+Read and  Write  operations     takes the place at the  location of the Pointer
+
+Pointer  can be moved using seek() method
+
+
+Constructor
+RandomaccessFile(String  filename, String mode)
+
+mode  can  "r"  => read  mode
+     "rw"=> read write mode
+   "rws"=>   read write+ change    to the  file's data  immediately  written to physical device
+
+
+methods
+void close() throws IOException
+long getFilePointer();
+int read()
+int read(byte[] b)
+int read(byte[] , int offset, int length)
+byte readByte()
+void seek(long pos)
+void write(byte[] b)
+void writeBytes(String s)
+
+
+
+JDK   1.8  features
+
+functional  interface
+lamda expressions
+method refernces
+Stream API
+
+
+
+Functional  interface
+it contains  only  1   abstract  method and  many default concrete  method
+Built  in  functional interfaces are
+Comparator   Runnable  RowMapper(spring jdbc)  e.t.c
+
+how to create   Functional interface?
+
+we must use  @FunctionalInterface annotation at the Interface  level
+
+u can  provide  implemenations for  For functional  interface  in 4 ways
+1) normal class
+2) anonymous inner class
+3) lamda expression
+4) method references
+
+also  there are 43+ bulit  in  Finctional interfaces are also  there
+which are  catogorozed  in 4
+1) Connsumer 2) Supplier   3) Prdicate  4) Function
+
+
+what are  lamda expressions?
+it represents the  instance  of the  functional  interface
+A lamda  expression  is an anonymous block of code that encapsulates an expression
+or a block of statements  and returns a result
+Syntax
+(argumentlist)->implementation
+
+the  arrow operator -> is used to saperate the list of parameters  and body
+of the lamda expression
+These are basically allows for creation and use of single method  anonymous classes
+instead  of creating  saperate concrete class for  functional  interface
+implemenation
+These  can accept  0 or more parameters any of which can be passed  with or without type
+specification  since type is  automatically  derived from the context
+if there  are no parameters / no  arguments  tehn empty set of parenthesis
+can be used .   No parenthses is required for single  argument
+()->implemetaion
+(i,i1)->imple
+
+
+Assignments
+1)   write a File  program to  read  the   contents  of 3 files   and  display
+2)  create  a  class called  Book with id name author and price
+create   4 objects  of book and  Store  inside the  ArrayList  And 
+Serialize and  Desirialize the  List
+
+3) create  a  super class   Emp  with  name and  salary
+Create a  Subclass Manager  which  extends   Superclass Emp  with   bonus
+Create  1 object  for   Manager  and  Serialize & deserialize sub class  
+
+4) create one thread MyThread1  class   which finds  prime numbers below  10 and write in pipe
+create  another Thread MyThread2  in which finds  febonesscci no below 10
+and write in anoother pipe. In the main class using   pipe  compare  the elements which are
+common to both prime and Fibonesscci. Display common elements
+
+prime 1 2 3 5 7 
+febonessi 0 1 1 2 3 5 8 
+
+o/p 1 2 3  5 

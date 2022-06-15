@@ -1,0 +1,4078 @@
+alter   command
+used to add columns   modify columns  drop columns rename columns add primary key 
+drop primary key e.t.c
+operators  of  mysql
+arithmetic operators + - / *
+ralational  operators  > < >= <= = <>
+comparison  operators
+between and    in    like    is null   any  all    exists   
+logical operators   and not  or
+set operators   union union all (minus intersect  are not supported  in mysql)
+clauses
+select   from  where   order  by  distinct   group by having  
+
+Syntax of query  to retrieve  data from  database
+select  col1, col2....  from table1, table 2
+where  condition
+
+select  the   name and  salary in range of  40000  and 50000
+
+like operator  uses   wild card  character  like  %  _
+
+%  mathes   1  character
+_ matches  more than 1 charaters
+
+
+find the  names  of  employee  whose  name  contains  3rd  as 'r'  in their name
+from beginning
+find the names  of employees  which contains  r letter in their name
+
+
+distinct  clause  
+applied to one  or  nmore than  1  column
+
+order  by clause
+is  applied  to one or more than 1 column
+
+syntax
+order  by  name   asc|desc
+
+
+mysql   functions
+1)    aggregate   funtions
+min  max    avg  sum     count
+these  are also called   single  row  funtions
+
+2)     String/Math/Date/Miscllanious functions
+these are   called    multiple  row  functions
+
+3) stored   functions
+
+
+removing    unique  contraint  from salary  col using  alter table
+alter table   employee    drop  index salary;
+
+
+Multiple  Row   functions
+
+1)String   functions
+ascii
+insert
+instr
+left
+length
+substr
+lpad
+rpad
+lower
+upper
+replace
+reverse
+
+Date   functions
+adddate
+addtime
+curdate()
+current_date()
+date_add()
+day()
+extract()
+last_day()
+minute()
+subdate()
+sysdate()
+time()
+
+
+Math  functions
+abs()
+ceil()
+floor()
+div()
+exp()
+mod()
+pow()
+round()
+truncate()
+sqrt()
+
+
+
+miscllanious  functions
+
+greatest
+least
+coalesce  returns   1st non null expression
+
+if
+takes   3  expressions  if  1st is  true  returns  2nd expression else returns  3rd expression
+nullif
+ifnull
+takes   2 expr
+if   1st expr is not null   it returns  1st only  else  returns  2nd
+
+nullif
+it also  takes  2 expr   if 1st &2nd expr are equal    it returns null
+else  returns  1st expr
+case
+
+group by  clause
+returns the  result by  grouping   column  values
+it uses  aggregate  functions
+
+syntax
+select  colname,  aggrgatefucnt(colname)  from table name
+group  by  colname
+
+
+display  each department's    avg  salary
+find the  job wise max sal
+
+  count  no of  employee born in 2000
+display the  count of employee  who  born  year  wise
+
+having clause
+
+used to filter the  rows    retrieved  by group by clause
+
+
+find  the avg  salary  w.r.t  job  which  must not exceed 55000
+
+
+find  the sum  salary  w.r.t  dname  which  must not exceed 200000
+
+
+count no of  emp  of  each  dept  which must not exceed 3
+
+
+display the  city name which  contains  altest  2 employees of a company
+
+
+
+
+
+mysql 5/8
+eclipse  march 2022  with STS  plugin
+latest  chrome browser
+jdk 1.8
+visual studio code
+node js 14
+tomcat web server 9.0
+git
+jenkins
+
+
+
+
+joins
+used  to join  1 or  more  than  1 table
+used to    share the  data from 1 table  to another  table
+
+types  of joins
+inner  join/equi join
+returns the  matched/ common rows of both tables
+left join
+returns the  matched/ common rows of both tables
+and also returns the all/un mathed rows of left table
+for    unmatched rows any  cols are selected  from  right table  they are substituted with NULL
+
+right join
+returns the  matched/ common rows of both tables
+and also returns the all/un mathed rows of right table
+for    unmatched rows any  cols are selected  from  left table   they are substituted with NULL
+
+
+
+self join
+
+find the  names  of  employees  who stays  in the  same location as  lokesh  stays
+
+used  to join  that  table itself
+cross join
+generates the  cartisian product of both tables
+
+
+
+
+sub queries
+
+when   inner  query is  written  within  outer  query it is  called  sub query
+subqueries are always  executes first then  it's result is passed to outer query
+and the  rows are  retrieved
+sunqueries  always written  within paretheses
+syntax
+select  col from table  where   operator  expression( select  colname  from table
+where  condition);
+
+types
+1) single  row  sub query
+sub query returns only  1 row  uses  > < >= <= <>  operators
+
+2)  multiple  row sub query
+sub query returns more than  1 row  uses    any in all  operators
+3)  inline  views
+when sub query is written  within   from clause  it is called inline view
+
+4) nested sub query
+when  sub query  written within  sub query  within anothor sub query....
+it is called  nested  sub query
+
+5)  correlated sub query
+here  inner query and  outer  query   symulatniousy processed / executed
+for  each row
+uses  exists not exists  operators
+
+display the name  of analyst who earns more than the  max  sal of programmer
+display the name  of emp who earns salary more than the  vijay and sanjay
+
+display  the  top 5  salary
+
+1) create   a table  called   product  with  id, name and  price
+make id as  primary key  insert   4 rows
+create  table  sales  with   sid, pid and quantity
+and  make  pid as  foreign  key w.r.t  product table  id column
+insert 4   rows
+
+with out  deleting sales table  record
+delete  product table  record  whose  id is 2
+
+2)  create  table   called    employee  with  id, name  and salary
+and make  id as  pk   insert   4 rows
+create table  dept  with  d_id, e_id,  dname  and
+insert   4 rows  
+join the  both table on emp.id=dept.d_id  using  leftjoin
+for  unmatched  rows  of  right  table  column  values relace  null  by 0
+3)  display  the name  of employee  who  earns  highest salary in each department
+4) display job groups   having avg salary > than   the  max sal   of programmers
+
+ 
+
+
+
+
+
+
+Queries
+Microsoft Windows [Version 10.0.18362.1082]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>d:
+
+D:\>cd D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin
+
+D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin>mysql -u root -p
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use imrimed;
+ERROR 1049 (42000): Unknown database 'imrimed'
+mysql> use iprimed;
+Database changed
+mysql> show  tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| another           |
+| another1          |
+| another1another1  |
+| emp               |
+| employee          |
+| one               |
+| student           |
+| two               |
++-------------------+
+8 rows in set (0.10 sec)
+
+mysql> drop  another;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'another' at line 1
+mysql> drop table  another;
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> drop table  another1;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> drop table  anotheranother1;
+ERROR 1051 (42S02): Unknown table 'iprimed.anotheranother1'
+mysql> drop table  another1another1;
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> drop table  one
+    -> ;
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> drop table  student;;
+Query OK, 0 rows affected (0.51 sec)
+
+ERROR:
+No query specified
+
+mysql> drop table  student;
+ERROR 1051 (42S02): Unknown table 'iprimed.student'
+mysql> drop table  two;
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| emp               |
+| employee          |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> drop table emp;
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create  table emp(id int(2), name varchar(10), age  int(3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create  table emp(id int(2), name varchar(10), age  int(3));
+Query OK, 0 rows affected, 2 warnings (1.07 sec)
+
+mysql> alter table  emp add salary  decimal(10,4);
+Query OK, 0 rows affected (1.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| id     | int           | YES  |     | NULL    |       |
+| name   | varchar(10)   | YES  |     | NULL    |       |
+| age    | int           | YES  |     | NULL    |       |
+| salary | decimal(10,4) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table  emp add des varchar(10), add  city  varchar(10);
+Query OK, 0 rows affected (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| id     | int           | YES  |     | NULL    |       |
+| name   | varchar(10)   | YES  |     | NULL    |       |
+| age    | int           | YES  |     | NULL    |       |
+| salary | decimal(10,4) | YES  |     | NULL    |       |
+| des    | varchar(10)   | YES  |     | NULL    |       |
+| city   | varchar(10)   | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table   emp  modify   salary int(10);
+Query OK, 0 rows affected, 1 warning (4.31 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc    emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | YES  |     | NULL    |       |
+| name   | varchar(10) | YES  |     | NULL    |       |
+| age    | int         | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| des    | varchar(10) | YES  |     | NULL    |       |
+| city   | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table   emp  modify  id tinyint(2) , modify age smallint(3) not null;
+Query OK, 0 rows affected, 2 warnings (0.60 sec)
+Records: 0  Duplicates: 0  Warnings: 2
+
+mysql> desc    emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | tinyint     | YES  |     | NULL    |       |
+| name   | varchar(10) | YES  |     | NULL    |       |
+| age    | smallint    | NO   |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| des    | varchar(10) | YES  |     | NULL    |       |
+| city   | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table  emp change   column   salary   sal int(10);
+Query OK, 0 rows affected, 1 warning (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc    emp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| des   | varchar(10) | YES  |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table  emp  drop column  sal;
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table  emp  drop column  des;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table   emp  rename to employee;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> desc    emp;
+ERROR 1146 (42S02): Table 'iprimed.emp' doesn't exist
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee add   primary key(d);
+ERROR 1072 (42000): Key column 'd' doesn't exist in table
+mysql> alter table employee add   primary key(id);
+Query OK, 0 rows affected (0.62 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
+ERROR 1146 (42S02): Table 'iprimed.emp' doesn't exist
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee drop primary key;
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | NO   |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee  values(1, 'john', 22, 'pune'),(2,'vijay',23,'goa');
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+-------+-----+------+
+| id | name  | age | city |
++----+-------+-----+------+
+|  1 | john  |  22 | pune |
+|  2 | vijay |  23 | goa  |
++----+-------+-----+------+
+2 rows in set (0.00 sec)
+
+mysql> truncate  table   employee;
+Query OK, 0 rows affected (0.25 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create  table    student(id  int(3), name varchar(10), marks int(4));
+Query OK, 0 rows affected, 2 warnings (0.17 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table  add  primary key auto_increment not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add  primary key auto_increment not null  unique(id)' at line 1
+mysql> alter table  student add  primary key auto_increment not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key(id) not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key(id) not null  unique;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique' at line 1
+mysql> alter table  student add  primary key(id) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null' at line 1
+mysql> alter table  student add  primary key(id);
+Query OK, 0 rows affected (1.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table  student add  not null(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null(id)' at line 1
+mysql> alter table  student modify  column id int(3) unique not null   auto_increment;
+Query OK, 0 rows affected, 1 warning (0.54 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> alter table  student drop column  id;
+Query OK, 0 rows affected (0.69 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table  student add   id int(2);
+Query OK, 0 rows affected, 1 warning (0.15 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
+| id    | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table  student modify  column id int(3) unique not null primary key  auto_increment;
+Query OK, 0 rows affected, 1 warning (0.50 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| name  | varchar(10) | YES  |     | NULL    |                |
+| marks | int         | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> alter  table   student  modify column id int(2) not null primary key auto_increment unique beforename;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'beforename' at line 1
+mysql> alter  table   student  modify column id int(2) not null primary key auto_increment unique before name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'before name' at line 1
+mysql> alter  table   student  modify column name char(20) after  id;
+Query OK, 0 rows affected (0.87 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter  table   student  modify column marks int(10) after  name;
+Query OK, 0 rows affected, 1 warning (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+----------+------+-----+---------+----------------+
+| Field | Type     | Null | Key | Default | Extra          |
++-------+----------+------+-----+---------+----------------+
+| id    | int      | NO   | PRI | NULL    | auto_increment |
+| name  | char(20) | YES  |     | NULL    |                |
+| marks | int      | YES  |     | NULL    |                |
++-------+----------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into   student(name, marks) values('raj',98);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into   student(name, marks) values('raju',88);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   student(name, marks) values('rajesh',80);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   student(name, marks) values('ram',70);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   student(name, marks) values('ramesh',75);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into   student(name, marks) values('ramu',85);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from  student;
++----+--------+-------+
+| id | name   | marks |
++----+--------+-------+
+|  1 | raj    |    98 |
+|  2 | raju   |    88 |
+|  3 | rajesh |    80 |
+|  4 | ram    |    70 |
+|  5 | ramesh |    75 |
+|  6 | ramu   |    85 |
++----+--------+-------+
+6 rows in set (0.00 sec)
+
+mysql> update    student  set  marks=100, name='avinash' where id=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from  student;
++----+---------+-------+
+| id | name    | marks |
++----+---------+-------+
+|  1 | raj     |    98 |
+|  2 | raju    |    88 |
+|  3 | avinash |   100 |
+|  4 | ram     |    70 |
+|  5 | ramesh  |    75 |
+|  6 | ramu    |    85 |
++----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> delete from   student   where id=1;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from  student;
++----+---------+-------+
+| id | name    | marks |
++----+---------+-------+
+|  2 | raju    |    88 |
+|  3 | avinash |   100 |
+|  4 | ram     |    70 |
+|  5 | ramesh  |    75 |
+|  6 | ramu    |    85 |
++----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> drop table emp;
+ERROR 1051 (42S02): Unknown table 'iprimed.emp'
+mysql> drop table employee;
+ERROR 1051 (42S02): Unknown table 'iprimed.employee'
+mysql> show tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| student           |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> drop table employee(id  int(2) primary key not null, name varchar(15), dob date,
+    -> city  varchar(15), dname varchar(15), job varchar(15), salary  int(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id  int(2) primary key not null, name varchar(15), dob date,
+city  varchar(15)' at line 1
+mysql> create table employee(id  int(2) primary key not null, name varchar(15), dob date,
+    -> city  varchar(15), dname varchar(15), job varchar(15), salary  int(10));
+Query OK, 0 rows affected, 2 warnings (0.23 sec)
+
+mysql> desc   employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table   employee   modify  column salary int(10) unique;
+Query OK, 0 rows affected, 1 warning (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc   employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  | UNI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> insert into   employee values(1, 'amit', '1999-10-10', 'goa','it', 'engineer', 45454);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into   employee values(2, 'rohit', '1999-05-05', 'pune','sales', 'engineer', 55454);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into   employee values(3, 'ram', '2000-05-12', 'goa','hr', 'manager', 65656);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into   employee values(4, 'ramesh', '2001-06-12', 'agra','it', 'developer', 46987);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into   employee values(5, 'rajesh', '2001-07-12', 'mumbai','it', 'developer', 69987);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into   employee values(6, 'suresh', '2002-07-22', 'chennai','finance', 'analyst', 45987);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into   employee values(7, 'vijay', '2002-08-20', 'jammu','finance', 'analyst', 54545);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   employee values(8, 'sanjay', '2000-07-20', 'jammu','it', 'programmer', 44545);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   employee values(9, 'ajay', '2004-10-20', 'surat','it', 'programmer', 55555);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   employee values(10, 'rohan', '2004-11-20', 'pune','sales', 'manager', 45555);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into   employee values(11, 'girish', '2004-12-10', 'mysore','finance', 'analyst', 67555);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   employee values(12, 'satish', '2003-12-10', 'mysore','it', 'engineer', 66555);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | it      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | it      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> update  employee  set   dname='hr'  where id=4;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employee  set   dname='hr'  where id=5;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, salary*10   from  employee;
++--------+-----------+
+| name   | salary*10 |
++--------+-----------+
+| amit   |    454540 |
+| rohit  |    554540 |
+| ram    |    656560 |
+| ramesh |    469870 |
+| rajesh |    699870 |
+| suresh |    459870 |
+| vijay  |    545450 |
+| sanjay |    445450 |
+| ajay   |    555550 |
+| rohan  |    455550 |
+| girish |    675550 |
+| satish |    665550 |
++--------+-----------+
+12 rows in set (0.00 sec)
+
+mysql> select  name  first_name, salary*10 tot_sal   from  employee;
++------------+---------+
+| first_name | tot_sal |
++------------+---------+
+| amit       |  454540 |
+| rohit      |  554540 |
+| ram        |  656560 |
+| ramesh     |  469870 |
+| rajesh     |  699870 |
+| suresh     |  459870 |
+| vijay      |  545450 |
+| sanjay     |  445450 |
+| ajay       |  555550 |
+| rohan      |  455550 |
+| girish     |  675550 |
+| satish     |  665550 |
++------------+---------+
+12 rows in set (0.00 sec)
+
+mysql> select  name  first_name, salary/5 tot_sal   from  employee;
++------------+------------+
+| first_name | tot_sal    |
++------------+------------+
+| amit       |  9090.8000 |
+| rohit      | 11090.8000 |
+| ram        | 13131.2000 |
+| ramesh     |  9397.4000 |
+| rajesh     | 13997.4000 |
+| suresh     |  9197.4000 |
+| vijay      | 10909.0000 |
+| sanjay     |  8909.0000 |
+| ajay       | 11111.0000 |
+| rohan      |  9111.0000 |
+| girish     | 13511.0000 |
+| satish     | 13311.0000 |
++------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select  * from  from  employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  employee' at line 1
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary > 50000;
++--------+--------+
+| name   | salary |
++--------+--------+
+| vijay  |  54545 |
+| rohit  |  55454 |
+| ajay   |  55555 |
+| ram    |  65656 |
+| satish |  66555 |
+| girish |  67555 |
+| rajesh |  69987 |
++--------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary = 55555;
++------+--------+
+| name | salary |
++------+--------+
+| ajay |  55555 |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary < 50000
+    -> ;
++--------+--------+
+| name   | salary |
++--------+--------+
+| sanjay |  44545 |
+| amit   |  45454 |
+| rohan  |  45555 |
+| suresh |  45987 |
+| ramesh |  46987 |
++--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where  salary between  40000 and 50000;
++--------+--------+
+| name   | salary |
++--------+--------+
+| sanjay |  44545 |
+| amit   |  45454 |
+| rohan  |  45555 |
+| suresh |  45987 |
+| ramesh |  46987 |
++--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee  where  dname='it';
++--------+-------+
+| name   | dname |
++--------+-------+
+| amit   | it    |
+| sanjay | it    |
+| ajay   | it    |
+| satish | it    |
++--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee where   dname='finance' or dname='hr';
++--------+---------+
+| name   | dname   |
++--------+---------+
+| ram    | hr      |
+| ramesh | hr      |
+| rajesh | hr      |
+| suresh | finance |
+| vijay  | finance |
+| girish | finance |
++--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee where   dname in('finance' , 'hr');
++--------+---------+
+| name   | dname   |
++--------+---------+
+| ram    | hr      |
+| ramesh | hr      |
+| rajesh | hr      |
+| suresh | finance |
+| vijay  | finance |
+| girish | finance |
++--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select  * from  from  employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  employee' at line 1
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name from   employee where  name  between 'amit' and 'sanjay';
++--------+
+| name   |
++--------+
+| amit   |
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| sanjay |
+| rohan  |
+| girish |
++--------+
+8 rows in set (0.00 sec)
+
+mysql> select  name,  dname, salary, city  from employee
+    -> where  dname='it' and salary >50000  and city  not in('goa');
++--------+-------+--------+--------+
+| name   | dname | salary | city   |
++--------+-------+--------+--------+
+| ajay   | it    |  55555 | surat  |
+| satish | it    |  66555 | mysore |
++--------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name,  job,  city  from employee
+    -> where   job='engineer' and city='goa';
++------+----------+------+
+| name | job      | city |
++------+----------+------+
+| amit | engineer | goa  |
++------+----------+------+
+1 row in set (0.00 sec)
+
+mysql> select  name,  job from employee  where   job not in ('engineer');
++--------+------------+
+| name   | job        |
++--------+------------+
+| ram    | manager    |
+| ramesh | developer  |
+| rajesh | developer  |
+| suresh | analyst    |
+| vijay  | analyst    |
+| sanjay | programmer |
+| ajay   | programmer |
+| rohan  | manager    |
+| girish | analyst    |
++--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select  name,  job from employee  where   job <>'engineer';
++--------+------------+
+| name   | job        |
++--------+------------+
+| ram    | manager    |
+| ramesh | developer  |
+| rajesh | developer  |
+| suresh | analyst    |
+| vijay  | analyst    |
+| sanjay | programmer |
+| ajay   | programmer |
+| rohan  | manager    |
+| girish | analyst    |
++--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select  name,  job ,  salary, city from employeee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 50000;
+ERROR 1146 (42S02): Table 'iprimed.employeee' doesn't exist
+mysql> select  name,  job ,  salary, city from employee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 50000;
+Empty set (0.00 sec)
+
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name,  job ,  salary, city from employee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 40000;
++------+----------+--------+------+
+| name | job      | salary | city |
++------+----------+--------+------+
+| amit | engineer |  45454 | goa  |
++------+----------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  '%h';
++--------+
+| name   |
++--------+
+| ramesh |
+| rajesh |
+| suresh |
+| girish |
+| satish |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  'a%';
++------+
+| name |
++------+
+| amit |
+| ajay |
++------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  '__r%';
++--------+
+| name   |
++--------+
+| suresh |
+| girish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%r___';
++--------+
+| name   |
++--------+
+| suresh |
+| girish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%i__';
++--------+
+| name   |
++--------+
+| girish |
+| satish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  instr('girish','i');
++---------------------+
+| instr('girish','i') |
++---------------------+
+|                   2 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  instr('girish','g');
++---------------------+
+| instr('girish','g') |
++---------------------+
+|                   1 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%r%';
++--------+
+| name   |
++--------+
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| suresh |
+| rohan  |
+| girish |
++--------+
+7 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%e%';
++--------+
+| name   |
++--------+
+| ramesh |
+| rajesh |
+| suresh |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%u%';
++--------+
+| name   |
++--------+
+| suresh |
++--------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+Microsoft Windows [Version 10.0.18362.1082]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>d:
+
+D:\>cd D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin
+
+D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin>mysql -u root -p
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use imrimed;
+ERROR 1049 (42000): Unknown database 'imrimed'
+mysql> use iprimed;
+Database changed
+mysql> show  tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| another           |
+| another1          |
+| another1another1  |
+| emp               |
+| employee          |
+| one               |
+| student           |
+| two               |
++-------------------+
+8 rows in set (0.10 sec)
+
+mysql> drop  another;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'another' at line 1
+mysql> drop table  another;
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> drop table  another1;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> drop table  anotheranother1;
+ERROR 1051 (42S02): Unknown table 'iprimed.anotheranother1'
+mysql> drop table  another1another1;
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> drop table  one
+    -> ;
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> drop table  student;;
+Query OK, 0 rows affected (0.51 sec)
+
+ERROR:
+No query specified
+
+mysql> drop table  student;
+ERROR 1051 (42S02): Unknown table 'iprimed.student'
+mysql> drop table  two;
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| emp               |
+| employee          |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> drop table emp;
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create  table emp(id int(2), name varchar(10), age  int(3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create  table emp(id int(2), name varchar(10), age  int(3));
+Query OK, 0 rows affected, 2 warnings (1.07 sec)
+
+mysql> alter table  emp add salary  decimal(10,4);
+Query OK, 0 rows affected (1.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| id     | int           | YES  |     | NULL    |       |
+| name   | varchar(10)   | YES  |     | NULL    |       |
+| age    | int           | YES  |     | NULL    |       |
+| salary | decimal(10,4) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table  emp add des varchar(10), add  city  varchar(10);
+Query OK, 0 rows affected (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| id     | int           | YES  |     | NULL    |       |
+| name   | varchar(10)   | YES  |     | NULL    |       |
+| age    | int           | YES  |     | NULL    |       |
+| salary | decimal(10,4) | YES  |     | NULL    |       |
+| des    | varchar(10)   | YES  |     | NULL    |       |
+| city   | varchar(10)   | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table   emp  modify   salary int(10);
+Query OK, 0 rows affected, 1 warning (4.31 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc    emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | YES  |     | NULL    |       |
+| name   | varchar(10) | YES  |     | NULL    |       |
+| age    | int         | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| des    | varchar(10) | YES  |     | NULL    |       |
+| city   | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table   emp  modify  id tinyint(2) , modify age smallint(3) not null;
+Query OK, 0 rows affected, 2 warnings (0.60 sec)
+Records: 0  Duplicates: 0  Warnings: 2
+
+mysql> desc    emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | tinyint     | YES  |     | NULL    |       |
+| name   | varchar(10) | YES  |     | NULL    |       |
+| age    | smallint    | NO   |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| des    | varchar(10) | YES  |     | NULL    |       |
+| city   | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table  emp change   column   salary   sal int(10);
+Query OK, 0 rows affected, 1 warning (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc    emp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| des   | varchar(10) | YES  |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table  emp  drop column  sal;
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table  emp  drop column  des;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table   emp  rename to employee;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> desc    emp;
+ERROR 1146 (42S02): Table 'iprimed.emp' doesn't exist
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee add   primary key(d);
+ERROR 1072 (42000): Key column 'd' doesn't exist in table
+mysql> alter table employee add   primary key(id);
+Query OK, 0 rows affected (0.62 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    emp;
+ERROR 1146 (42S02): Table 'iprimed.emp' doesn't exist
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee drop primary key;
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | NO   |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | smallint    | NO   |     | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee  values(1, 'john', 22, 'pune'),(2,'vijay',23,'goa');
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+-------+-----+------+
+| id | name  | age | city |
++----+-------+-----+------+
+|  1 | john  |  22 | pune |
+|  2 | vijay |  23 | goa  |
++----+-------+-----+------+
+2 rows in set (0.00 sec)
+
+mysql> truncate  table   employee;
+Query OK, 0 rows affected (0.25 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create  table    student(id  int(3), name varchar(10), marks int(4));
+Query OK, 0 rows affected, 2 warnings (0.17 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table  add  primary key auto_increment not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add  primary key auto_increment not null  unique(id)' at line 1
+mysql> alter table  student add  primary key auto_increment not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key(id) not null  unique(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique(id)' at line 1
+mysql> alter table  student add  primary key(id) not null  unique;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null  unique' at line 1
+mysql> alter table  student add  primary key(id) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null' at line 1
+mysql> alter table  student add  primary key(id);
+Query OK, 0 rows affected (1.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table  student add  not null(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null(id)' at line 1
+mysql> alter table  student modify  column id int(3) unique not null   auto_increment;
+Query OK, 0 rows affected, 1 warning (0.54 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> alter table  student drop column  id;
+Query OK, 0 rows affected (0.69 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table  student add   id int(2);
+Query OK, 0 rows affected, 1 warning (0.15 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(10) | YES  |     | NULL    |       |
+| marks | int         | YES  |     | NULL    |       |
+| id    | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table  student modify  column id int(3) unique not null primary key  auto_increment;
+Query OK, 0 rows affected, 1 warning (0.50 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| name  | varchar(10) | YES  |     | NULL    |                |
+| marks | int         | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> alter  table   student  modify column id int(2) not null primary key auto_increment unique beforename;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'beforename' at line 1
+mysql> alter  table   student  modify column id int(2) not null primary key auto_increment unique before name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'before name' at line 1
+mysql> alter  table   student  modify column name char(20) after  id;
+Query OK, 0 rows affected (0.87 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter  table   student  modify column marks int(10) after  name;
+Query OK, 0 rows affected, 1 warning (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc  student;
++-------+----------+------+-----+---------+----------------+
+| Field | Type     | Null | Key | Default | Extra          |
++-------+----------+------+-----+---------+----------------+
+| id    | int      | NO   | PRI | NULL    | auto_increment |
+| name  | char(20) | YES  |     | NULL    |                |
+| marks | int      | YES  |     | NULL    |                |
++-------+----------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into   student(name, marks) values('raj',98);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into   student(name, marks) values('raju',88);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   student(name, marks) values('rajesh',80);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   student(name, marks) values('ram',70);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   student(name, marks) values('ramesh',75);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into   student(name, marks) values('ramu',85);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from  student;
++----+--------+-------+
+| id | name   | marks |
++----+--------+-------+
+|  1 | raj    |    98 |
+|  2 | raju   |    88 |
+|  3 | rajesh |    80 |
+|  4 | ram    |    70 |
+|  5 | ramesh |    75 |
+|  6 | ramu   |    85 |
++----+--------+-------+
+6 rows in set (0.00 sec)
+
+mysql> update    student  set  marks=100, name='avinash' where id=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from  student;
++----+---------+-------+
+| id | name    | marks |
++----+---------+-------+
+|  1 | raj     |    98 |
+|  2 | raju    |    88 |
+|  3 | avinash |   100 |
+|  4 | ram     |    70 |
+|  5 | ramesh  |    75 |
+|  6 | ramu    |    85 |
++----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> delete from   student   where id=1;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from  student;
++----+---------+-------+
+| id | name    | marks |
++----+---------+-------+
+|  2 | raju    |    88 |
+|  3 | avinash |   100 |
+|  4 | ram     |    70 |
+|  5 | ramesh  |    75 |
+|  6 | ramu    |    85 |
++----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> drop table emp;
+ERROR 1051 (42S02): Unknown table 'iprimed.emp'
+mysql> drop table employee;
+ERROR 1051 (42S02): Unknown table 'iprimed.employee'
+mysql> show tables;
++-------------------+
+| Tables_in_iprimed |
++-------------------+
+| student           |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> drop table employee(id  int(2) primary key not null, name varchar(15), dob date,
+    -> city  varchar(15), dname varchar(15), job varchar(15), salary  int(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id  int(2) primary key not null, name varchar(15), dob date,
+city  varchar(15)' at line 1
+mysql> create table employee(id  int(2) primary key not null, name varchar(15), dob date,
+    -> city  varchar(15), dname varchar(15), job varchar(15), salary  int(10));
+Query OK, 0 rows affected, 2 warnings (0.23 sec)
+
+mysql> desc   employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table   employee   modify  column salary int(10) unique;
+Query OK, 0 rows affected, 1 warning (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc   employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  | UNI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> insert into   employee values(1, 'amit', '1999-10-10', 'goa','it', 'engineer', 45454);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into   employee values(2, 'rohit', '1999-05-05', 'pune','sales', 'engineer', 55454);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into   employee values(3, 'ram', '2000-05-12', 'goa','hr', 'manager', 65656);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into   employee values(4, 'ramesh', '2001-06-12', 'agra','it', 'developer', 46987);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into   employee values(5, 'rajesh', '2001-07-12', 'mumbai','it', 'developer', 69987);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into   employee values(6, 'suresh', '2002-07-22', 'chennai','finance', 'analyst', 45987);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into   employee values(7, 'vijay', '2002-08-20', 'jammu','finance', 'analyst', 54545);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   employee values(8, 'sanjay', '2000-07-20', 'jammu','it', 'programmer', 44545);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   employee values(9, 'ajay', '2004-10-20', 'surat','it', 'programmer', 55555);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   employee values(10, 'rohan', '2004-11-20', 'pune','sales', 'manager', 45555);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into   employee values(11, 'girish', '2004-12-10', 'mysore','finance', 'analyst', 67555);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into   employee values(12, 'satish', '2003-12-10', 'mysore','it', 'engineer', 66555);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | it      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | it      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> update  employee  set   dname='hr'  where id=4;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employee  set   dname='hr'  where id=5;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, salary*10   from  employee;
++--------+-----------+
+| name   | salary*10 |
++--------+-----------+
+| amit   |    454540 |
+| rohit  |    554540 |
+| ram    |    656560 |
+| ramesh |    469870 |
+| rajesh |    699870 |
+| suresh |    459870 |
+| vijay  |    545450 |
+| sanjay |    445450 |
+| ajay   |    555550 |
+| rohan  |    455550 |
+| girish |    675550 |
+| satish |    665550 |
++--------+-----------+
+12 rows in set (0.00 sec)
+
+mysql> select  name  first_name, salary*10 tot_sal   from  employee;
++------------+---------+
+| first_name | tot_sal |
++------------+---------+
+| amit       |  454540 |
+| rohit      |  554540 |
+| ram        |  656560 |
+| ramesh     |  469870 |
+| rajesh     |  699870 |
+| suresh     |  459870 |
+| vijay      |  545450 |
+| sanjay     |  445450 |
+| ajay       |  555550 |
+| rohan      |  455550 |
+| girish     |  675550 |
+| satish     |  665550 |
++------------+---------+
+12 rows in set (0.00 sec)
+
+mysql> select  name  first_name, salary/5 tot_sal   from  employee;
++------------+------------+
+| first_name | tot_sal    |
++------------+------------+
+| amit       |  9090.8000 |
+| rohit      | 11090.8000 |
+| ram        | 13131.2000 |
+| ramesh     |  9397.4000 |
+| rajesh     | 13997.4000 |
+| suresh     |  9197.4000 |
+| vijay      | 10909.0000 |
+| sanjay     |  8909.0000 |
+| ajay       | 11111.0000 |
+| rohan      |  9111.0000 |
+| girish     | 13511.0000 |
+| satish     | 13311.0000 |
++------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select  * from  from  employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  employee' at line 1
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary > 50000;
++--------+--------+
+| name   | salary |
++--------+--------+
+| vijay  |  54545 |
+| rohit  |  55454 |
+| ajay   |  55555 |
+| ram    |  65656 |
+| satish |  66555 |
+| girish |  67555 |
+| rajesh |  69987 |
++--------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary = 55555;
++------+--------+
+| name | salary |
++------+--------+
+| ajay |  55555 |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where   salary < 50000
+    -> ;
++--------+--------+
+| name   | salary |
++--------+--------+
+| sanjay |  44545 |
+| amit   |  45454 |
+| rohan  |  45555 |
+| suresh |  45987 |
+| ramesh |  46987 |
++--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name, salary  from    employee where  salary between  40000 and 50000;
++--------+--------+
+| name   | salary |
++--------+--------+
+| sanjay |  44545 |
+| amit   |  45454 |
+| rohan  |  45555 |
+| suresh |  45987 |
+| ramesh |  46987 |
++--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee  where  dname='it';
++--------+-------+
+| name   | dname |
++--------+-------+
+| amit   | it    |
+| sanjay | it    |
+| ajay   | it    |
+| satish | it    |
++--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee where   dname='finance' or dname='hr';
++--------+---------+
+| name   | dname   |
++--------+---------+
+| ram    | hr      |
+| ramesh | hr      |
+| rajesh | hr      |
+| suresh | finance |
+| vijay  | finance |
+| girish | finance |
++--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select  name, dname  from  employee where   dname in('finance' , 'hr');
++--------+---------+
+| name   | dname   |
++--------+---------+
+| ram    | hr      |
+| ramesh | hr      |
+| rajesh | hr      |
+| suresh | finance |
+| vijay  | finance |
+| girish | finance |
++--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select  * from  from  employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  employee' at line 1
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name from   employee where  name  between 'amit' and 'sanjay';
++--------+
+| name   |
++--------+
+| amit   |
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| sanjay |
+| rohan  |
+| girish |
++--------+
+8 rows in set (0.00 sec)
+
+mysql> select  name,  dname, salary, city  from employee
+    -> where  dname='it' and salary >50000  and city  not in('goa');
++--------+-------+--------+--------+
+| name   | dname | salary | city   |
++--------+-------+--------+--------+
+| ajay   | it    |  55555 | surat  |
+| satish | it    |  66555 | mysore |
++--------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name,  job,  city  from employee
+    -> where   job='engineer' and city='goa';
++------+----------+------+
+| name | job      | city |
++------+----------+------+
+| amit | engineer | goa  |
++------+----------+------+
+1 row in set (0.00 sec)
+
+mysql> select  name,  job from employee  where   job not in ('engineer');
++--------+------------+
+| name   | job        |
++--------+------------+
+| ram    | manager    |
+| ramesh | developer  |
+| rajesh | developer  |
+| suresh | analyst    |
+| vijay  | analyst    |
+| sanjay | programmer |
+| ajay   | programmer |
+| rohan  | manager    |
+| girish | analyst    |
++--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select  name,  job from employee  where   job <>'engineer';
++--------+------------+
+| name   | job        |
++--------+------------+
+| ram    | manager    |
+| ramesh | developer  |
+| rajesh | developer  |
+| suresh | analyst    |
+| vijay  | analyst    |
+| sanjay | programmer |
+| ajay   | programmer |
+| rohan  | manager    |
+| girish | analyst    |
++--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select  name,  job ,  salary, city from employeee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 50000;
+ERROR 1146 (42S02): Table 'iprimed.employeee' doesn't exist
+mysql> select  name,  job ,  salary, city from employee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 50000;
+Empty set (0.00 sec)
+
+mysql> select  * from    employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name,  job ,  salary, city from employee  where   job ='engineer'
+    -> and city in('surat','goa') and salary > 40000;
++------+----------+--------+------+
+| name | job      | salary | city |
++------+----------+--------+------+
+| amit | engineer |  45454 | goa  |
++------+----------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  '%h';
++--------+
+| name   |
++--------+
+| ramesh |
+| rajesh |
+| suresh |
+| girish |
+| satish |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  'a%';
++------+
+| name |
++------+
+| amit |
+| ajay |
++------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  name like  '__r%';
++--------+
+| name   |
++--------+
+| suresh |
+| girish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%r___';
++--------+
+| name   |
++--------+
+| suresh |
+| girish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%i__';
++--------+
+| name   |
++--------+
+| girish |
+| satish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  instr('girish','i');
++---------------------+
+| instr('girish','i') |
++---------------------+
+|                   2 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  instr('girish','g');
++---------------------+
+| instr('girish','g') |
++---------------------+
+|                   1 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%r%';
++--------+
+| name   |
++--------+
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| suresh |
+| rohan  |
+| girish |
++--------+
+7 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%e%';
++--------+
+| name   |
++--------+
+| ramesh |
+| rajesh |
+| suresh |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select  name  from  employee where name  like '%u%';
++--------+
+| name   |
++--------+
+| suresh |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select   * from   employee  where  name  is null;
+Empty set (0.00 sec)
+
+mysql> select   name  from employee   where  dname  not in('it');
++--------+
+| name   |
++--------+
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| suresh |
+| vijay  |
+| rohan  |
+| girish |
++--------+
+8 rows in set (0.00 sec)
+
+mysql> select   name  from employee   where  dname  ='it' and  des not in('engineer');
+ERROR 1054 (42S22): Unknown column 'des' in 'where clause'
+mysql> select   name  from employee   where  dname  ='it' and  job not in('engineer');
++--------+
+| name   |
++--------+
+| sanjay |
+| ajay   |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select   name , job,  dname from employee   where  dname  ='it' and  job not in('engineer');
++--------+------------+-------+
+| name   | job        | dname |
++--------+------------+-------+
+| sanjay | programmer | it    |
+| ajay   | programmer | it    |
++--------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select   * from   employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
++----+--------+------------+---------+---------+------------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select   dname from   employee;
++---------+
+| dname   |
++---------+
+| it      |
+| sales   |
+| hr      |
+| hr      |
+| hr      |
+| finance |
+| finance |
+| it      |
+| it      |
+| sales   |
+| finance |
+| it      |
++---------+
+12 rows in set (0.00 sec)
+
+mysql> select   distinct dname from   employee;
++---------+
+| dname   |
++---------+
+| it      |
+| sales   |
+| hr      |
+| finance |
++---------+
+4 rows in set (0.00 sec)
+
+mysql> select   job, dname from   employee;
++------------+---------+
+| job        | dname   |
++------------+---------+
+| engineer   | it      |
+| engineer   | sales   |
+| manager    | hr      |
+| developer  | hr      |
+| developer  | hr      |
+| analyst    | finance |
+| analyst    | finance |
+| programmer | it      |
+| programmer | it      |
+| manager    | sales   |
+| analyst    | finance |
+| engineer   | it      |
++------------+---------+
+12 rows in set (0.00 sec)
+
+mysql> select   distinct job, dname from   employee;
++------------+---------+
+| job        | dname   |
++------------+---------+
+| engineer   | it      |
+| engineer   | sales   |
+| manager    | hr      |
+| developer  | hr      |
+| analyst    | finance |
+| programmer | it      |
+| manager    | sales   |
++------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select  distinct salary  from  employee;
++--------+
+| salary |
++--------+
+|  44545 |
+|  45454 |
+|  45555 |
+|  45987 |
+|  46987 |
+|  54545 |
+|  55454 |
+|  55555 |
+|  65656 |
+|  66555 |
+|  67555 |
+|  69987 |
++--------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, dname  , job from   employee  order by dname desc;
++--------+---------+------------+
+| name   | dname   | job        |
++--------+---------+------------+
+| rohit  | sales   | engineer   |
+| rohan  | sales   | manager    |
+| amit   | it      | engineer   |
+| sanjay | it      | programmer |
+| ajay   | it      | programmer |
+| satish | it      | engineer   |
+| ram    | hr      | manager    |
+| ramesh | hr      | developer  |
+| rajesh | hr      | developer  |
+| suresh | finance | analyst    |
+| vijay  | finance | analyst    |
+| girish | finance | analyst    |
++--------+---------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, dname  , job from   employee  order by dname asc name desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name desc' at line 1
+mysql> select  name, dname  , job from   employee  order by dname asc, name desc;
++--------+---------+------------+
+| name   | dname   | job        |
++--------+---------+------------+
+| vijay  | finance | analyst    |
+| suresh | finance | analyst    |
+| girish | finance | analyst    |
+| ramesh | hr      | developer  |
+| ram    | hr      | manager    |
+| rajesh | hr      | developer  |
+| satish | it      | engineer   |
+| sanjay | it      | programmer |
+| amit   | it      | engineer   |
+| ajay   | it      | programmer |
+| rohit  | sales   | engineer   |
+| rohan  | sales   | manager    |
++--------+---------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select  name, dname  , job from   employee  order by job asc, dname desc;
++--------+---------+------------+
+| name   | dname   | job        |
++--------+---------+------------+
+| suresh | finance | analyst    |
+| vijay  | finance | analyst    |
+| girish | finance | analyst    |
+| ramesh | hr      | developer  |
+| rajesh | hr      | developer  |
+| rohit  | sales   | engineer   |
+| amit   | it      | engineer   |
+| satish | it      | engineer   |
+| rohan  | sales   | manager    |
+| ram    | hr      | manager    |
+| sanjay | it      | programmer |
+| ajay   | it      | programmer |
++--------+---------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select  sum(salary)  total  from employee;
++--------+
+| total  |
++--------+
+| 663835 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select  min(salary)  Min_sal  from employee;
++---------+
+| Min_sal |
++---------+
+|   44545 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select  max(salary)  Max_sal  from employee;
++---------+
+| Max_sal |
++---------+
+|   69987 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select  avg(salary)  Average_sal  from employee;
++-------------+
+| Average_sal |
++-------------+
+|  55319.5833 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(salary)  no_of_salarie  from employee;
++---------------+
+| no_of_salarie |
++---------------+
+|            12 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> insert  into employee  values(13, 'lokesh','2000-09-09', 'surat', 'finance', 'analyst', 55555);
+ERROR 1062 (23000): Duplicate entry '55555' for key 'employee.salary'
+mysql> alter table   employee modify salary int(10);
+Query OK, 0 rows affected, 1 warning (0.15 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> insert  into employee  values(13, 'lokesh','2000-09-09', 'surat', 'finance', 'analyst', 55555);
+ERROR 1062 (23000): Duplicate entry '55555' for key 'employee.salary'
+mysql> alter table   employee modify salary int(8);
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> insert  into employee  values(13, 'lokesh','2000-09-09', 'surat', 'finance', 'analyst', 55555);
+ERROR 1062 (23000): Duplicate entry '55555' for key 'employee.salary'
+mysql> desc    employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  | UNI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> alter table   employee modify column salary int(8);
+Query OK, 0 rows affected, 1 warning (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> insert  into employee  values(13, 'lokesh','2000-09-09', 'surat', 'finance', 'analyst', 55555);
+ERROR 1062 (23000): Duplicate entry '55555' for key 'employee.salary'
+mysql> alter table   employee drop unique(salary);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unique(salary)' at line 1
+mysql> alter table   employee change    salary int(10) unique   salary  int(8);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int(10) unique   salary  int(8)' at line 1
+mysql> alter table   employee change  column  salary int(10) unique   salary  int(8);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int(10) unique   salary  int(8)' at line 1
+mysql> alter table   employee change   salary int(10) unique to  salary  int(8);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int(10) unique to  salary  int(8)' at line 1
+mysql> alter table   employee    drop  index salary;
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc    employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(15) | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| city   | varchar(15) | YES  |     | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(15) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> insert  into employee  values(13, 'lokesh','2000-09-09', 'surat', 'finance', 'analyst', 55555);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select  salary  from employee;
++--------+
+| salary |
++--------+
+|  45454 |
+|  55454 |
+|  65656 |
+|  46987 |
+|  69987 |
+|  45987 |
+|  54545 |
+|  44545 |
+|  55555 |
+|  45555 |
+|  67555 |
+|  66555 |
+|  55555 |
++--------+
+13 rows in set (0.00 sec)
+
+mysql> select  sum(salary)  from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      719390 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select  sum(distinct(salary))  from employee;
++-----------------------+
+| sum(distinct(salary)) |
++-----------------------+
+|                663835 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  count(salary)  from employee;
++---------------+
+| count(salary) |
++---------------+
+|            13 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select  count(distinct(salary))  from employee;
++-------------------------+
+| count(distinct(salary)) |
++-------------------------+
+|                      12 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> create  table   abc(id  int(3) , name  varchar(10)   contraint  iu   unique(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'contraint  iu   unique(id))' at line 1
+mysql> create  table   abc(id  int(3) , name  varchar(10),   contraint  iu   unique(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'iu   unique(id))' at line 1
+mysql> create  table   abc(id  int(3) , name  varchar(10),   constraint  iu   unique(id));
+Query OK, 0 rows affected, 1 warning (0.23 sec)
+
+mysql> create  table   abc1(id  int(3) unique , name varchar(10));
+Query OK, 0 rows affected, 1 warning (0.21 sec)
+
+mysql> desc abc1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  | UNI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc abc;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  | UNI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table abc1  drop iu;
+ERROR 1091 (42000): Can't DROP 'iu'; check that column/key exists
+mysql> alter table abc1  drop constraint iu;
+ERROR 3940 (HY000): Constraint 'iu' does not exist.
+mysql> alter table abc  drop constraint iu;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table abc1  drop index id;
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc abc;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc abc1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select  ascii('d');
++------------+
+| ascii('d') |
++------------+
+|        100 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select  ascii('A');
++------------+
+| ascii('A') |
++------------+
+|         65 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 3, 5, 'zzzz');
++-----------------------------+
+| insert('xxx', 3, 5, 'zzzz') |
++-----------------------------+
+| xxzzzz                      |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 3, 5, 'zzzzzzzz');
++---------------------------------+
+| insert('xxx', 3, 5, 'zzzzzzzz') |
++---------------------------------+
+| xxzzzzzzzz                      |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 5, 5, 'zzzzzzzz');
++---------------------------------+
+| insert('xxx', 5, 5, 'zzzzzzzz') |
++---------------------------------+
+| xxx                             |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 4, 5, 'zzzzzzzz');
++---------------------------------+
+| insert('xxx', 4, 5, 'zzzzzzzz') |
++---------------------------------+
+| xxx                             |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 3, 5, 'zzzzzzzz');
++---------------------------------+
+| insert('xxx', 3, 5, 'zzzzzzzz') |
++---------------------------------+
+| xxzzzzzzzz                      |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  insert('xxx', 1, 5, 'zzzzzzzz');
++---------------------------------+
+| insert('xxx', 1, 5, 'zzzzzzzz') |
++---------------------------------+
+| zzzzzzzz                        |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  instr('today is thursday','day');
++----------------------------------+
+| instr('today is thursday','day') |
++----------------------------------+
+|                                3 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  left('today is thursday',5);
++-----------------------------+
+| left('today is thursday',5) |
++-----------------------------+
+| today                       |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  rightt('today is thursday',5);
+ERROR 1305 (42000): FUNCTION iprimed.rightt does not exist
+mysql> select  right('today is thursday',5);
++------------------------------+
+| right('today is thursday',5) |
++------------------------------+
+| rsday                        |
++------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  substr(1,5);
++-------------+
+| substr(1,5) |
++-------------+
+|             |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select  substr('praveen',1,5);
++-----------------------+
+| substr('praveen',1,5) |
++-----------------------+
+| prave                 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  substr('praveen',3,5);
++-----------------------+
+| substr('praveen',3,5) |
++-----------------------+
+| aveen                 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  length('ajay');
++----------------+
+| length('ajay') |
++----------------+
+|              4 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select  lpad('naveenkumar', 7, '*');
++-----------------------------+
+| lpad('naveenkumar', 7, '*') |
++-----------------------------+
+| naveenk                     |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  lpad('kumar', 7, '*');
++-----------------------+
+| lpad('kumar', 7, '*') |
++-----------------------+
+| **kumar               |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  lpad('kumar', 10, '*');
++------------------------+
+| lpad('kumar', 10, '*') |
++------------------------+
+| *****kumar             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  rpad('kumar', 10, '*');
++------------------------+
+| rpad('kumar', 10, '*') |
++------------------------+
+| kumar*****             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  replace ('today is  thursday', 'day','may');
++---------------------------------------------+
+| replace ('today is  thursday', 'day','may') |
++---------------------------------------------+
+| tomay is  thursmay                          |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  reverse('raj');
++----------------+
+| reverse('raj') |
++----------------+
+| jar            |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select upper(name) from employee;
++-------------+
+| upper(name) |
++-------------+
+| AMIT        |
+| ROHIT       |
+| RAM         |
+| RAMESH      |
+| RAJESH      |
+| SURESH      |
+| VIJAY       |
+| SANJAY      |
+| AJAY        |
+| ROHAN       |
+| GIRISH      |
+| SATISH      |
+| LOKESH      |
++-------------+
+13 rows in set (0.00 sec)
+
+mysql> select instr(name, 'h') from employee;
++------------------+
+| instr(name, 'h') |
++------------------+
+|                0 |
+|                3 |
+|                0 |
+|                6 |
+|                6 |
+|                6 |
+|                0 |
+|                0 |
+|                0 |
+|                3 |
+|                6 |
+|                6 |
+|                6 |
++------------------+
+13 rows in set (0.00 sec)
+
+mysql> select    adddate('2000-10-10', interval 10 day);
++----------------------------------------+
+| adddate('2000-10-10', interval 10 day) |
++----------------------------------------+
+| 2000-10-20                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    adddate('2000-10-10', interval 10 month);
++------------------------------------------+
+| adddate('2000-10-10', interval 10 month) |
++------------------------------------------+
+| 2001-08-10                               |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    adddate('2000-10-10', interval 10 year);
++-----------------------------------------+
+| adddate('2000-10-10', interval 10 year) |
++-----------------------------------------+
+| 2010-10-10                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    addtime('12:12:12' , interval   20 minute);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select    addtime('2000-10-10 12:12:12' , '10:10:10');
++---------------------------------------------+
+| addtime('2000-10-10 12:12:12' , '10:10:10') |
++---------------------------------------------+
+| 2000-10-10 22:22:22                         |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select   time('2000-10-10 12:12:12');
++-----------------------------+
+| time('2000-10-10 12:12:12') |
++-----------------------------+
+| 12:12:12                    |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select   day('2000-10-10 12:12:12');
++----------------------------+
+| day('2000-10-10 12:12:12') |
++----------------------------+
+|                         10 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  month('2000-10-10 12:12:12');
++------------------------------+
+| month('2000-10-10 12:12:12') |
++------------------------------+
+|                           10 |
++------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  year('2000-10-10 12:12:12');
++-----------------------------+
+| year('2000-10-10 12:12:12') |
++-----------------------------+
+|                        2000 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2022-05-26 11:47:51 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select current_date()();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '()' at line 1
+mysql> select current_date();
++----------------+
+| current_date() |
++----------------+
+| 2022-05-26     |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select  subdate('2000-10-10', interval  10 year);
++------------------------------------------+
+| subdate('2000-10-10', interval  10 year) |
++------------------------------------------+
+| 1990-10-10                               |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract  year  from curr_date();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '()' at line 1
+mysql> select  extract (year  from curr_date());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from curr_date())' at line 1
+mysql> select  extract(year  from curr_date());
+ERROR 1305 (42000): FUNCTION iprimed.curr_date does not exist
+mysql> select  extract(year  from current_date());
++------------------------------------+
+| extract(year  from current_date()) |
++------------------------------------+
+|                               2022 |
++------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract(year  from now());
++---------------------------+
+| extract(year  from now()) |
++---------------------------+
+|                      2022 |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract(hour  from now());
++---------------------------+
+| extract(hour  from now()) |
++---------------------------+
+|                        11 |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract(minute  from now());
++-----------------------------+
+| extract(minute  from now()) |
++-----------------------------+
+|                          50 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract(second  from now());
++-----------------------------+
+| extract(second  from now()) |
++-----------------------------+
+|                          30 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  extract(month  from now());
++----------------------------+
+| extract(month  from now()) |
++----------------------------+
+|                          5 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  last_day(now());
++-----------------+
+| last_day(now()) |
++-----------------+
+| 2022-05-31      |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select  last_day(current_date());
++--------------------------+
+| last_day(current_date()) |
++--------------------------+
+| 2022-05-31               |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select abs(-10);
++----------+
+| abs(-10) |
++----------+
+|       10 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select floor(10.9999);
++----------------+
+| floor(10.9999) |
++----------------+
+|             10 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(10.00000001);
++-------------------+
+| ceil(10.00000001) |
++-------------------+
+|                11 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select round(10.86978, 2);
++--------------------+
+| round(10.86978, 2) |
++--------------------+
+|              10.87 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select truncate(10.86978, 2);
++-----------------------+
+| truncate(10.86978, 2) |
++-----------------------+
+|                 10.86 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select pow(10,2);
++-----------+
+| pow(10,2) |
++-----------+
+|       100 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select   10 mod 2;
++----------+
+| 10 mod 2 |
++----------+
+|        0 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select   11 mod 2;
++----------+
+| 11 mod 2 |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select  sqrt(9);
++---------+
+| sqrt(9) |
++---------+
+|       3 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select  greatest(22,1,-100,88,39);
++---------------------------+
+| greatest(22,1,-100,88,39) |
++---------------------------+
+|                        88 |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  least(22,1,-100,88,39);
++------------------------+
+| least(22,1,-100,88,39) |
++------------------------+
+|                   -100 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select   if(20>4, 'a', 'b');
++--------------------+
+| if(20>4, 'a', 'b') |
++--------------------+
+| a                  |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select   if(20>24, 'a', 'b');
++---------------------+
+| if(20>24, 'a', 'b') |
++---------------------+
+| b                   |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select   if(20=24, 'a', 'b' else 'z');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'else 'z')' at line 1
+mysql> select   if(20=24, 'a', 'b');
++---------------------+
+| if(20=24, 'a', 'b') |
++---------------------+
+| b                   |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  case 3  when  1 then 'hi'
+    -> when   2  then  'hello'
+    -> when  3 then 'how r u'
+    -> else  'bye'
+    -> end    as  'answer';
++---------+
+| answer  |
++---------+
+| how r u |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select  case 4  when  1 then 'hi'
+    -> when   2  then  'hello'
+    -> when  3 then 'how r u'
+    -> else  'bye'
+    -> end    as  'answer';
++--------+
+| answer |
++--------+
+| bye    |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select   case   when 2>3   then  'true'
+    -> else   'false' end;
++---------------------------------------------------+
+| case   when 2>3   then  'true'
+else   'false' end |
++---------------------------------------------------+
+| false                                             |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    if((select  case when 1>0 then 't' else 'f' end), 't','f');
++------------------------------------------------------------+
+| if((select  case when 1>0 then 't' else 'f' end), 't','f') |
++------------------------------------------------------------+
+| f                                                          |
++------------------------------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select    if(1>0, 't','f');
++------------------+
+| if(1>0, 't','f') |
++------------------+
+| t                |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select  case when 1>0 then 't' else 'f' end;
++-------------------------------------+
+| case when 1>0 then 't' else 'f' end |
++-------------------------------------+
+| t                                   |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    if((select  case when 1>0 then true else false end), 't','f');
++---------------------------------------------------------------+
+| if((select  case when 1>0 then true else false end), 't','f') |
++---------------------------------------------------------------+
+| t                                                             |
++---------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    if((select  case when 1>0 then 't' else 'f' end), 't','f');
++------------------------------------------------------------+
+| if((select  case when 1>0 then 't' else 'f' end), 't','f') |
++------------------------------------------------------------+
+| f                                                          |
++------------------------------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select    if((select  case when 1>0 then 'true' else 'false' end), 't','f');
++-------------------------------------------------------------------+
+| if((select  case when 1>0 then 'true' else 'false' end), 't','f') |
++-------------------------------------------------------------------+
+| f                                                                 |
++-------------------------------------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select    if((select  case when 1>0 then 1 else 0 end), 't','f');
++--------------------------------------------------------+
+| if((select  case when 1>0 then 1 else 0 end), 't','f') |
++--------------------------------------------------------+
+| t                                                      |
++--------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    if((select  case when 1>-1 then 1 else 0 end), 't','f');
++---------------------------------------------------------+
+| if((select  case when 1>-1 then 1 else 0 end), 't','f') |
++---------------------------------------------------------+
+| t                                                       |
++---------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select    if((select  case when -1>0 then 1 else 0 end), 't','f');
++---------------------------------------------------------+
+| if((select  case when -1>0 then 1 else 0 end), 't','f') |
++---------------------------------------------------------+
+| f                                                       |
++---------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select if(1, 't','f');
++----------------+
+| if(1, 't','f') |
++----------------+
+| t              |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select if(0, 't','f');
++----------------+
+| if(0, 't','f') |
++----------------+
+| f              |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select  ifnull(10,1);
++--------------+
+| ifnull(10,1) |
++--------------+
+|           10 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select  ifnull(null,1);
++----------------+
+| ifnull(null,1) |
++----------------+
+|              1 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select  nullif(1,1);
++-------------+
+| nullif(1,1) |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select  nullif(1,10);
++--------------+
+| nullif(1,10) |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select  coalesce(null, null, 3,1,1);
++-----------------------------+
+| coalesce(null, null, 3,1,1) |
++-----------------------------+
+|                           3 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  dname, avg(salary)  from   employee
+    -> group by dname  order  by  dname  desc;
++---------+-------------+
+| dname   | avg(salary) |
++---------+-------------+
+| sales   |  50504.5000 |
+| it      |  53027.2500 |
+| hr      |  60876.6667 |
+| finance |  55910.5000 |
++---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select  job, max(salary)  from   employee
+    -> group by job order  by  dname  desc;
+ERROR 1055 (42000): Expression #1 of ORDER BY clause is not in GROUP BY clause and contains nonaggregated column 'iprimed.employee.dname' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select  job, max(salary)  from   employee
+    -> group by job order  by  job  desc;
++------------+-------------+
+| job        | max(salary) |
++------------+-------------+
+| programmer |       55555 |
+| manager    |       65656 |
+| engineer   |       66555 |
+| developer  |       69987 |
+| analyst    |       67555 |
++------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
+| 13 | lokesh | 2000-09-09 | surat   | finance | analyst    |  55555 |
++----+--------+------------+---------+---------+------------+--------+
+13 rows in set (0.00 sec)
+
+mysql> select  count(name) from employee where extract(dob, 'year')=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dob, 'year')=2000' at line 1
+mysql> select  count(name) from employee where extract(dob, from 'year')=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dob, from 'year')=2000' at line 1
+mysql> select  count(name) from employee where extract('year', fromdob)=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''year', fromdob)=2000' at line 1
+mysql> select  count(name) from employee where extract('year', from dob)=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''year', from dob)=2000' at line 1
+mysql> select  count(name) from employee where extract('year' from dob)=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''year' from dob)=2000' at line 1
+mysql> select  count(name) from employee where extract(year from dob)=2000;
++-------------+
+| count(name) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select  count(name) from employee where extract(month from dob)=10;
++-------------+
+| count(name) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select  name from employee where extract(month from dob)=10;
++------+
+| name |
++------+
+| amit |
+| ajay |
++------+
+2 rows in set (0.00 sec)
+
+mysql> select  * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
+| 13 | lokesh | 2000-09-09 | surat   | finance | analyst    |  55555 |
++----+--------+------------+---------+---------+------------+--------+
+13 rows in set (0.00 sec)
+
+mysql> select extract(year  from   dob), count(*) from   employee group by(extract(year from dob));
++---------------------------+----------+
+| extract(year  from   dob) | count(*) |
++---------------------------+----------+
+|                      1999 |        2 |
+|                      2000 |        3 |
+|                      2001 |        2 |
+|                      2002 |        2 |
+|                      2004 |        3 |
+|                      2003 |        1 |
++---------------------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select extract(month  from   dob), count(*) from   employee group by(extract(month from dob));
++----------------------------+----------+
+| extract(month  from   dob) | count(*) |
++----------------------------+----------+
+|                         10 |        2 |
+|                          5 |        2 |
+|                          6 |        1 |
+|                          7 |        3 |
+|                          8 |        1 |
+|                         11 |        1 |
+|                         12 |        2 |
+|                          9 |        1 |
++----------------------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> select extract(month  from   dob)  MONTH, count(*) from   employee group by(MONTH) order by MONTH asc;
++-------+----------+
+| MONTH | count(*) |
++-------+----------+
+|     5 |        2 |
+|     6 |        1 |
+|     7 |        3 |
+|     8 |        1 |
+|     9 |        1 |
+|    10 |        2 |
+|    11 |        1 |
+|    12 |        2 |
++-------+----------+
+8 rows in set (0.00 sec)
+
+mysql> select dob, extract(month  from   dob)  MONTH, count(*) from   employee group by(MONTH) order by MONTH asc;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'iprimed.employee.dob' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select job, avg(salary) from employee  group by(job) having  avg(salary)<=50000 order by job;
+Empty set (0.00 sec)
+
+mysql> select job, avg(salary) from employee  group by(job) having  avg(salary)<=60000 order by job;
++------------+-------------+
+| job        | avg(salary) |
++------------+-------------+
+| analyst    |  55910.5000 |
+| developer  |  58487.0000 |
+| engineer   |  55821.0000 |
+| manager    |  55605.5000 |
+| programmer |  50050.0000 |
++------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job, avg(salary) from employee  group by(job) having  avg(salary)<=55000 order by job;
++------------+-------------+
+| job        | avg(salary) |
++------------+-------------+
+| programmer |  50050.0000 |
++------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select job, round(avg(salary),2) from employee  group by(job) having  avg(salary)<=55000 order by job;
++------------+----------------------+
+| job        | round(avg(salary),2) |
++------------+----------------------+
+| programmer |             50050.00 |
++------------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> select dname, sum(salary) from employee  group by(dname) having sum(salary)<=200000 order by dname;
++-------+-------------+
+| dname | sum(salary) |
++-------+-------------+
+| hr    |      182630 |
+| sales |      101009 |
++-------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select dname, sum(salary) from employee  group by(dname)  order by dname;
++---------+-------------+
+| dname   | sum(salary) |
++---------+-------------+
+| finance |      223642 |
+| hr      |      182630 |
+| it      |      212109 |
+| sales   |      101009 |
++---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select dname, count(*) from employee  group by(dname) having count(*)<=3  order by dname;
++-------+----------+
+| dname | count(*) |
++-------+----------+
+| hr    |        3 |
+| sales |        2 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select dname, count(*) from employee  group by(dname)   order by dname;
++---------+----------+
+| dname   | count(*) |
++---------+----------+
+| finance |        4 |
+| hr      |        3 |
+| it      |        4 |
+| sales   |        2 |
++---------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select dname, count(*) from employee  group by(dname) having count(*)<=3;
++-------+----------+
+| dname | count(*) |
++-------+----------+
+| sales |        2 |
+| hr    |        3 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select dname, count(name) from employee  group by(dname) having count(name)<=3;
++-------+-------------+
+| dname | count(name) |
++-------+-------------+
+| sales |           2 |
+| hr    |           3 |
++-------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select city, count(name) from employee  group by(city) having count(name)>=2;
++--------+-------------+
+| city   | count(name) |
++--------+-------------+
+| goa    |           2 |
+| pune   |           2 |
+| jammu  |           2 |
+| surat  |           2 |
+| mysore |           2 |
++--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select city, count(name) from employee  group by(city);
++---------+-------------+
+| city    | count(name) |
++---------+-------------+
+| goa     |           2 |
+| pune    |           2 |
+| agra    |           1 |
+| mumbai  |           1 |
+| chennai |           1 |
+| jammu   |           2 |
+| surat   |           2 |
+| mysore  |           2 |
++---------+-------------+
+8 rows in set (0.00 sec)
+
+mysql>
+
+Microsoft Windows [Version 10.0.18362.1082]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>d:
+
+D:\>cd D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin
+
+D:\mysql-8.0.29-winx64\mysql-8.0.29-winx64\bin>mysql -u root -p
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use iprimed;
+Database changed
+mysql> select * from employee
+    -> ;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
+| 13 | lokesh | 2000-09-09 | surat   | finance | analyst    |  55555 |
++----+--------+------------+---------+---------+------------+--------+
+13 rows in set (0.09 sec)
+
+mysql> create  table   emp(id int(2), name  varchar(10), des varchar(10));
+Query OK, 0 rows affected, 1 warning (0.60 sec)
+
+mysql> alter table   add primary key(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add primary key(id)' at line 1
+mysql> alter table  emp  add primary key(id);
+Query OK, 0 rows affected (0.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc  emp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| des   | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.08 sec)
+
+mysql> alter table dept(did int(2) primary key, eid int(2), dname varchar(10),
+    -> foreign key(eid) references emp(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(did int(2) primary key, eid int(2), dname varchar(10),
+foreign key(eid) referen' at line 1
+mysql> create table dept(did int(2) primary key, eid int(2), dname varchar(10),
+    -> foreign key(eid) references emp(id));
+Query OK, 0 rows affected, 2 warnings (0.27 sec)
+
+mysql> desc dept;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| did   | int         | NO   | PRI | NULL    |       |
+| eid   | int         | YES  | MUL | NULL    |       |
+| dname | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into   emp values(1,'raj', 'engg');
+Query OK, 1 row affected (0.22 sec)
+
+mysql> insert into   emp values(2,'ram', 'mgr');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into   emp values(3,'ramu', 'tester');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into   emp values(4,'ravi', 'analyst');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into   emp values(5,'govind', 'executive');
+Query OK, 1 row affected (0.24 sec)
+
+mysql> insert into   dept values(1, 1, 'it');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into   dept values(2, 2, 'sales');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into   dept values(3, 3, 'hr');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into   dept values(4, 4, 'finannce');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into   dept values(5, 6, 'mkt');
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`iprimed`.`dept`, CONSTRAINT `dept_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `emp` (`id`))
+mysql> insert into   dept values(5, 5, 'mkt');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from emp;
++----+--------+-----------+
+| id | name   | des       |
++----+--------+-----------+
+|  1 | raj    | engg      |
+|  2 | ram    | mgr       |
+|  3 | ramu   | tester    |
+|  4 | ravi   | analyst   |
+|  5 | govind | executive |
++----+--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from dept;;
++-----+------+----------+
+| did | eid  | dname    |
++-----+------+----------+
+|   1 |    1 | it       |
+|   2 |    2 | sales    |
+|   3 |    3 | hr       |
+|   4 |    4 | finannce |
+|   5 |    5 | mkt      |
++-----+------+----------+
+5 rows in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> drop table  emp;
+ERROR 3730 (HY000): Cannot drop table 'emp' referenced by a foreign key constraint 'dept_ibfk_1' on table 'dept'.
+mysql> delete from  emp where id=2;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`iprimed`.`dept`, CONSTRAINT `dept_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `emp` (`id`))
+mysql> create  table product(id int(2), name varchar(10), price int(5));
+Query OK, 0 rows affected, 2 warnings (0.54 sec)
+
+mysql> alter table  product add primary key(id);
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into  product values(1, 'laptop', 65050);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into  product values(2, 'pendrive', 650);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into  product values(3, 'mouse', 550);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into  product values(4, 'keyboard', 1050);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into  product values(5, 'lcdtv', 45000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from product;
++----+----------+-------+
+| id | name     | price |
++----+----------+-------+
+|  1 | laptop   | 65050 |
+|  2 | pendrive |   650 |
+|  3 | mouse    |   550 |
+|  4 | keyboard |  1050 |
+|  5 | lcdtv    | 45000 |
++----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table  sales(sid int(3) , pid int(3),  quantity int(3));
+Query OK, 0 rows affected, 3 warnings (0.16 sec)
+
+mysql> insert into sales values(1, 1, 10);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into sales values(2, 3, 7);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into sales values(3, 7, 6);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into sales values(4, 5, 8);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into sales values(5, 4, 9);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from product;
++----+----------+-------+
+| id | name     | price |
++----+----------+-------+
+|  1 | laptop   | 65050 |
+|  2 | pendrive |   650 |
+|  3 | mouse    |   550 |
+|  4 | keyboard |  1050 |
+|  5 | lcdtv    | 45000 |
++----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from sales;
++------+------+----------+
+| sid  | pid  | quantity |
++------+------+----------+
+|    1 |    1 |       10 |
+|    2 |    3 |        7 |
+|    3 |    7 |        6 |
+|    4 |    5 |        8 |
+|    5 |    4 |        9 |
++------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select  product.id, product.name, sales.quantity, sales.sid  from
+    -> product  inner  join  sales  on product.id=sales.pid;
++----+----------+----------+------+
+| id | name     | quantity | sid  |
++----+----------+----------+------+
+|  1 | laptop   |       10 |    1 |
+|  3 | mouse    |        7 |    2 |
+|  5 | lcdtv    |        8 |    4 |
+|  4 | keyboard |        9 |    5 |
++----+----------+----------+------+
+4 rows in set (0.00 sec)
+
+mysql> select  product.id, product.name, sales.quantity, sales.sid  from  product , sales
+    -> where  product.id=sales.pid;
++----+----------+----------+------+
+| id | name     | quantity | sid  |
++----+----------+----------+------+
+|  1 | laptop   |       10 |    1 |
+|  3 | mouse    |        7 |    2 |
+|  5 | lcdtv    |        8 |    4 |
+|  4 | keyboard |        9 |    5 |
++----+----------+----------+------+
+4 rows in set (0.00 sec)
+
+mysql> select  product.id, product.name, sales.quantity, sales.sid  from
+    -> product  left join  sales  on  product.id=sales.pid;
++----+----------+----------+------+
+| id | name     | quantity | sid  |
++----+----------+----------+------+
+|  1 | laptop   |       10 |    1 |
+|  2 | pendrive |     NULL | NULL |
+|  3 | mouse    |        7 |    2 |
+|  4 | keyboard |        9 |    5 |
+|  5 | lcdtv    |        8 |    4 |
++----+----------+----------+------+
+5 rows in set (0.10 sec)
+
+mysql> select  product.id, product.name, sales.quantity, sales.sid  from
+    -> product  right join  sales  on  product.id=sales.pid;
++------+----------+----------+------+
+| id   | name     | quantity | sid  |
++------+----------+----------+------+
+|    1 | laptop   |       10 |    1 |
+|    3 | mouse    |        7 |    2 |
+| NULL | NULL     |        6 |    3 |
+|    5 | lcdtv    |        8 |    4 |
+|    4 | keyboard |        9 |    5 |
++------+----------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from product;
++----+----------+-------+
+| id | name     | price |
++----+----------+-------+
+|  1 | laptop   | 65050 |
+|  2 | pendrive |   650 |
+|  3 | mouse    |   550 |
+|  4 | keyboard |  1050 |
+|  5 | lcdtv    | 45000 |
++----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select  e1.name from  employee e1, employee e2
+    -> where e1.city=e2.city
+    -> and e2.name='lokesh';
++--------+
+| name   |
++--------+
+| ajay   |
+| lokesh |
++--------+
+2 rows in set (0.03 sec)
+
+mysql> select * from employee;
++----+--------+------------+---------+---------+------------+--------+
+| id | name   | dob        | city    | dname   | job        | salary |
++----+--------+------------+---------+---------+------------+--------+
+|  1 | amit   | 1999-10-10 | goa     | it      | engineer   |  45454 |
+|  2 | rohit  | 1999-05-05 | pune    | sales   | engineer   |  55454 |
+|  3 | ram    | 2000-05-12 | goa     | hr      | manager    |  65656 |
+|  4 | ramesh | 2001-06-12 | agra    | hr      | developer  |  46987 |
+|  5 | rajesh | 2001-07-12 | mumbai  | hr      | developer  |  69987 |
+|  6 | suresh | 2002-07-22 | chennai | finance | analyst    |  45987 |
+|  7 | vijay  | 2002-08-20 | jammu   | finance | analyst    |  54545 |
+|  8 | sanjay | 2000-07-20 | jammu   | it      | programmer |  44545 |
+|  9 | ajay   | 2004-10-20 | surat   | it      | programmer |  55555 |
+| 10 | rohan  | 2004-11-20 | pune    | sales   | manager    |  45555 |
+| 11 | girish | 2004-12-10 | mysore  | finance | analyst    |  67555 |
+| 12 | satish | 2003-12-10 | mysore  | it      | engineer   |  66555 |
+| 13 | lokesh | 2000-09-09 | surat   | finance | analyst    |  55555 |
++----+--------+------------+---------+---------+------------+--------+
+13 rows in set (0.00 sec)
+
+mysql> select  e1.name from  employee e1, employee e2
+    -> where e1.city=e2.city
+    -> and e2.name='pune';
+Empty set (0.00 sec)
+
+mysql> select  e1.name from  employee e1, employee e2
+    -> where e1.city=e2.city
+    -> and e2.name='rohan';
++-------+
+| name  |
++-------+
+| rohit |
+| rohan |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select  e1.name from  employee e1, employee e2
+    -> where e1.city=e2.city
+    -> and e2.name='satish';
++--------+
+| name   |
++--------+
+| girish |
+| satish |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  product.name, sales.quantity  from product,quantity;
+ERROR 1146 (42S02): Table 'iprimed.quantity' doesn't exist
+mysql> select  product.name, sales.quantity  from product, sales;
++----------+----------+
+| name     | quantity |
++----------+----------+
+| lcdtv    |       10 |
+| keyboard |       10 |
+| mouse    |       10 |
+| pendrive |       10 |
+| laptop   |       10 |
+| lcdtv    |        7 |
+| keyboard |        7 |
+| mouse    |        7 |
+| pendrive |        7 |
+| laptop   |        7 |
+| lcdtv    |        6 |
+| keyboard |        6 |
+| mouse    |        6 |
+| pendrive |        6 |
+| laptop   |        6 |
+| lcdtv    |        8 |
+| keyboard |        8 |
+| mouse    |        8 |
+| pendrive |        8 |
+| laptop   |        8 |
+| lcdtv    |        9 |
+| keyboard |        9 |
+| mouse    |        9 |
+| pendrive |        9 |
+| laptop   |        9 |
++----------+----------+
+25 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  salary=(select max(salary) from employee));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select  name  from  employee  where  salary=(select max(salary) from employee);
++--------+
+| name   |
++--------+
+| rajesh |
++--------+
+1 row in set (0.04 sec)
+
+mysql> select name, salary from employee;
++--------+--------+
+| name   | salary |
++--------+--------+
+| amit   |  45454 |
+| rohit  |  55454 |
+| ram    |  65656 |
+| ramesh |  46987 |
+| rajesh |  69987 |
+| suresh |  45987 |
+| vijay  |  54545 |
+| sanjay |  44545 |
+| ajay   |  55555 |
+| rohan  |  45555 |
+| girish |  67555 |
+| satish |  66555 |
+| lokesh |  55555 |
++--------+--------+
+13 rows in set (0.00 sec)
+
+mysql> select  name  from  employee  where  salary=(select max(salary) from employee);
++--------+
+| name   |
++--------+
+| rajesh |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select  name, salary from employee where  job='analyst'  and salary >
+    -> (select max(salary) from employee where job='programmer');
++--------+--------+
+| name   | salary |
++--------+--------+
+| girish |  67555 |
++--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select  name, salary, job from employee where  job='analyst'  and salary >
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select  name, salary, job from employee;
++--------+--------+------------+
+| name   | salary | job        |
++--------+--------+------------+
+| amit   |  45454 | engineer   |
+| rohit  |  55454 | engineer   |
+| ram    |  65656 | manager    |
+| ramesh |  46987 | developer  |
+| rajesh |  69987 | developer  |
+| suresh |  45987 | analyst    |
+| vijay  |  54545 | analyst    |
+| sanjay |  44545 | programmer |
+| ajay   |  55555 | programmer |
+| rohan  |  45555 | manager    |
+| girish |  67555 | analyst    |
+| satish |  66555 | engineer   |
+| lokesh |  55555 | analyst    |
++--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select  name, salary, job from employee where  job='analyst'  and salary >
+    -> (select max(salary) from employee where job='programmer');
++--------+--------+---------+
+| name   | salary | job     |
++--------+--------+---------+
+| girish |  67555 | analyst |
++--------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select   name, salary from   employee   where  salary > all(
+    -> select salary from employee where name in('vijay','sanjay'));
++--------+--------+
+| name   | salary |
++--------+--------+
+| rohit  |  55454 |
+| ram    |  65656 |
+| rajesh |  69987 |
+| ajay   |  55555 |
+| girish |  67555 |
+| satish |  66555 |
+| lokesh |  55555 |
++--------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select   name, salary from   employee   where  salary > any(
+    -> select salary from employee where name in('vijay','sanjay'));
++--------+--------+
+| name   | salary |
++--------+--------+
+| amit   |  45454 |
+| rohit  |  55454 |
+| ram    |  65656 |
+| ramesh |  46987 |
+| rajesh |  69987 |
+| suresh |  45987 |
+| vijay  |  54545 |
+| ajay   |  55555 |
+| rohan  |  45555 |
+| girish |  67555 |
+| satish |  66555 |
+| lokesh |  55555 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select  min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|       44545 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select name, min(salary) from employee;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'iprimed.employee.name'; this is incompatible with sql_mode=only_full_group_by
+mysql> select  name from  emplyee where exists (select name  from employee where  salary=55555);
+ERROR 1146 (42S02): Table 'iprimed.emplyee' doesn't exist
+mysql> select  name from  employee where exists (select name  from employee where  salary=55555);
++--------+
+| name   |
++--------+
+| amit   |
+| rohit  |
+| ram    |
+| ramesh |
+| rajesh |
+| suresh |
+| vijay  |
+| sanjay |
+| ajay   |
+| rohan  |
+| girish |
+| satish |
+| lokesh |
++--------+
+13 rows in set (0.05 sec)
+
+mysql> select  name from  employee where not exists (select name  from employee where  salary=55555);
+Empty set (0.00 sec)
+
+mysql> select   name, salary  from  employee  limit 4;
++--------+--------+
+| name   | salary |
++--------+--------+
+| amit   |  45454 |
+| rohit  |  55454 |
+| ram    |  65656 |
+| ramesh |  46987 |
++--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select  id, name, salary  from  employee  limit 4,3 ;
++----+--------+--------+
+| id | name   | salary |
++----+--------+--------+
+|  5 | rajesh |  69987 |
+|  6 | suresh |  45987 |
+|  7 | vijay  |  54545 |
++----+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select  salary from  (  select salary from employee  order by salary desc) employee
+    -> limit 6;
++--------+
+| salary |
++--------+
+|  69987 |
+|  67555 |
+|  66555 |
+|  65656 |
+|  55555 |
+|  55555 |
++--------+
+6 rows in set (0.00 sec)
+
+mysql> select name, salary from  (  select distinct salary from employee  order by salary desc) employee
+    -> limit 6;
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select name, salary from  (  select name, distinct salary from employee  order by salary desc) employee limit 6;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct salary from employee  order by salary desc) employee limit 6' at line 1
+mysql> select name, salary from  (  select  distinct name, salary from employee  order by salary desc) employee limit 6;
++--------+--------+
+| name   | salary |
++--------+--------+
+| rajesh |  69987 |
+| girish |  67555 |
+| satish |  66555 |
+| ram    |  65656 |
+| ajay   |  55555 |
+| lokesh |  55555 |
++--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct name, salary from  (  select  distinct name, salary from employee  order by salary desc) employee limit 6;
++--------+--------+
+| name   | salary |
++--------+--------+
+| rajesh |  69987 |
+| girish |  67555 |
+| satish |  66555 |
+| ram    |  65656 |
+| ajay   |  55555 |
+| lokesh |  55555 |
++--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct name, salary from  (  select  distinct name, salary from employee  order by salary desc) employee limit 5;
++--------+--------+
+| name   | salary |
++--------+--------+
+| rajesh |  69987 |
+| girish |  67555 |
+| satish |  66555 |
+| ram    |  65656 |
+| ajay   |  55555 |
++--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select name , salary from employee  order  by salary  desc;
++--------+--------+
+| name   | salary |
++--------+--------+
+| rajesh |  69987 |
+| girish |  67555 |
+| satish |  66555 |
+| ram    |  65656 |
+| ajay   |  55555 |
+| lokesh |  55555 |
+| rohit  |  55454 |
+| vijay  |  54545 |
+| ramesh |  46987 |
+| suresh |  45987 |
+| rohan  |  45555 |
+| amit   |  45454 |
+| sanjay |  44545 |
++--------+--------+
+13 rows in set (0.00 sec)
+
+mysql>

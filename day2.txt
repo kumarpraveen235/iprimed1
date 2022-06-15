@@ -1,0 +1,259 @@
+jdk  1.8  programming
+
+
+to set  a permanent  path  for   java   
+go to my computer
+right click
+properties ->   advaneced system settings
+click  environment variables
+
+in system variable     click   on new
+
+variable name  JAVA_HOME
+value     C:\Program Files\Java\jdk1.8.0_202
+
+
+
+in user variable     click   on new
+
+variable name  PATH
+value     %JAVA_HOME%\bin
+
+click OK OK OK
+restart the  computer
+
+
+
+
+for   jdk 17 use   dec 21   eclipse
+for  jdk  18   use   mar 22   eclipse
+
+other  versions < 17 
+
+use     sep 21   eclipse
+
+
+history   of java
+
+java   was  invented  by  3  scientists  called
+green team    named  mike   sheredon  patrik naughton  and james ghousling
+
+
+invention of   java was  started in 1995 
+initilly used  for   developping set top boxes
+in  early   1996   beta and alpha  versions  of  java are released
+
+java is  not an acronym
+it is  a  ISLAND of  indonasia  where  1st coffeee  plant  was produced
+
+
+versions  and  release  year
+
+java  1.0         1996
+    1.1            1997
+     1.2           1998
+      1.3          2000
+      1.4          2002
+       1.5         2004      major  version    
+        1.6        2006
+       1.7          2011
+       1.8           2014   verry very major version
+       1.9        2017
+        11         2018     JAX B removed
+   
+       java  18      2022
+
+
+applications  of  java  
+used  to develop  console  based  applications
+used  to develop web applications  like   tutorial  sites,   college   web sites
+
+used to develop  enterprise  applications like
+banking/railway reservation/ shopping cart  applications  e.t.c
+rest   applications
+ued  in development of  smart cards
+desk top applications  like  anti  virus  acrobat reader
+development of games
+used  to develop   mobile based applications  
+used in robotics
+
+
+different  forms   of  application   we  can develop in java
+
+1)  console  based  application  where   programs  are executed  through main  method
+J2SE
+
+2)   web applications   where  programs are  executed  through   web server
+involves  html css  java script  ajax   jquery  servlet  jsp   spring mvc struts
+J2EE
+
+3)   enter prise  applications
+involves    spring   web mvc     application server
+EJB  JMS e.t.c
+J2EE
+4)   j2me  application  used  in  mobile  developent
+J2ME
+
+5)  JAVAFx   used develop rich internet  applications
+
+
+Characterstics  of Java
+
+simple
+java  does not supports   pointers  operator  overloading
+structures  unions    multiple inheritance at  class level makes  java programming
+more simple
+object oriented
+java  supports   object   oriented  programming
+like   abstraction:  hides  implementation  details and   shows  only  functionality
+in java  u  can achieve it using abstract class & interface
+inheritance:
+if one  object   aquires  properties and  behaviour  of parent  object
+it is called  INHERITANCE  it is  IS-A reatltion ship  achieved by extends and  implements
+key words
+eg:  class  Vahicle{}   class  Byke  extends  Vahicle{}
+
+  encapsulation
+   binding the  data   and code together   which  keeps  safe from interfference and
+outside world   
+Eg  java class  / java bean     capsule  medicine
+
+
+ polymorphsim 
+one interface/entity  is used   to perform  different / many forms  of  actions
+in java   polymorphism   is  achieved by   Method overloading/ overriding   
+and 
+ aggregation
+
+it is a  form  of association
+if one  class  reference is specified  in another class it is called(dependent  class)
+aggregation
+
+class   Address
+{
+   int streetno;
+String city, state;
+}
+class Emp
+   {
+   int id;
+String name;
+  Address  addr;// aggregation
+}
+
+
+plat form independent
+ability to execute the  java  program   in different plat forms/ different os  is
+called  plat form  independent
+to generate   a  executable   code   from java    it requires  2 steps
+1)  compilation  using  javac   when u compile the  java program  using javac u will
+get class file called  BYTE code
+javac  filename.java
+2)  interpreting   :  done by  JVM  (java vertual  machine)
+JVM interprets   byte code into executable  code
+java  filename
+
+ie.   u can write   java  program  and  compile  it in one os
+
+and   execute it in another  os      with  out recompiling
+this  feature is called  platform independent
+
+note   java  is  a  platform  independent
+but JVM is not a plat  form  indepenedent
+because diff os  have  diff   versions  of JVM but all  JVM interprets  same  byte code
+
+
+
+
+
+portable
+ability the  carry the   byte code  of  java  program  into differet plat forms
+and  execute  successfullly  with out recompiling is called
+portable
+
+architecture neutral
+java   behaves    same   in  different   os/  os  architecture
+it's features are  static they  will not change
+
+Eg  in java   int datatype   always takes  width of  4  bytes  in 32/64  os
+in c    int datatype  take width of  2 bytes in 32 bit os & 4 bytes in 64 bit os  
+
+secure
+java  programs  are more secure as  they   does not support pointers
+since   java has  it's  own environment called  JRE
+while  compiling   java  does  not interacts  with  os
+this  eliminates   the  effecting  the  programs present  in os with  java
+so java is more secure
+
+robust 
+robust  means  STRONG
+Exception  handling  feature and  automatic  garbage  collection feature
+makes   java programming more ROBUST
+
+
+multithreaded
+A thread  is a  part of  a  program
+in java   u can  execute  multiple  threads   symultaniously
+improves the  performance of the application
+eg: in one  program  1  thread  write   set of  no to file
+other  thread  reads the  no from the file
+
+high performance  &  interpreted
+
+java   is   compiled +   interpreted  language
+
+as  java  program  compiled  into byte code   by javac
+byte  code is   interpreted by JVM to generate  executable  code
+
+this  slows  the  performance
+
+to improve the  performance   JVM  uses   JIT (just  in time) compiler
+it   converts  piece by piece   byte  code  into  executable  code(no waiting time)
+
+instead  of  whole  byte code  gets converted into executable code (creates  waiting time)
+
+
+dynamic
+java   programs  especially  inheritance  programs   generates   lot of
+
+dynamic  information /   generates  info  at run time
+in these  type of object   known  at  run time  called   late  binding
+Eg
+class A
+{}
+class B extends A
+{
+     main............
+{
+   
+B bb=new B()
+}}
+
+here   bb is  a object  of class B also  & class A also
+it  is decided at  RUN TIME  BY JVM
+
+
+servlet  / jsps/ spring  mvc  generates  dynamic  web pages
+
+
+distributed
+U can access  the   objects/ APPLICATION/ program  from   multiple   JVM'S
+DISTRIBUTED ACROSS network
+eg : RMI  application/     banking application   by EJB
+
+strongly typed
+
+int   i=10;
+byte  b=(byte)i; 
+
+in java   all    variables   expressions   assignments
+are   stricly have types  
+if any mis match  occurs   generates   compile  time error
+
+typemismatch
+
+that  is  why  java is strongly  typed  language
+
+List  out  differnces between  C++ & java
+
+

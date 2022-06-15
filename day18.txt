@@ -1,0 +1,290 @@
+How to create  a  Maven project
+
+2 ways
+1)using  command  prompt(u need to install maven)
+
+2) using   eclipse  plugin(no need to install maven here)
+
+2  types   of  projects  are  created
+1) core  java project using  quick start  plugin
+2) web app project using webapp plugin  
+(note: to create  a  project  ur   computer must conencted to internet
+as maven downloads all the  plugins  depenedecies  required  to deploy the project
+from  it's central  repository called 
+ https://mvnrepository.com/
+
+after downloading it creates local  repository  called .m2 in home dir of ur computer
+
+Life  Cycle of Maven
+build   life cycle  is  a  well defined sequece of phases which defines the order in which the  goals
+are to be executed
+following are the phases
+
+prepare resources   creating  /writing programs  createing  project   
+validate   specifying depenedencies/ plugin with  groupid artifactid  versions
+compile   generating class  file
+test     executing test cases
+package   generating  jar war files
+install   installing jars war
+deploy   deploying jar/war
+
+Maven goals
+A goal  represents  a   specific task  which contributes to a building or managing of a project
+it may be bound to a 0 or more build phases like  compiling  installing pkging e.t.c
+Syntax
+
+mvn [plugin-name]:[goal-name]
+
+
+
+following are the  goals
+clean   cleans the  target folder
+install  installs the  jar  / war  files  in target  folder
+package  generates the  jar/war file
+compile  generates the class file
+
+
+plug in maven
+it is   generally provides a  set of goals which can be executed   using follwing task
+
+mvn [plugin-name]:[goal-name]
+
+mvn compiler:compile
+
+
+compiles the  source code
+
+different plugins 
+
+build plgins : used to build the  project
+
+reporting plugin   usedto generate the  report
+
+clean      cleans the  target folder
+compiler   compile the source code
+surefire      runs JUNIT test cases   creates  test reports
+jar         builds the  jar  files
+war      builds the  war filejavadoc    generate javadoc
+
+
+write a  program  to display   helloworld  and generate class file& jar file
+
+in a  goal    text  box   clean compile  install
+
+
+s/w  testing
+it is   a  method  to check  wether the  actual  s/w  product matches the  expected  
+requirements and to ensure that s/w product is defect free
+It involves  the  execution  of  s/w  componenents  using  manual /automated tools  to evaluate 
+1 or more  properties of  interest
+The purpose of s/w testing  is to identify errors gaps  or missing requirements in contracst to
+a actual requirements
+
+types  of testing
+functional testing
+
+evaluating the functionalilties of the  application
+eg:  unit   testing    integration testing
+ e.t.c
+non functional  testing
+it is also  called  performance testing
+it relates to the performance of the application
+Eg:   load testing performance testing  scalability  testing
+
+
+
+UNit  testing
+it involves the testing of each unit/module of the application
+it helps the  developers to know  wether the individual  unit of code
+working properly or not
+
+in java  we  use   junit  4  & junit   5
+
+2  ways  of testing
+
+manual  testing
+in this   test  cases are  executed  manually  by  the    testers
+these are  performed  without using any s/w  tools
+results of  such testing are not reliable / not 100% accurate
+lot of human resources are  required to conduct the manual  testing as 
+test cases are excuted manually by  users with out using any s/w tools
+these are time consuming
+to achieve this  testing it  is not mandatory to  have  a  programming knowledge
+as these are  non programmable
+
+
+
+automation  testing
+in this   test  cases are  executed  by  the    testers  using the  s/w tool
+these are  performed  by using using any s/w  tools like  JUNIT  SELENIUM  TEST NG
+results of  such testing are MORE reliable / 100% accurate
+Less no of human resources are  required to conduct the automation  testing as 
+test cases are executed  by  users  with using  s/w tools
+these are less time consuming  execute fast
+to achieve this  testing it  is  mandatory to  have  a sound  programming knowledge
+as these are   programmable
+
+  
+Introduction to JUNIT  4
+Is is a  framework
+it is  invented  by  a  organization   which conducts the   unit testing of
+various technologies  called unit
+
+Features 
+1) supports  annotations
+2) supports  TestRunner to get the  result of test case
+3) supports  TestSuites  to integrate  more than 1 test case
+4) supports Assert class to write the TestCase logic
+5) supports  ExceptionHandling, Time Testing and  Parameterized testing
+6) provides the  test o/p  in the form  of progress bar
+maroon  for  test failure  parrot green for  test  success
+ down load  2 jars
+
+1)  hamcrest  core  1.3
+2) unit 4.12
+
+in the   maven project  test cases are wriiten  in  src/test/java folder
+java  programs  are  written  in  src/main/java  folder
+
+JUNIT  4 provides   following classes
+
+1)Assert class
+
+it is  present in org.junit.* & it is also present  in  junit.framework.* 
+
+but i am  using org.junit.* pkg class
+methods
+
+public static  void  assertArrayEquals(Object[] c1, Object[]  c2)
+public static  void  assertEquals(Object c1, Object  c2)
+public static  void  assertSame(Object c1, Object c2)
+public static  void  assertNotSame(Object c1, Object c2)
+public static  void  assertNull(Object c1)
+public static  void  assertNotNull(Object c1)
+public static  void  assertNotEquals(Object c1, Object c2)
+public static  void  assertTrue(boolean exp)
+public static  void  assertFalse(boolean exp)
+
+
+2) TestCase  class
+it is  present  in  junit.framework.* 
+when  u are   not using Annotation  ur test case  class must Extend 
+with TestCase  class
+methods
+int   countTestCases()
+String getName()
+TestResult run() executes the Test Cases
+void setUp() executes  before  each  test case
+void tearDown() executes  after  each test case
+void setName(String name)
+
+3) TestResult class
+it is  present  in  junit.framework.* 
+used to collect the Result of test cases
+methods
+int errorCount()
+int failureCount()
+void run(Test t)
+int runCount()
+void stop()
+void startTest(Test t)
+
+
+4)TestSuite class
+used to integrate more than  1  TestCase
+
+methods
+int countCases()
+String getName()
+void run(TestResult r)
+void setName(String s)
+Test testAt(int index)
+int testCount()
+
+Annotaions  in JUNIT  4
+@Test
+it is  method  level
+declares  method as a test method
+
+@BeforeClass
+it is static  method level
+executes  before all  test cases
+
+@AfterClass
+it is static  method level
+executes  after all  test cases
+
+@@Before
+it is   method level
+executes  before each  test cases
+
+@After
+it is  method level
+executes  after each  test cases
+
+@Ignore
+it is  class&method level
+ignores  test cases
+
+above annotations are in org.junit.* pkg
+
+@Suite  used  to  create  a Suite test it is  class level
+
+@RunWith  it is  class level  
+decide  in wahich  mode test case will execute
+
+
+@Parameterized
+it is  static method level
+used to run paramterized test
+
+create  class called  Employee with id name and monsal
+write  junit test case  for  follwing
+
+1) name  must be  greater than  6  characters
+2)  annual  sal  must be  equal  to   480000
+
+
+
+create  a  class called   sigin
+with uname and password
+write  2 tests cases
+1) successlogin
+2)failure login
+
+How to write a  Test  Runner class?
+
+Every test case  has  a Result  of True or false
+Junit  4  provides a TestRunner class
+
+it provdes  
+fllowing classes
+
+JunitCore class used to load the  test cases  org.junit.runner.JUnitCore;
+Failure  class  used to  get the Failure information org.junit.runner.notification.Failure;
+Result  class use to collect the  TestCase Results   org.junit.runner.Result;
+
+
+
+
+write a  JDBC program  to insert  1  row into book  table in mysql database   by reading data from
+keyboard. Create  a  maven project and  generate  jar file  and  insert a  row by excuting
+ the  jar file
+
+
+create   a   class  called  Product  with  id name and  price
+insert  5 objects in an ArrayList and Write  Junit test case  to check
+the  extracted productList price > 20000
+
+
+
+Insert  10 Strings in An array List
+and write a test case  wether the size of  array list whcich  contains the  name
+starts with letter  'r'  >  5
+
+
+
+
+
+
+

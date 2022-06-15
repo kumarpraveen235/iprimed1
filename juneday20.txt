@@ -1,0 +1,244 @@
+Web technologies &  advanced   web technologies
+
+HTML 4/HTML 5
+CSS 2 / CSS 3
+  JAVA SCRIPT
+BOOT STRAP 5
+
+download   apache tomcat  9.0
+
+
+
+TYPE SCRIPT  3/4
+ANGULAR 12
+
+
+open the  visual  studio code
+1)   go to extension
+install  open in browser    extension
+install   html css supoort  extension
+css  intellisense
+HTML 4
+
+features  of html
+1)  supports  built in tag
+2)   used to  design web pages
+3) used to  format the  web page
+4) closing of  & nesting of  tags  are  optional
+5) tags can be  case  insensitive
+6) tags are  interpreted by browser
+
+
+Structure  of HTML document
+<html>
+<head>
+     <title>   represents the  title of web page
+    <meta>  represents info html doc used for  search engine
+    <link>  used to load  external  style sheets(css)
+    <style>  used to specify style rule in this HTML
+   <script> used to add java script
+
+
+</head>
+<body>
+it also  contains  <script> tag
+   formatting logic...............
+<p><div><span><a><font><h1>....<h6>......
+
+<b><i>
+
+</body>
+</html> 
+
+every  html tag has  4 attribute
+
+<font   size="6"/>
+here   size  is attribute
+    6  is value
+  font is tag name
+
+
+4   important attributes are
+1)    id:  represents  id of tag 2) class : specifies class name of tag
+3) title :  specifies title of tag   4)  style: used to add insline css to tag
+
+
+different  type  of tags
+
+formatting tags  <h1>  <h6>  <font> <b> <i> <pre> <sup> <sub> <hr/> <br/>
+<marquee>
+block tags  <p> <div> <table> <frameset>
+link tags  <img> <a> <frame>
+form tags  <form> <input> <select> <textarea>
+miscllanious  tags <li> <ol> <ul>   .....
+
+
+p also  starts with new line
+div as as  a  container for  other html tags
+it also  starts  with new line
+
+span  never starts  with new line
+
+i html entities are  specified by & symbols
+built in entities are  
+&lt; &gt; &nbsp;(spaces) &copy; &deg;
+
+Accessing 1 doc to other  doc
+<a   href=""/>
+
+frames 
+divides   browser window  into  small small    window(row wise/ col wise)
+in each window  we can embed  html document
+2 tags are  used
+
+<frameset> used to create  frames
+<frame> used to embed   html in   each frame
+
+when ur creating the  frames  don't use  body tag
+
+
+
+Html   form tags
+
+create  a  form   using html  which contains  txt, password, check box radio drop down
+text area  field   browse  button to attch file, submit/reset buttons
+
+
+HTML 5
+features
+supports  symmantic tags
+<article><section><hgroup><header><footer><aside>
+<nav>
+<summary> <detail> <progess> <meter> <datalist>
+<output><source>
+
+supports  multimedia tag
+<audio> <video>
+
+supports  svg tags  to  draw diagrams
+<circle> <rect> <line> 
+support  different form  input types
+number/url/email/date/datetime-local/ week/month/search/range/color
+attribute  like  onfocus   required placeholder  pattern
+it also  supports   validation
+
+supports  canvas, geolocation,  web storage (cookies)  used along with javs script  drag and drop
+to execute HTML 5  standered  browser requires like  chrome  90  version
+
+
+SVG
+scalable  vector graphic
+used draw  2d DIAGRAMS  with out using js 
+<svg> contains
+tags  like
+<circle> <rect> <line>
+all these tags have built in attributes
+
+
+css   cascading style sheets
+
+used to design  web pages  in very  nice  attractive  look and feel  manner
+used to design web pages national, international, entreprise  level
+supports  many properties
+uses selectors to apply  style
+selectors contains style rules  same styles rules  substituted to many
+html elements
+thus reduces lot of code this 
+ loads web pages  faster
+some of the html tags are  deprecated so they  will not work in  latest browsers
+
+
+selectors
+
+syntax
+selectorname
+{
+   propetyname:propertyvalue;
+}
+
+p, div
+{
+    color:red;
+   font-size:10px;
+}
+here  p, div are  selectors
+selectors can be  html element name / user defined name
+color &  font-size are  property name
+10px is value
+
+types of selectors
+element  selector   
+selector name  must be valid  html tag name
+only one  element  name is specified
+multiple selector
+
+selector name  must be valid  html tag name
+more than one  element  name is specified saperating comma
+class selector
+selector name must  be  user defined name  preffixed by .
+and   used in class attribute  of html element
+id selector
+
+selector name must  be  user defined name  preffixed by #
+and   used in id attribute  of html element
+child selector
+selector name  must be valid  html tag name
+more than one  element  name is specified with out saperating comma
+
+
+how to insert  styles  in   html?
+
+3 ways
+1) using <style> tag  of <head> tag  called   embedded style
+2) using <link> tag  of <head> tag called  external  style
+3) using style  attribute of html tag  called inline style
+
+properties of  css
+background
+font
+border(style, color, width)
+
+margin
+padding
+in css  
+box model  refers to design and layout of web page
+css box model is  a box that  wraps around every html element
+these  involves margin border padding and content
+     margin   clears the area out side the boder
+       |
+     border   goes around padding and content
+       |
+     padding   clears area around the  content
+       |
+     content    represents  the content  of the box  can be txt image  object e.t.c
+
+margin-left
+magin-right
+margin: 10% 10% 10% 10%
+
+text
+table
+anchor
+display
+list
+
+1)
+create   a   5    html  documents
+1) company.html
+2) syllabus.html
+3)   content.html
+4)  training.html
+5)frame.html
+
+display  using  frames
+2) craete   html   to create  10 paragraphs
+  form   8th paragraph  using  hyperlink  swith to  1st  paragraph
+in same  document
+
+
+3) create html  form  with
+  browse button and  technicalskill dropdownlist
+
+  when i click the  browse button  multiple  files must be attached
+and also  through  shft ctrl  key i can select multiple  skills like  java spring web technology from
+dropdown list

@@ -1,0 +1,115 @@
+var keyword
+variables in the  type script can be declared sing  var keyword   same as in js
+it has  global  scope
+
+
+let 
+let  key word  has  block  level scope
+
+const 
+it's  value  cannot be changed
+same as  java's  final  keyword
+
+
+type script  operators are same  as   java script operators
+type   script  loops are  same  as  java  script loops
+
+
+functions  of     typescript
+normal   function
+optional parameter  function
+rest parameter function
+default parameter  function
+anonymous  function
+function constructor
+recursive functions
+anonymous recursive functions
+lamda  functions
+
+
+arrays  in type script
+
+array methods and   string  methods
+of  js and ts are  same
+
+
+if  i want class to visible  to out side  for all classes
+declare  class  with export keyword
+
+
+how to install  angular?
+npm  install  -g  @angular/cli@12.2.17
+
+ng -v
+
+bootstrapping of  angulr application
+index.html loads
+angular  , 3rd party libarary  & application loads
+mian.ts is an application entry point
+platformBrowserDynamic()  it is a module   which  is responsible  for
+loading the  angular application  in the  desktop browser
+
+root module  app.module.ts
+
+
+root  component appcomponent
+css  & template
+
+
+Databinding
+interpolation
+it is  denoted by 2  {{}}   
+
+communicates  from  component  to  template
+
+
+property binding
+
+involves the  communication from component and  template
+
+it uses property  name  in square  brackets
+
+
+event biding
+
+events  in agular  are specified  in (eventname)  brackets
+2 way  data  biding
+communication from  template to component and component  to template
+is called 2 way  data binding
+in angular  formsmodule  provides  a [(ngModel)]   directive
+it is   also called banana in  box
+ngModel direcive    is  available in forms module
+which u  need to import in  [imports] array  in app.module.ts
+
+
+property  binding using ngStyle
+ngStyle is attribute directive which  applies  cosmetics  to html element
+className 
+className is  property  used  to specify cosmetics to elements using  css class selectors
+ngClass
+it is  angular attribute   directive  used to apply cosmetics to HTML
+
+
+
+
+
+elements  through class selector
+style.color
+it is property  of the element  used  to   cosmetics to HTML elements
+
+
+
+
+
+1)  write a  angular program  to create a toggle button
+when   u click the  button  it  must display  content
+again when u click the  button content  must be dis appeared
+
+
+2) using [(ngModel)] Directive  illustrate   2 way  data  binding
+
+3) write a  angular program to create a  button sumofdigits
+when u click the  button   sumof digit must be displayed
+no entered  from html text  field
+
+

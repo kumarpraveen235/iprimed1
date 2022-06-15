@@ -1,0 +1,204 @@
+Bootstrap  is  a   free  front end frame work
+for  faster and easier  web development
+it  includes    HTML and CSS  based design   templates   for  typography , forms, buttons, tables
+navigation   e.t.c
+used to create  a  responsive web pages
+
+Respnsive   web design is   about creating web sites    whcih automatically    adjust  themseves
+to look good on  all devices   from small  phones to   large  desktop 
+
+current version id  5
+
+
+Advantages
+Easy to use
+Responsive feature
+Mobile  first approach
+Browser cmpatability
+
+
+2 ways  to install   bootstrap
+
+1) cdn CONTENT  DELIVERY NETWORK
+2) off line   down loading bootstrap  library
+
+
+
+typography
+utility classes
+bootstrap  provides following color classes
+primary   secondary    success   danger  warning info  light   dark   white
+
+width classes w-25 w-50  w-75 w-100
+height classes h-25 h-50.....
+m-   margin
+p-padding
+m-4   p-4
+containers
+used to pad   the content   inside of them
+2 types
+container
+container-fluid
+
+
+t---top
+b-bottom
+s  mergileft/right
+e paddig right/left
+
+
+jumbotron class
+it is  big padded   box  for calling extra  attention to  some
+special   content or info
+
+
+
+badges
+adds   additional info to contents
+
+Breadcrumb
+it is a  form  of pagination indicates the   current page's location
+within a  navogational directory
+
+cards
+it is  bordered  box   with   some padding   around it's content
+it includes   options   for headers footers   contents   colors e.t.c
+
+nav bars
+it is a   navigation  header which is  placed  at the  top of the page
+in boot strap navbar  can extend  or  collapse
+
+
+
+
+
+<dl>
+<dt>
+<dd> 
+containers
+grids
+colors
+tables
+images
+jumbotron container
+alerts
+buttons
+badges
+progressbars
+spinners
+pagination
+lists
+cards
+dropdowns'navvar
+collapse
+forms validation
+
+
+grids
+bootstrap   provides  12 column grid
+
+
+
+advanced  web technologies
+
+typescript
+angular   based on typescript
+
+download node js 14
+
+
+node js  has  a module called npm  
+node package manager used  to install  s/w   like  angular typescript  react  e.t.c
+
+
+
+type  script is  installed by  following  command in  node js
+npm install -g   typescript@version
+-g  installs   type script globally 
+means u can install  typescript through out computer
+
+
+Execution
+typescript uses  babel  TARNSPILER  to ganerate the executable  code
+
+
+first  u write the  program  and  save it  by .ts  extn
+then  transpile it by
+
+tsc   filename.ts
+
+tsc  is called  type script compiler  transpiles and converts  ts to js
+then  execute js by
+node  filename.js
+
+
+types script
+it  is   strongly  typed    object oriented     compiled   language
+Developed  by Andres  Hejlberg  from  microsoft
+it is a language and set  of tools
+it is a  super set of js  and it is  compiled  to js
+
+Features
+it is  just  js
+it supports  other  js libraries  like react  /  jqury/   angular  e.t.c
+it is portable
+we can say that  js is ts
+
+
+advantages
+compilation
+
+strong static typing
+supports  oops
+
+
+
+components  of type script
+Language
+Type script compiler   converts  ts  to js
+TLS (type script language service)
+
+data type
+number
+string
+boolean
+any
+null
+undefined
+void
+user defined types
+
+3  ways  to declare a  variable  
+
+var   global scope
+ let   block  scope
+const   constant through out the program
+
+
+
+
+
+assignments
+1)create  html form  and  create  text field  to enter  mobile  phone  no
+and  submit button  using  bootstrap validation
+enter  exctly  10   digits  else  display  invalid  no and after entering  correct no
+display no
+
+
+2)   using  bootstrap   html create  dropdownlist    country
+ and submit  button if  u clicked the submit button without selecting
+display   kindly select    country  else display selected  country name
+
+3) using diff boot strap  classes   design a  table and  display in center
+
+4) create    List  of   sports using    Boot strap  list group class
+
+
+
+
+
+
+
+
+
+

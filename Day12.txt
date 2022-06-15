@@ -1,0 +1,269 @@
+Set  interface
+it   supports   unique elements
+2 interfaces
+
+Set interface   SortedSet interface
+
+
+methods  of Set  interface
+the methods  are  same  as   List interface  only
+
+we  don't has following  methods
+Object  remove(index i)
+ListIterator listIterator()
+but we have  foll method
+Object  remove(Object o)
+
+HashSet  class
+it implements  Set  interface
+it uses  Hashing Technique  to store the  values
+hashing  technique   hash  function to cacculate the address
+This   address  is used as an  index  to store  values
+
+supports unique elements  null  elements  generic/non generic elements
+o/p  any order
+
+constructor
+HashSet()
+HashSet(Collection c)
+HashSet(int size)
+
+create a  class called  Student  with id name and age
+Create   2  object   of Students  with  identical value
+and store in  HashSet
+
+
+hashcode()  : it is  a  method of  Object class
+it represents the  intger value  for  object
+when the object is created   the java compiler provides the  hash code for each object
+
+note:  hashcode is not generated  for primitive  data types
+Syntax
+public  int hashCode()
+{}
+
+
+public boolean equals(Object o)
+
+
+it is  also a method of Object class
+compares the 2 references of  objects
+if  2 objects hashCodes are  equal  then   the 2 objects/ 2 obj ref id are also  equal
+
+in the   above hashset  program   compiler uses   default hashcode & equals method
+since  2 objects are  created    using  new key word
+they stored in heap area. if those  2 objects  are  same  values since  they
+uses new key word  they stored in diff heap area  their references are  different
+& hashcodes are also  different
+
+to solve  this problem we need to override
+hashCode & equals()  method
+
+LinkedHashSet  class
+it implements  Set  interface
+it uses  Hashing uses Technique  to store the  values
+hashing  technique   hash  function to cacculate the address
+This   address  is used as an  index  to store  values
+
+supports unique elements  null  elements  generic/non generic elements
+o/p  is insertion  order
+
+constructor
+LinkedHashSet()
+LinkedHashSet(Collection c)
+LinkedHashSet(int size)
+
+SortedSet   interface
+it extends   Set interface
+it o/p the  result in ascending order
+it has  some  extra methods
+
+SortedSet  headSet(Object   from)
+SortedSet  tailSet(Object   to)
+SortedSet  subSet(Object   from, Object to)
+
+TreeSet  class implements  SortedSet  interface
+TreeSet  stored the  data in Hierachical  structure
+Stores  Large no of data
+since o/p is ascending order  u can access the data fast
+TreeSet  support  unique  elements, generic elements  non null elements
+o/p  is ascending order
+
+constructor
+TreeSet()
+TreeSet(int size)
+TreeSet(Collection c)
+TreeSet(Comparator c)
+
+
+w.ap  to  enter   10  integers  in HashSet and  sort it
+
+create  a Class called  Product  with  id name and price
+insert  3 objects of Product in TreeSet and  Display
+
+create  a  class called  Book with id name  author and  price
+insert  5 objects  in HashSet and  sort on author and price
+
+Map interface
+
+it stores the data  in key value  pair
+key must be unique (left)   value  can be duplicated(right)
+Eg   Emp  id as  key   name as  a value
+     Stud name as a key   marks as a value
+
+methods
+public   Map put(Object  key, Object value) inserts   1  row  into map
+Map putAll(Map m)  adds   elements  of 1 map  to other
+Set   entrySet()  returns   key value  pair of map
+Set   keySet()   returns only keys
+void  remove(Object key)  removes keys
+Object  get(Object  key)  returns  value for key
+boolean  containsKey(Object  key)  checks  key is present in map or not
+boolean containsValue(Object value) checks  value is present in map or not
+Collection   values()  returns only values
+
+HashMap
+
+it implements  Map  interface
+it uses  Hashing Technique  to store the keys
+hashing  technique  uses hash  function to calculate the address
+This   address  is used as an  index  to store  keys
+
+supports  1 null key   multiple null values
+keys and  values  both  can be  generic and  non generic
+key  must be unique  value can be dupicated
+o/p is any order on key basis
+
+constructor
+HashMap()
+HashMap(Map m)
+HashMap(int size)
+
+LinkedHashMap
+
+it implements  Map  interface
+it uses  Hashing Technique  to store the keys
+hashing  technique  uses hash  function to calculate the address
+This   address  is used as an  index  to store  keys
+
+supports  1 null key   multiple null values
+keys and  values  both  can be  generic and  non generic
+key  must be unique  value can be dupicated
+o/p is insertion order on key basis
+
+constructor
+LinkedHashMap()
+LinkedHashMap(Map m)
+LinkedHashMap(int size)
+
+Iterating elements  of Map?
+using  keySet() & get()  method
+
+
+
+
+create  a  class called  Student with  name and  city
+Create  a class called   Course  with  cname and  semister
+insert  3  object  of  Student  as  KEY  and
+insert  3  object  of  Course as  VALUE in  HashMap
+and  display
+
+o/p must be
+ajit from goa studing MCA in  4th semetser
+
+
+SortedMap   interface
+it extends   Map interface
+it o/p the  result in ascending order  on key basis
+it has  some  extra methods
+
+SortedMap  headMap(Object   from)
+SortedMap  tailMap(Object   to)
+SortedMap  subMap(Object   from, Object to)
+
+TreeMap  class implements  SortedMap  interface
+TreeMap  stores the  data in Hierachical  structure
+Stores  Large no of dataas a key value pair
+since o/p is ascending order on key baiss  u can access the data fast
+TreeMap   does not supports  NULL key, non generic  keys
+but in TreeMap  value  can be  null, generic, non generic
+key must be non null  and generic
+o/p  is ascending order  on key basis
+key must be unique  and value can be duplicated
+constructor
+TreeMap()
+TreeMap(int size)
+TreeMap(Collection c)
+TreeMap(Comparator c)
+
+
+create  a   class called person   with  name and  age
+create  a  class  called adress with   state and city
+insert  3  object  of  person as  KEY  and
+insert  3  object  of  adress as  VALUE in  a TreeMap
+and  display w.r.t  to   name  in ascending order
+
+in  Map  interface  don't  sort on user  defined class  fields  stored as value
+
+in  Map  interface  ALWAYS sort on user  defined class  fields  stored as key
+
+create a  class called Student  with  name and  standered 
+create a class called  Subject  with  sname and marks
+insert  3  object  of  Student as  KEY  and
+insert  3  object  of  Subject as  VALUE in  a HashMap
+and sort  on  student name and student standered  wise and display 
+
+Legacy  class in Map  interface
+Hashtable Properties
+both classes  implements  Map  interface
+
+both  does not support null  key and  null value
+in  both classes o/p  is   any  order  on key basis
+both classes  used to store  database   configuration
+in Hashtable   key and  value  can be generic and  non generic
+but in
+Properties key and value  must be non generic
+
+Contsructor
+
+Properties()
+Hashtable()
+Hashtable(int size)
+
+Both classes are  Synchronized contains Extra  methods
+
+methods  of  Properties  class
+void load(InputStream  i) loads  the  properties file
+String getProperties(String s)
+returns  value  for Key
+
+
+
+1) write  a  program to enter 10  elements in HashMap
+where  key and  value  both  must be String
+Display  only  values in a sorted Order
+2) Write  a  program  to enter 7 elements  in Vector and  Convert into Stack
+3) Create  a class called   Employee  with  id, name  des and salary
+Insert   5 Objects of Employee  In TreeSet and  Sort on des in desc  order
+and sort  on sal in asc  order
+4)  Create  a class called   Employee  with   name  and des
+ Create  a class called   Department  with   dname  and city
+Insert   3 Objects of Employee  as a Key and
+Insert   3 Objects of Department  as a Value in  TreeMap and
+Sort on des  and Display
+
+O/P
+Hari an Engineer  works  in IT department at  Goa
+John a  Manager works  in HR department at  Pune
+
+5)create   Your own Generic  Class called  First  which  sets  one  value as a Integer
+and Display
+
+O/P First<Integer>  f=new First<Integer>();
+       f.setNumber(10);
+    System.out.println(f.getNumber());
+MUST be  10 as O/P
+
+
+
+

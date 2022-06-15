@@ -1,0 +1,477 @@
+export class AppComponent {
+  /* firstName:string="mohan";
+  lastName:string="kumar";
+     
+  getFullName():String
+  {
+    return this.firstName+"      "+this.lastName;
+  }
+   */
+  flag:boolean=false;
+  title:string="welcome to angular  12";
+  url:string="/assets/app1.jpg";
+  n:number=0;
+  name:string="";
+  display()
+  {
+    console.log("Hi  hello ")
+  }
+  inc()
+  {
+    this.n++;
+  }
+   displayName()
+   {
+    this.name="";
+   }
+
+}
+
+
+
+HTML
+
+
+<!-- <h1>{{firstName}}  -   {{lastName}}</h1>
+<h2>{{getFullName()}}</h2> -->
+<!-- <h1 [innerHTML]="title"></h1>
+<h2>Product {{10*10}}</h2>
+<button [disabled]="flag">i am  disabled</button>
+<img  [src]="url" width="200px" height="200px">
+<br/>
+<img  src={{url}} width="200px" height="200px"> -->
+<!-- <div [className]='"red size"'>I will  get  color</div>
+<div [ngClass]='"red size"'>I will  get  color  through  angular dir</div>
+<div [ngStyle]="{'color':'purple','font-size':'130px', 
+'font-weight':'bold'}">
+I will get  these  styles
+</div>
+<div [style.border]="'5px dotted red'">I will   get  border</div>
+<div [style.background-color]="'yellow'">I will  yello back</div>
+ -->
+ <!-- <button (click)="display()">Click</button>
+ <hr/>
+ <button (click)="inc()">increase</button>
+ <h2>value is {{n}}</h2>
+ <input type="text" [value]="name"
+ (input)="name=$any($event.target).value">
+ <h1>You entered    {{name}}</h1>
+ <button (click)="displayName()">2way  databinding</button> -->
+
+<h2>built in 2 way  data binding</h2>
+<input type="text" name="name" [(ngModel)]="name">
+<h2>You  entered {{name}}</h2>
+<button (click)="displayName()">2way  databinding</button>
+
+
+
+Directives
+3   kinds
+1)Component  directive   used  to create a  component
+Eg @Component
+2)attribute directive
+  used to apply cosmetics to the  HTML elements
+eg  ngStyle   used to apply style
+  ngClass  used   to apply   style through  class selector
+  ngSwitch    used  to      apply    switch  case
+ [(ngModel)]     used  to  i/p and  show  o/p
+
+3)  structural directive
+
+used to specify  how to display elements
+*ngIf
+*ngSwitchCase
+*ngSwitchDefault
+*ngFor
+
+    
+ 
+ toggle:boolean=true;
+      doToggle()
+      {
+        this.toggle=!this.toggle;
+      }
+
+<button (click)="doToggle()">toggle</button>
+{{toggle}}
+
+
+<h1>Student info</h1>
+<ul>
+    <li *ngFor="let  s of students;">
+      {{s.id}}  - {{s.name}}  - {{s.age}}
+    </li>
+</ul>
+<br/>
+<table border="2" width="40%">
+<thead>
+    <tr>
+     <th>index</th>   <th>id</th><th>name</th><th>age</th>
+    </tr>
+</thead>
+<tbody>
+    <tr  *ngFor=
+    "let  s of students;let i=index;let first=first;let last=last;
+    "[ngClass]="{first:first, last:last}">
+        <td>{{i}}</td>
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.age}}</td>
+    </tr>
+</tbody>
+
+
+</table>
+
+.first{
+    background-color: red;
+}
+.last{
+    background-color: green;
+}
+
+export class AppComponent {
+         students=[
+           {id:1,name:"vijay", age:20},
+           {id:2,name:"vinay", age:28},
+           {id:3,name:"vishal", age:25},
+           {id:4,name:"vikas", age:22},
+
+        ];
+     
+}
+
+
+<table  border="2" width="40%">
+    <thead>
+   <tr> <th>name</th><th>mail</th><th>skill</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let e of employees;">
+<td>{{e.name}}</td>
+<td>{{e.email}}</td>
+<td>
+    <table>
+        <tbody>
+        <tr *ngFor="let s of e.skills;">
+            <td>{{s.skill}}</td>
+            <td>{{s.exp}}</td>
+        </tr>
+        </tbody>
+    </table>
+</td>
+    </tr>
+    </tbody>
+</table>
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root1',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+        employees=[
+        {  name:"rahul",email:"r@gmail.com",
+      skills:[{skill:'angular', exp:2},
+      {skill:'react', exp:2},
+      {skill:'spring', exp:6},
+      {skill:'springboot', exp:5},
+    ]  },
+    {  name:"rakesh",email:"rk@gmail.com",
+    skills:[{skill:'python', exp:3},
+    {skill:'css', exp:10},
+    {skill:'html', exp:10},
+    {skill:'javascript', exp:5},
+  ]  },
+  {  name:"ram",email:"rm@gmail.com",
+  skills:[{skill:'hibernate', exp:4},
+  {skill:'ruby', exp:1},
+  {skill:'spring', exp:6},
+  {skill:'springboot', exp:5},
+]  },
+{  name:"asha",email:"ah@gmail.com",
+skills:[{skill:'angular', exp:2},
+{skill:'react', exp:2},
+{skill:'spring', exp:6},
+{skill:'springboot', exp:5},
+]  }
+        ]
+     
+}
+
+
+[ngSwitch]   attribute  directive
+acts as as    case   value
+
+*ngSwitchCase    acts as a   comparig  actual  case  value  with   defined case  value
+
+*ngSwitchDefault  if  none of case  value  does not  matches  then  it executes  default case
+value
+
+
+
+<h1>switch  example</h1>
+<input type="text" [(ngModel)]="num"/>
+<div  [ngSwitch]="num">
+    <div *ngSwitchCase="'1'">one</div>
+    <div *ngSwitchCase="'2'">two</div>
+    <div *ngSwitchCase="'3'">three</div>
+    <div *ngSwitchCase="'4'">four</div>
+    <div *ngSwitchCase="'5'">five</div>
+    <div *ngSwitchDefault>The deafult value</div>
+    
+
+</div>
+
+export class AppComponent {
+num:number=0;
+
+
+}
+
+*ngIf
+
+<ng-template>
+used to define the  template
+or manufactutre the  template
+
+
+
+
+<h1 *ngIf="show">Hi hello  how are you</h1>
+
+show<input type="checkbox" [(ngModel)]="show"/>
+
+<h1>if</h1>
+<h2 *ngIf="show">
+    show  checked
+     
+</h2>
+
+<h2 *ngIf="!show">
+    show un checked
+     
+</h2>
+
+<h1>if else</h1>
+<h2 *ngIf="show; else elseblock1">
+
+show checked
+     
+</h2>
+
+<h1>if else  then</h1>
+<h2 *ngIf="show; then thenblock2 else elseblock2">
+this  is not displayed
+
+</h2>
+<ng-template #elseblock1>
+    show unchecked  using else block
+</ng-template>
+<ng-template #elseblock2>
+    show unchecked  using else block
+</ng-template>
+<ng-template #thenblock2>
+    show checked  using then block
+</ng-template>
+
+
+<h2 [hidden]="show">Hi Hello</h2>
+
+
+export class AppComponent {
+show:boolean=false;
+
+
+}
+
+
+
+
+Pipes
+
+used to   modify the  resources
+built in pipes
+date, uppercase lowercase number percent currency json slice
+custom pipes
+
+
+<h2>
+    <p>Date :  {{toDate}}</p>
+    <p>Medium: {{toDate | date:'medium'}}</p>
+    <p>full :{{toDate | date:'fullDate'}}</p>
+    <p>short :{{toDate | date:'short'}}</p>
+    <p>long :{{toDate | date:'longDate'}}</p>
+    <p>mediumdate :{{toDate | date:'mediumDate'}}</p>
+    <p>shortdate :{{toDate | date:'shortDate'}}</p>
+    <p>mediumtime :{{toDate | date:'mediumTime'}}</p>
+    <p>dd-MM-y :{{toDate | date:'dd-MM-y'}}</p>
+    <p>dd-MM-yy :{{toDate | date:'dd-MM-yy HH:mm'}}</p>
+    <p>uppercase :{{msg | uppercase}}</p>
+    <p>lowercase :{{msg|lowercase}}</p>
+    <p>substring :{{msg|slice:11:20}}</p>
+    <p>original :{{num}}</p>
+    <p>formatted :{{num|number}}</p>
+    <p>formatted :{{num|number:'3.1-5'}}</p>
+    <p>formatted :{{num|number:'7.1-5'}}</p>
+    <p>percent :{{per| percent}}</p>
+    <p>percent :{{per| percent:'1.2-4'}}</p>
+    <p>currency:{{cur| currency}}</p>
+    <p>currency:{{cur| currency:'INR':true:'4.5-6'}}</p>
+</h2>
+<h1>Person  info</h1>
+<h1>
+<ul>
+    <li *ngFor="let p of persons">
+        {{p.id | json }} -{{p.name | json }} - {{p.city | json}}
+    </li>
+</ul>
+</h1>
+
+
+export class AppComponent {
+    toDate:Date=new Date();
+    msg:string="welcome to angular 12";
+    num:number=9542.22677568686;
+    per:number=0.74488094353;
+    cur:number=175757;
+    persons=[
+      {id:1, name:"arun", city:"goa"},
+      {id:2, name:"raj", city:"agra"},
+      {id:3, name:"amit", city:"pune"},
+      {id:4, name:"ajay", city:"surat"},
+      {id:5, name:"akash", city:"jammu"},
+    ]
+}
+
+custom pipes
+
+how  to create  our  own pipes?
+if i create   my own pipe  it is called  custom   pipe
+it is created  by @Pipe  decorator
+
+how to create   your own  pipe
+i need to  implement  you Custom Pipe  class with PipeTransform interface
+it as a  method called   transform
+in transform() method u need to specify  cutom pipe logic
+
+
+
+
+to convert   celcius  to faranheit  formula is
+
+(value-32)/1.8
+
+
+
+
+to convert  faranheit to celcius formula is
+
+(value*1.8)+32
+
+
+import {Pipe,  PipeTransform} from '@angular/core';
+@Pipe({
+    name:'tempconverter'
+})
+export class tempconverter implements  PipeTransform{
+    transform(value: number, unit:string) {
+        if(value &&  !isNaN(value)){
+            if(unit==='C'){
+                var temp=(value-32)/1.8;
+                return temp;
+            }
+            else
+                if(unit==='F'){
+                    var temp=(value*1.8)+32;
+                    return temp;
+                }   
+            }
+            return;
+        }
+    }
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root1',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+//no:number=58;
+cel:number=0;
+faran:number=0;
+}
+
+
+
+    <!-- <h1>square of a number: {{no|square}}</h1> -->
+    <h1>faranheit to celcius</h1>
+    <h2>
+    faranheit:
+    <input type="text" [(ngModel)]="faran"
+    placeholder="enter  temp in faran"/>
+    celcius:{{faran|tempconverter:'C'}}
+    </h2>
+    <h1>celcius to faranheit </h1>
+    <h2>
+    celcius:
+    <input type="text" [(ngModel)]="cel"
+    placeholder="enter  temp in celcius"/>
+    faranheit:{{cel|tempconverter:'F'}}
+    </h2>
+
+import { Pipe, PipeTransform } from "@angular/core";
+@Pipe({
+    name:'square'
+})
+export  class CustomSquare implements PipeTransform{
+  transform(value:number) {
+      return value*value;
+  }
+}
+
+inline   template
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root1',
+  template:`<h1>{{title}}</h1>
+  <div>{{firstName}}  -  {{lastname}} </div>`,
+  styles:
+  ['h1 {color:#ff0000; font-size:50px; background-color:yellow}',
+  'div {font-weight:bold;font-size:50px} ']
+})
+export class AppComponent {
+   title:string="welcome to angular 12.0";
+   firstName:string="praveen";
+   lastname:string="kumar";
+}
+
+how to  create  a  child component?
+ng  -g  component    customer
+
+
+
+
+
+create a  array of size of 5 object movie with proprties name director relesedyear
+display in  a table using *ngFor  directive
+
+read  a salary from    textfield
+using *ngSwitchCase & [ngSwitch] & *ngSwitchDefault
+display  if sal ===30000     i am a  programmer
+       if  sal ===450000  i am  s/w  eng
+          if  sal ===70000  i am sr s/w  eng 
+      if  sal ===100000  i am  project  leader
+       if  sal === 150000  i am  project manager
+   else
+         i am not belongs to   any designation
+
+create  custom pipe called  fact  to find the factorial  of a no
+

@@ -1,0 +1,88 @@
+Nesting of Component
+
+create  a  child  component customer     with id    name addr city    state country
+and display info through  child  component  html   and nest into  parent component
+
+
+Component   communication
+Angular   support
+both communication
+1) parent to  child
+@Input   decrator
+2)   chid to parent
+@Output decorator
+as well as @ViewChild  decorator
+
+
+
+sending the   message  from   child to parent
+
+ u can send  the  message  / communicate  from  child to parent  component
+using @ViewChild  decorator.This   decorator is  used in parent component
+which must  implement AfterViewInit life cycle hook
+AfterViewInit life cycle hook     has a method called
+ngAfterViewInit()   in this  method  u can  see the  see the  child component
+
+
+
+communication  from child to parent  using  o/p emmitter
+
+Event emmitter is  a  object used  to   fire   event
+it has a method called   emit()
+
+
+creating  custom directives
+
+creating   the custom attribute  directives
+this   can  be  achived y
+@Directive  decorator
+
+@HostListener decorator is used to wotk with  events in angular
+
+
+Angular  provides elementref object  used to   apply  cometic to HTML element  through
+custom   attribute  ditective  
+this  can be achived  by it's  nativeElement  property
+
+
+
+
+
+Dependency injection
+part  of  a code is  saperated from  program and specified it in a saperate
+class(service class) and that  class  object i will  use it in
+component  class
+that class object is created  in constructor in component  class  wich contains  business
+logic or a service layer. It is  wriiten  in a saperate file
+annotated  with @Injectable  decoartor
+and  specified  in providers array of app.module.ts  file
+
+  it is  called dependency  injection
+ 
+create a  class called  product with  id name and price
+create  5 objects   and  display it  through  table
+
+safe navigation operator(?.)  is in typescript  
+eliminates the  error generated  by inputting null values
+forces developer to enter  non null values
+
+
+
+1)
+using  depenedency injection  in angular write   a  program  to   find  the   cube  of  no
+no must  be enetered from text  field
+and  business logic  must  be  written  in the service class
+
+2)
+create   studentcomponent (child1) which contains   5 objects  with id name  age  properties
+creare   Course  compoent  (child 2)which  contains  5 objcects  with  id cname properties
+
+store   each   components data  in the  table  and  nest  in  parent component(APP Component)
+
+o/p  must  be
+stud info
+table
+couse info   with bootstrap
+table with bootstrap
+
+

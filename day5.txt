@@ -1,0 +1,448 @@
+
+static   to a instance variable
+
+syntax  
+public static  int a=100;
+
+
+when  u apply static  to a  instance  variable   they  will be stored in class area
+these  varaibles  get  the  values at the class loading time
+static varaibles  shared  among multiple  objects
+they  represents the  common properties of the Object like
+emps of same company  students of same college
+used for memory  utilization
+these varaible  cannot be used in  costructors  for  initilaization
+u can modify static variables
+cannot  be used with this  keyword
+
+write   program  to implement  copy  constructor  in java
+used to copy the  values of one obj to other  object
+
+write  a program  to prove  that this  key word is  used  to  refers a current
+class instance  varaible
+
+create  a class called  Student with  id, name  subject and  marks
+Create  array   3  students and  enter  above info and display
+use   constructors   and methods
+
+static   to methods
+
+
+static  key word is also  applied to methods
+when u apply static  key word to methods  such  methods  can be  invoked
+with  out creating an object
+Eg main  method  
+static  methods  must access  only static  variables
+u can also  invoke  static  method  directly  by the name of class
+
+syntax
+
+public  static  void m()
+{}
+public static  int m1()
+{
+    return 10;
+}
+
+
+class  A
+{
+    int  s=100;
+  public static void main(String[] args) {
+	   
+	   System.out.println(s);
+}
+}
+
+
+static   variables  to blocks
+
+block is a  another  place  where  u can perform   operation  (business logic)
+along with methods and constructors
+syntax
+
+static {
+code;
+}
+
+
+
+it is  similiar  to static  methods  only
+
+it executes   before  main method
+up to jdk 1.6 u can  execute java  program with static  block without  main method
+
+
+u cannot define any methods / constructors in static  blocks 
+u can declare  variable  but  u cannot declare  static variables
+
+it gets memory @ class loading time
+like static method  static  block  must also  access   only static   instance  variables
+
+
+
+if i declared  static  variables   but not initialized then  it is  called
+
+blank static   variables
+blank static  variables are initialized in  static  blocks
+
+static   key word is also  applied to nested   classes
+
+
+NESTED CLASSES
+
+When  a  class is defined   within another  class
+it is  called   nested  classes
+Syntax
+
+class    A
+{
+     int data=100;
+    
+ class  B
+{
+      int  a=100;
+     void m()
+{}
+}
+}
+
+
+in the  above eg   A is called  outer class (TOP level class)
+
+B is  called  nested  / inner classs
+
+
+class B can  have   public/private/protected/default/abstract/static/final
+
+access  specifiers
+
+
+But A is a  TOP level class  must have  only
+public/default/abstract/final access specifier
+
+
+advantages  of nested classess
+
+1)  since  all  classes are  specified at same location  u can easily maintain the 
+code
+2)  improves the  CODE  optimization  code  readabiliy, re usability
+3) nested classes can also access  all members  of   outer classes
+including private
+
+
+
+
+types of nested  classes
+
+1) non static  nested classes
+if the  nested class is  defined inside   outer class  with out static  key
+word it is called   non static   nested class   
+These are also  called  inner classes
+
+class    A
+{
+     int data=100;
+    
+ class  B
+{
+      int  a=100;
+     void m()
+{}
+}
+}
+3  types
+
+1)  member  inner class
+if the  nested class is  defined inside   outer class  but  out  side the  method
+is called  member inner class
+It can  be invoked within a  class / out of the  class
+
+
+2)   local innner  class
+
+if the  nested class is  defined inside   outer class & also in side the  method
+is called  local inner class
+Rules
+1) local inner class  must   be  instantiated   within the  method
+2) local inner  class must be  default  / final 
+3)  local  inner class  must access  only final / default  local  variable
+
+
+
+
+
+
+3) anonymous inner class
+
+
+
+
+
+
+
+2) static   nested classes
+
+if the  nested class is  defined inside   outer class  with  static  key
+word it is called   static   nested class   
+these   must  access   only the  static  members  of outer class  including
+private
+
+static   nested  classes  can also have  private  public  default protected
+
+
+
+
+INHERITANCE
+
+
+if  one   class / object   aquires  properties or  behaviour   of another or parent class
+/object it is called  INHERITANCE
+it is  IS-A relationship  
+used  to create   new classes  with   existing  class properties
+a class   which   got inheritted  is called  super/base/parent  class
+a   class   which does inhertting is called sub class/  child class
+Syntax
+class  Emp
+{   int  sal; String name;
+}
+class  Manager   extends   Emp
+{
+      int bocus;
+}
+
+here  Manager  is called sub class
+Emp is called  super class
+
+u can   achive  inheritance in java   by 2  keywords  extends &implements
+
+in java   at the  class level   MULTIPLE  INHERITANCE is not
+possible  because of ambiguity
+
+
+types  of  inheritance
+1)  single  inheritance  
+
+1 class  extends  1 class
+
+class A{}
+class B extends  A{}
+
+
+2)   Hierarchical  inheritance
+
+in this  more than  1  sub class  extends   same  parent class
+
+class A{}
+class B extends  A{}
+class C extends  A{}
+
+3)   Multi level  inheritance
+
+in this    sub classes  extends  parent  class  in   chaining  of inheritance
+
+class A{}
+class B extends  A{}
+class C extends  B{}
+
+4)  Multiple  inheritance
+
+it   is  not supported at  class level
+supported at  interface  level
+
+like  one interface can extend  2 / more  interfaces
+
+one  class  can implement  2/ more   interfaces
+
+
+interface  A{}  
+interface  B{}
+interface  c  extends A, B
+{}
+
+or
+
+interface  A{}  
+interface  B{}
+class  c  implements A, B
+{}
+
+
+
+method overriding?
+in a  class  hierarchy (IS - A relation ship) when   sub class  method   has   same  name 
+and   same  type  signature(return type & parameters)as  that of  super class method
+then we say that  sub  class method  has overridden   super class  method
+
+need
+to provide a  saperate  implemenattion  for   sub class method  which is already
+defined  by super class ,
+  we need  method overriding
+
+it is  also  called  as  run time polymorphism
+
+JAVA  annotations
+
+
+annotations  are  introduced  in jdk 1.5
+these  provides  run time  info to JVM at  run time
+these  are  applied at  class  method  interface variable &  constructor level
+2  types
+built in  
+these  are present in  java.lang.* pkg
+eg: 
+@Override  @SupressWarning  @Deprecated
+
+@Override
+it is a method level annotation forces  DEVELOPER  to compulsorily
+override the method
+
+
+
+static   methods   cannot be overridden
+as  these methods  are invoked with out creating objects
+u can   invoke  these  methods  through the class name
+
+
+access  specifiers   in the  method overriding
+
+access  specifiers  from  most restricted to widest  scope
+
+private  default protected  public 
+
+
+rule  
+in method  overriding accessspecifier  of the  sub class  overridden method
+
+must have a  WIDEST SCOPE  compared to the accessspecifier  of the  sub class   method
+else  u will  get compile  tie error
+
+
+
+
+
+
+
+custom   when u create  our own annotations   we call it as custom annotations
+
+List out  differences   between  method overloading and  overriding
+
+
+
+Run time  polymorphism  /  up  casting
+
+
+call   to overridden method   is resolved at run time  rather  than  compile  time
+is called   upcasting or  run time  polymorphism
+in this   super class reference  variable  refers to sub class object ,  based
+on this   this  referece  variable  which  refers to which version of  overridden  method,
+
+that  version version  of  overridden method  executes.  This  is  decided at  run time
+
+Note  To achieve  up casting  there  must be  method overriding
+
+
+upcasting is   possible  only for  overrodden method
+it will not work for    data members/ instance  variables
+
+
+use: to reduce   burden of   sub class   we use  upcasting
+
+
+down casting
+
+in this   sub class  reference  variable  refers to super  class  object
+but  you  will get   compile  time  error
+
+if   u  type  cast with  sub class  u will get   ClassCastException as  super
+class has  less memory compared to suB class
+
+Then  to achive  down casting  first
+
+achive  upcasting then  do down casting
+
+NOTE:WITH OUT  UPCASTING U CANNOT ACHIEVE  DOWN CASTING
+
+
+
+super   key word
+
+it is used  in  3  forms
+1)  used to refer  a   super class  instance  varaible
+
+syntax   super.instnacevarname;
+2)  used  to invoke a   super class method
+super.methodname()
+3) used  to refer a  super class constructor
+
+super()   super(a); super(a,b);    
+
+
+Note: Like  this  key word  super is also  not used in static  context
+
+
+when u use   super  key word to invoke  super class  constructor
+following rules  must  be  applied
+1)  call  to  super  must be always  1st statement  in the sub class  constructor
+2)   when  u are using  super keyword  to invoke super class   constructor
+compiler  implicitely  supplies   super()  key word as A first statement in
+sub class constructor
+
+create  2 classes  
+
+class  A
+Contains   2  no
+
+class  B extends   A
+contains   1  no
+
+uisng  inheritance  find the  sum of  3 no
+
+
+wap  to find  the area  of TRiangle  and Reactangle  using  
+hierachical  inheritance, upcastng  method overriding and  super
+
+read   data  from board
+
+
+Init block  
+instance  initilaizer block
+it is usd to  initialize the  instance  variables
+it  runs  each  time  when the  object  of the class is created
+
+Initilaization of  instance  varaibles   can be  done directly  but
+there  can be performed some extra operations  while initilializing  the   instance  
+variables  in the  init block
+
+syntax
+
+{    initilaization logic }   // init block
+
+
+
+
+init   block  will   always  executes   after   constructor
+
+means   if u have an inheritance  then  
+
+
+1st   super class   constructor executes  then  init  block executes
+then  sub  class  constructor executes
+
+if    if u  don't have an inheritance  then  
+
+
+1st   init block executes then   constructor executes
+
+
+
+
+
+
+1) w.a. p  to calculate the  net salary  of  employee
+by reading   id, name , designation and  basic salary
+net sal=bs+da(150%bs)+hra(30%bs)-tax(2%bs)
+use  inheritance
+
+2)prove that  init  block is always  exeuted  after constructor
+

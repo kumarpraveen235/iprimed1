@@ -1,0 +1,329 @@
+void  suspend()   temporarily   suspends the  thread  but  it can be resumed through
+resume()   method
+void resume()  resumes  temporarily  suspended thread
+void  stop()    stops the   execution of thread   but stopped  thread  can't be resumed
+
+in all   above  3 cases   thread is  alive()
+
+these  methods are  deprecated  from  jdk 1.2
+as these  have serious  issues
+
+
+what is  daemon thread?
+means   it is   back ground thread
+it is   a  low  priority  thread
+it's  life time depends  on user  thread
+if all user threads  are destroyed then jVM automatically destroys  daemon thread
+Built in daemon thread is   gc performs the garbage collection
+
+Daemon  thread  performs  back  ground tasks like
+Autmatic garbage collection/ creating   and  assigning  names at  back ground to
+anonymous inner classes/ anonymous  objects   e.t.c
+
+How  to create  Daemon thread?
+we can  do it  using  setDaemon() method
+note  : to create  daemon thread   u must  not start the thread
+first  create daemon thread and  call start() else
+it throws  IllegalThreadStateException
+
+
+Synchronization
+
+it will not allow to more than one thread to  access  same  resource  symultaneously
+it allows  only thread   can acceess  one resource at a  time
+it hurts the  performance of the application
+advantages
+1)  u will get  consistant  result
+2)  there  no  thread  interfference
+
+u can achieve  synchronization  by using   
+synchronized  key word
+it is applied to  3 places
+1) methods   
+2)static  methods
+3) blocks
+
+when u apply   synchronized  key word  to methods   then  lock exists  at a 
+object  level.  It is  called   method synchronization
+lock means  when  any thread  access the   resource  we  can say that  thread  has  aquired  lock
+
+when  any thread  releeases  from the  access of   resource  we  can say that  thread  has
+released the  lock
+
+syntax   public  synchronized  void m()
+
+here   m() method  must be accessed  by 1 thread  at a  time
+means  m() method  cannot be  accessed by more than thread  symultaneously
+
+
+display the multiplication table  of   4 & 7
+
+
+
+when u apply   synchronized  key word  to  static methods   then  lock exists  at a 
+ class level it is called static  synchronization
+lock means  when  any thread  access the   resource  we  can say that  thread  has  aquired  lock
+
+when  any thread  releeases  from the  access of   resource  we  can say that  thread  has
+released the  lock
+
+syntax   public  synchronized  static   void m()
+
+here   m() method  must be accessed  by 1 thread  at a  time
+means  m() method  cannot be  accessed by more than thread  symultaneously
+
+
+to invoke  m()   no need  to create  object for class as  m() is   invoked  by the  Name  of class
+which  makes lock  avaialble at  class level
+
+
+
+block   synchronization
+
+here   lock exist at   block  level
+i.e  if  u want  access   few   lines  of  code   by  one  thread at  a  time
+then enclose    that  code  within  synchronized  key word
+
+
+Syntax
+
+ final String name="raj"
+
+
+    synchronized(name)
+{}   // block   synchronization
+
+
+using the   method  synchronization generate  odd& even  no between  1 to 20
+
+interthread   communication  
+u can achieve  it using wait   notify  and  notifyAll  methods
+
+these  methods are present in  Object class 
+
+wait(int millosec):  
+when u  call  wait()  method on  a  thread  that  thread  has  to wait for   specified
+no millisec by releasing lock from object and allow other  thread  to  access the  resource
+/obtain the  lock
+syntax
+public  void wait(int millisec)  throws  InterruptedException
+notify()
+when u call   notify on a thread   then  that   thread  must  wake up   which  is  waiting
+and  resume  execution
+syntax
+public  void notify()
+notifyAll()
+when u call   notifyAll() on a threads,   then  ALL    threads  must  wake up   which  all are   waiting
+and  resume  executions. But thread   which  starts execution  depends  on JAVA  CPU schedular
+to which  thread  it allocates  CPU time
+syntax
+public  void notifyAll()
+Develop a  mini banking appln   which  illustrates    deposit &  with draw operations
+
+
+Deadlock?
+
+Deadloack can occur   in   a situation when  a thread  is  waiting for
+an object  lock that is aquired by another thread and  second thread is
+waiting for  an object lock   that is  aquired by 1st thraed
+Since both threads  are waiting for  each   other  to release the  lock   the   condition is called
+dead  lock
+
+
+
+
+Wrapper classes?
+
+when the   primitive data  types are converted into it's  Object  Representation
+it is  called  Wrapper  classes
+these are  internally final  or immutable  classes
+
+primitive tye						wrapper classes
+int								Integer
+byte								Byte
+short								Short
+long								Long
+float								Float
+double								Double
+char								Character
+boolean  							Boolean
+
+
+in the  above table   Integer  Byte Float Double Short Long
+are the  sub classes  of Number class
+Number is  abstract class contains  follwing  abstract methods
+
+int intValue()
+byte byteValue()
+float floatValue()
+double  doubleValue()
+short shortValue()
+long longValue()
+
+above methods converts   wrapper class into primitive types
+
+
+The  process of converting primitive type  to  Object  representation is called
+
+"auto boxing" Introduced from 1.5
+
+
+The  process of converting wrapper type  to primitive type is called
+
+"un boxing"
+
+Integer  class
+contructor
+Integer(int i)
+Integer(String s)
+
+
+methods
+static   String toBinaryString(int i)
+static   String toHexString(int i)
+static   String toOctalString(int i)
+static   int parseInt(String s) throws NumberFormatException
+int intValue()
+
+
+
+
+Double  class
+contructor
+Double(int i)
+Double(String s)
+
+
+methods
+static boolean  isFinite(double d)
+static boolean  isInFinite(double d)
+static boolean  isNaN(DOUBLE D)
+static  double parseDouble(String s) throws NumberFormatException
+double doubleValue()
+
+Character warpper class  
+Constructor
+Character(char c)
+
+methods
+static  boolean isDigit(char c)
+static boolean isLetter(char c)
+static  boolean isLetterOrDigit(char c)
+
+
+java.util pkg
+this  pkg  contains  
+Date class
+Collection interface Map  interface  e.t.c
+
+
+Collection Framework
+frame  work is a ready made architecture
+it contains  built in  classes and  interfaces
+
+
+Collection
+it is a  framework  used  to  work with group of object
+Collection  contains  the  sequence  of elements  of same  data type(generic)
+and  different data type(non generic)
+Collection is also used  to create  DYNAMIC array
+
+Over all  Collection frame work provides
+Set Queue Map  List  Iterator  Enumeration ListIterator Comparator
+interfaces
+and ArrayList LinkedList TreeMap  TreeSet  Collections  classes
+
+used  to work with  group of objects  of  different/same data type
+used to iterate the  elements/ traverse the elements
+used to perform  operations like  sorting searching reversing finding min/max
+on elements
+used to store  group of  objects  of a  user defined  class in collection and sort
+on any properties  e.t.c
+
+1)   Using the   block   synchronization   create  a   Simple  Chatting  Application
+Expected  O/P
+ Sending  message  : hello
+   hello sent
+ Sending  message  : girish
+   girish sent
+
+2)   write  a  program develop  a simple  reservation  application   using  
+Synchronization. Assuming that  only  1 seat is  avalaible
+attempting to reserve  by 2 people   one person reserve 1 ticket
+
+
+expected o/p
+available births  1
+1 berth is reserved  by 1st person
+
+available births  0
+sorry  no birth available
+
+
+
+3)using the   multi threading  and   synchronization develop
+banking application (don't use  inter thread  communication)
+2  threads  to be created   withdraw & deposit
+inintial  balance  is 10000
+expected o/p
+raj with draws    2000
+balance  8000
+ram withdraws 8000
+balance 0
+hari  depoistes 3500
+balance 3500
+vijay  can't withdraw  4000
+balance  3500
+
+4) write  thread  program  to generate  odd  and  even no between 10 no using
+interthread  communication (wait() & notify())
+
+5) write  multi threading program 
+1) one thread prints all prime no between 0 to 100
+2) 2nd thread  prints  all pallindrome  nos between  10 to 1000
+
+o/p must be in sequential  order
+
+
+class Reservation implements Runnable
+{
+	 int   avaialble=1;
+	 int  wanted;
+	 public  Reservation(int i)
+	 {
+		   wanted=i;
+	 }
+	@Override
+	public void run() {
+		synchronized (this) {
+			System.out.println("available births  "+avaialble);
+			if(avaialble >= wanted)
+			{
+				String     name=Thread.currentThread().getName();
+				System.out.println(wanted+" births reserved for   "+name);
+				try
+				{
+					Thread.sleep(1500);
+					avaialble=avaialble-wanted;
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+				}
+			}else
+			{
+				 System.out.println("Sorry  no births  available  ");
+			}
+		}
+	}
+}
+public class Reserv {
+	public static void main(String[] args) {
+		Reservation   r=new Reservation(1);//    1 person  reserves  1 birth
+		Thread  t=new Thread(r);
+		Thread  t1=new Thread(r);
+		t.setName("first person");
+		t1.setName("Second person");
+		t.start();t1.start();
+	}
+
+}

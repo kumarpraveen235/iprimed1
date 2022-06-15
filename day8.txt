@@ -1,0 +1,299 @@
+How to   handle   Exception?
+there  are  5  key words are there to handle  an Exception
+try
+catch 
+throw
+throws and
+finally
+
+try  and catch block
+
+try:it is  a  block  of  code  which may contain  or  or   which may not contain error
+
+catch:it  is  also called   handler  used to  handle  an exception
+always  written  immmediately  after  try  block
+
+syntax
+try
+{
+     code;
+}
+
+   catch(Excetion  e)
+ {
+    statements;
+}
+
+Note   :  min no of catch  block  for  each  try block  is  1 if (finally block not used)
+
+try & catch   must be used  in the  method/contructors/blocks
+At a  time    only one exception   is  occured  in each try  catch   block and  
+1  exception is  handled  in each try-catch  block
+
+
+public class One {
+public static void main(String[] args) {
+	System.out.println("welcome".charAt(10));
+}
+}
+
+in the   above  program   RunTIME exception java.lang.StringIndexOutOfBoundsException
+occured.  In  this code  exception occurs in 3rd line. 
+  first  java  compiler checks  wether   exception  handler
+is  used  or not? if  it is  used then    Exception got handled and  rest  of the
+code  executes  and  program  terminates  normally.
+If java  compiler finds that  no  exception handler used  then  It  uses it's  own
+exception handler (default handler) and  prints the stack trace by terminating program
+abnormally
+Stack trace  is a  information of error   printed  through  System.err stream
+contains  exception name,type, line  no , method name  class name  e.t.c
+
+if   handler  in catch block  is  not equal(NOT MATCHES)  to the  exception   occured  in try  block
+then    again   java  compiler  uses  default   exception handler and prints stack trace
+and terminates the program  abnormally
+
+
+if   handler  in catch block  is Exception then  it is  super class of  all exceptions
+(checked/un checked) so    here     java  program   handles the exception
+and  terminates  the program  noramally by executing REST OF CODE
+
+try  catch   block has  may forms
+
+1) try   with  multiple  catch
+2) nested  try
+3)   try  catch  in catch
+
+
+
+try with   multiple catch
+
+
+u can also   write  more than one  catch  for  each try block
+syntax
+try
+{
+     code;
+}
+catch(subclassexception e){}
+catch(subclassexception e){}
+catch(subclassexception e){}
+catch(superclassexception e){}
+
+
+
+when  u r  writing multiple  catch  blocks
+all  the   Exceptions  in catch  blocks  must be specified in an order
+
+i.e  first  all  sub class exceptions  must be specified
+at last  super class exception is  specified
+other  wise  u  will get un reachable code  compile time error
+
+
+
+u can  also write  multiple  catch  block  for  each try block
+in a single  catch  block  by  saperating  multiple sub class exceptions  by |
+
+note  :   in one  catch  block  u can  use  only  multiple
+sub class  excepions  
+don't use   super class exception with  sub class exception
+
+it is  introdced in 1.7
+
+
+nested try
+
+u can also   write  try within try
+
+syntax
+try
+{
+  statement
+try
+{
+    statement
+}   // inner   try  close
+   catch(exception e)
+{}
+}   // outer  try close
+
+   catch(exception e)
+{} 
+
+
+we can also   write try catch  in catch
+
+in this  case  Exception object name of  outer  catch  must be different
+than Exception object name of  inner  catch
+
+throw   key word
+
+ when u want to  manulally   throw  an  Exception  we  can do it with the  help of throw
+keyword
+
+syntax
+throw   throwableinstance;
+
+here  throwable instance  must be of the  type  throwable
+
+Eg
+ throw  new  ArithmaticException();
+ throw  new  IOException()
+  throw new SQLException("dataaccesserror");
+
+
+
+Note:
+u can manually  throw checked and  unchecked  exceptions  using throw  keyword
+u cannot throw multiple  excetions  using  throw
+u cannot write  any  statements  after throw
+throw must be used in method
+throw  must follow object
+u can cnnaot use  more than 1 throw  in a method
+when u  throw  checked/super class exceptions  using throw  that must be 
+sorrounded  with try catch block/ DECLARE   that method  with throws   keyword
+
+w.a.p  to enter  a  no  from keyboard  if no is +ve   display no
+if  u entered  -ve  no  throw  ArithmaticException and  handle it
+
+throws  keyword
+
+in  java   some  methods  of built in classes  throws   Exceptions
+like  Thread class  sleep() method throws  InterruptedException
+InputStream's  read()  close() method throws  IOException
+when developer  use these  method  in  his program  these  generate
+compile  time error (CheckedException)  To  eliminate  these  error
+
+either  we use  try catch or declare  method  with  throws  key word
+
+features
+
+throws key word is  used  in method  signature
+it must follow class
+used to declare an  exception
+u can  declare   multiple  exceptions  using throws  keyword
+used  to declare  checked and  un checked exceptions
+
+throws  is also used  when  in a method   u manually throw an CHECKED EXCEPTION 
+uisng throw  keyword then  that method must be declared  using throws keyword
+
+
+3  scenarios
+1)  method  contains exception and  hendled  and  method dcelared with throws  keyword
+2)  method  contains exception and NOT handled  and  method dcelared with throws  keyword
+3)  method does not  contains exception  dcelared with throws  keyword
+
+
+
+finally   keyword
+
+it is  a block of code   which is  always  going to be executed  wether  exception
+is occured  or not occured
+if the  exception  occured but  not handled  then also   finally  executes
+finally always  executes  after  try  or  try catch
+if the  method return  some  thing then also  finally  executes  before
+method returns  to caller
+finally always  executed by JVM at very LAST MOMENT before terminating the program
+developper  write a  code  related  to closing  of resources like
+file/socket/connection  close  in finally block as  it is executed by JVM just
+before terminating program
+finally  will   not be executed if developer  exits  from  the  program
+using System.exit(0)
+u can write  try catch finally in finally
+
+finally will be written  along with try-finally  or
+try-catch-finally
+
+Note   for each try/try catch  there  will be only 1  finally  block
+Syntax
+try
+{
+      code;
+}
+   catch(Exception e)
+{}
+finally
+{
+    code;
+}
+OR
+try
+{
+      code;
+}
+ 
+finally
+{
+    code;
+}
+
+3  scenarios
+1) finally   with method  contains exception and  handled 
+2) finally with method  contains exception and NOT handled
+3) finally with method does not  contains exception 
+
+
+assignments
+1) w.a.p to read  age from   key borad
+if   age > 17   display    "you r   eligible  to vote"
+else
+  throw Exception and  handle  it
+
+
+2)   wap to   rethrow an exception  using throw  keyword   in  catch  block and  handle it
+
+3)  wap  to  illustrate   try catch  block is written  in finally  block
+
+
+void m()
+{
+     throw  Arithex;
+}
+main
+{
+     try 
+{
+  m()
+}
+catch(Arith)
+{
+    rethrow  exception
+
+    }
+}
+
+
+void m()
+{
+    try
+{
+   .....
+}
+   catch(.....)
+{
+     }
+finally
+{
+    .......
+
+  try
+{
+    ....
+}
+   catch(.....)
+{
+}
+
+}
+
+
+write  a  program check  entered  no is  armstrong or not
+if  no >  o    check it
+else  throw  ArithmeticException and Handle it
+
+
+if   stack is empty / full  throw ArithmeticException and  handle it
+
+
+
+
+

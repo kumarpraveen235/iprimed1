@@ -1,0 +1,925 @@
+Data  types  in java
+We can  call it as   primitive    datatypes
+
+
+name                 width                  range                 default value
+
+
+byte                 1  byte              -128 to 127                  0
+
+short                2  byte            -32768 to  32767              0
+
+  int                4                    -214  crore 214 crore         0
+
+long                8   byte             very large                   0L
+
+
+float             4   byte                   single  precision
+                                         format  used for  arit
+                                         hmetic  calculations		0.0f
+
+
+double             8  byte                   double  precision
+                                         format  used for  
+                                           complex  calculations         0.0
+
+char              2  byte               0   to 65535   
+                                           0 to   127  ASCII                 min    \u00000
+                                          128 TO 255 latin cyrillic         max    \ufffff
+                                           arbic katakana                        u represents
+                                                                                UNICODE
+boolean          1 bit                   0/1   true/false               false
+
+
+type    casting
+
+
+when variable  of one  datatype  is converted into another
+variable  data type  it is  called  TYPE CASTING
+
+
+When    smaller  width  data  type  variable  is  assigned  to  larger
+width   data  type  variable  it is  called  IMPLICIT type casting
+or  WIDENING
+
+
+
+When    larger  width  data  type  variable  is  assigned  to  lower
+width   data  type  variable  it is  called  EXPLICIT type casting
+or  NARROWING
+
+
+
+
+public class One {
+public static void main(String[] args) {
+
+    byte   b=50;
+    b=b*2;
+   System.out.println(b);
+}}
+
+
+how to read   data/input from key board?
+
+
+java.util package   provides
+Scanner  class
+
+
+used to read   i/p from keyboard
+it breaks the  i/p   into  tokens
+default  token is  space
+
+
+Constructor
+Scanner(InputStream i)
+
+
+keyboard  =>  System.in
+
+
+methods
+
+
+int nextInt()   reads  integer
+String  next()   raeds   String
+String  nextLine() reads  String with  spaces
+
+double  nextDouble() reads   double
+float  nextFloat()  reads float
+
+e.t.c
+99.99989318847656
+99.99989
+
+
+w.a. p to find   sum of  2 no  using command line arguments
+
+
+rules  to write  a  class  in java
+
+1)  in java   class name which  contains  main method
+and  the  file name you saved must  be  SAME
+
+2)  u can  write   more than  one class in a  program 
+but   only   one class must be  public   which  must  contain main  method
+
+3)   top level class   can  have   public   / no  (default) access  specifiers
+
+top  level  class  cannot be private/protected
+
+
+Operators
+java   supports  following operators
+arithmatic operators
++ - / * += -= /= *=  ++ -- %
+relational   operators
+> < >= <= == !=
+
+bit wise logical operators
+uses  1's and 0's
+ | & ^ ~ &= |= ^=  >>  <<   
+
+
+1010
+1111
+
+
+left shiff   
+
+add   specified  no of  0's  to right side
+
+right  shift
+
+remove   specified no of DIGITS  from  right side
+
+1010000  64+16
+
+130
+
+10000010
+
+1111
+
+0110
+1010
+
+1100
+
+in exor  2  0's  or  2  1's   gives 0
+
+
+boolean logical operators
+
+here   instead  of  0/1   we use   true  false
+ | &  !  
+
+
+short cercuit && ||  operators
+
+above operators not used for    bite wise  no
+
+in case of &&  if  condition of 1st  expression is  true it it will check
+condition of 2nd expression
+else   it  will not check  2nd expr
+
+in case of ||  if  condition of 1st  expression is  false it it will check
+condition of 2nd expression
+else   it  will not check  2nd expr
+
+
+ternary operator
+
+syntax
+var s=expression condition ?   value1:value2
+
+
+
+
+
+if   expression condition is true   value1  is assigned to s
+
+else  value2  is assigned to s
+
+
+
+
+loops
+
+controls statements  like if
+if else  if else  ladder  and  nested  if
+
+
+loops   for  for each    nested  for loop   for  with comma
+
+while  loop  do while  loop
+
+jump statements
+
+switch case  continue break
+  continue with label  (acts as  goto)
+   break withy label  (acts as  goto)
+
+
+if(condition)
+{
+ statement;
+}
+
+nested  if
+if(condition)
+ {
+ statement;
+    if(condition)
+{
+   statement;
+}
+}
+
+if(condition)
+  {
+ statement;
+}
+    else
+{
+ statements
+}
+
+
+
+if else  ladder
+
+it evaluates   any boolean expression
+uses  SHORT CERCUITE &&  || OPERATORS
+
+slow  compared to switch case
+
+
+
+
+while   loop
+syntax
+
+while(condition)
+{
+ body;
+}
+
+
+in this  if the  condition expr   is  first time  only false
+then   body  of the loop  never executes  single  time
+
+
+
+write   a  program  to check   wether   enetered  no is  arm strong or not
+
+
+
+armstrong no=sum of cubes   153
+
+
+
+int   a=168;
+byte b=(byte)a;
+S.O.P(b)
+-88
+
+
+
+
+
+do while   loop
+syntax
+do
+{
+ body;
+}
+while(condition);
+
+
+
+in this  if the  condition of expr   is  first time  only false
+then   body  of the loop   executes  ATLEAST 1 time   
+
+for  loop
+
+
+synatx
+for(initialization;condition;iteration)
+{
+   body;
+}
+
+
+array
+
+array is   sequence  of  contiguous  elements of  SAME  data  type
+array is  static
+
+works on index basis
+
+u can  randomly access the element
+
+types  of array
+1) single  dimensional  array
+2) multi dimensional  array
+
+declaring   single  dimensonal  array
+
+
+int a[]=new int[10];  // declaring and  intantiating an array
+
+index  of above array is 0 to 9
+
+
+
+int a[]={22,11,55,66,77,88} // declaring and  initializing an array
+
+write  a  program to insert  10 integer  elements  in an array sort on ascending order
+
+2  dimesional  array
+
+int  a[][]=new int[3][3];
+int  a[][]=new int[3][];
+
+
+int a[][]={{1,2,1}, {33,33,22}, {55,66,77}};
+
+
+
+
+for  each  loop is also called   enhanced  for loop
+
+it is  introduced  in  jdk 1.5
+
+
+
+for  reading i/p from key board  for    2d matrix  uisng enhanced for  loop
+inner loop must be  always    non  for  each loop
+outer loop can be for each loop
+
+
+
+import java.util.Scanner;
+
+public class five {
+public static void main(String[] args) {
+	Scanner   sc=new Scanner(System.in);
+	System.out.println("enter the  row and col   size");
+	int m=sc.nextInt();
+	int n=sc.nextInt();
+	int a[][]=new int[m][n];
+	
+	System.out.println("enter the elements");
+	for(int[] e:a)
+	{
+		 
+		for(int e1=0; e1<e.length;e1++)
+		{
+			e[e1]=sc.nextInt();
+		}
+	}
+	System.out.println(" elements are");
+	for(int[] e:a)
+	{
+		for(int e1:e)
+		{
+	System.out.print(e1+"  ");
+		}
+		System.out.println();
+	}
+}
+}
+
+
+jump statements
+
+switch  case
+
+it evelauates  boolean expression based on case value
+it is  fast compared  to  if else ladder
+as it knows the data  type of the case  value
+u can  nest  switch  within the  switch
+if  u r using  non nested  switch  then  each case  value must be  different
+break statement  in each case  exits from  switch
+
+syntax
+switch(expression)
+{
+    case   value: statement;
+                  break;
+
+default:
+ break;
+}
+
+
+expression can be int byte short   string char  
+
+
+
+write a program   to create   a  jagged array
+0
+1 2
+3 4 5
+6 7 8 9
+10 11 12 13 14
+
+
+write  a  program  to implemet selection sort  (don't use oops  concepts)
+
+write  a program  to generate   "n" fibonessi" numbers
+
+write a  program  to   find the  sum of digits
+
+
+break  and   continue
+
+break   exits  from the  loop
+
+syntax
+
+if(condition) break;
+if(condition) break label;
+
+
+continue   exits  from the  current  iteration of  the loop
+
+
+
+if(condition) continue;
+if(condition) continue label;
+
+
+difference  between  JVM JRE & JDK?
+
+JVM  : Java  vertual machine
+it is an interpreter  for byte code
+used  to load  / execute/ varify the  byte code
+provides  run time environment  to execute  byte  code
+provides  register  set,  class file  format,  heaps  to store   un referenced objects  
+(garbage collected heap)
+it is not visible
+it is  platform dependent
+
+
+JRE
+java   runtime  environment
+it is    collection of  JVM +   set of  class  libraries
+u can execute  program   with  only JRE  also  through IDE
+IT is  visible
+
+JDK
+java   development kit
+it is    collection of  JRE+development tools like  java javac appletviewer  rmic  e.t.c
+u can execute  program   with  only JRE  also  through IDE
+IT is  visible
+
+
+architechtutre og  jvm
+
+what happens  after  java  program  gets  compiled?
+
+
+
+architecture  of  JVM
+
+
+JVM  : Java  vertual machine
+it is an interpreter  for byte code
+used  to load  / execute/ varify the  byte code
+provides  run time environment  to execute  byte  code
+provides  register  set,  class file  format,  heaps  to store   un referenced objects  
+(garbage collected heap)
+it is not visible
+it is  platform dependent
+
+
+IT has  following  components
+
+
+1) class  loader  : when the   byte code is generated it is  travelling around the N/W
+class loader loads the  class file
+2)  byte code varifier:from  the  class loader  byte code  travels to  byte
+code varifier and  varifies the  byte code  for the  illegal code
+
+3)execution engine
+it contains  2  parts  
+1) interpreter converts the  whole  byte code into executable  code
+2) JIT compiler   converts   piece  by piece byte code into executable  code
+
+
+4)   PC register:  it contains  the   current  byte  code instruction  which is  going
+to be executed
+
+5)  Native  method  stack: it contains  native method interface  which uses  java  native
+libarries  which are  used to call  other  programs  which are  not wriiten in java
+
+
+java  usually   contains   3  memory areas
+
+1)  stack area
+it contains  local  variables   objects  method  code
+&  temporary results  
+plays  vital  role  in invoking methods
+
+it also  contains primitive data  types
+
+2)  heap  area
+contains  the  variable   declared at  run time
+contains  values  for  the  class  level varaibles(instance  varaibles)
+contains  values  for  variables  allocated at  run time
+3)  class area
+contains the  static  variables   which are shared among multiple objects
+used for  memory utilization
+
+
+
+Eg
+  class  Student
+{
+      int id;
+     String  name;
+     static   String cname="oxford";
+
+
+      void  insert(int id1, String name1)
+{
+           id=id1;
+   name=name1;
+}
+
+         void   d()
+{
+    System.out.println(id+"\t"+name+"\t"+cname);
+  }
+ main..................................
+{
+       Student s=new Student();
+        s.insert(1,"ajay");
+       s.d();
+ Student s1=new Student();
+        s1.insert(2,"vijay");
+       s1.d();
+ 
+}}
+
+here   id, name  are stored  in HEAP AREA   
+here  s, id1, name1  are  the  local varaibles stored in  stack area
+
+
+here   cname is static   stored  in class area  accessed  by  s&s1 objects
+
+
+
+Object  oriented Programming  in java
+
+
+class  
+objects 
+methods
+method overloading  constructor  this  static  nested  classes
+
+inheritance  method overriding runtime plolymorphism
+upcasting downcasting super final abstract class  interfaces  packages init block access specifiers
+
+
+
+object  oriented  programming is  dividing the  program  into  methods  objects
+and classes
+in this  we can achieve  the  readability,  code reusability and  code optimization
+through  methods
+u can maintain the  code  if the  application code  grows very large
+in this  global  data  is  not available  every where  to  access
+
+
+class:
+
+it   is  a template  /  blue  print for an  object
+it is  container for  data and code
+the  methods  variables and  blocks  of the class are  called
+members  of class
+
+
+syntax
+
+accessspecifier class classname
+{
+ constructors()
+{}
+     varaibles;
+   methods()
+{}
+  blocks{}
+}
+Note  : any operation  must be performed either  in methods/blocks/contructors
+
+for  the  top level class  only public / default  access specifier is used
+class a
+{
+   System.out.println("Hi");//   not allowed
+public static  void main(String [] args)
+{
+
+}
+}
+
+
+variables
+3  types  of variables
+
+1) instance variable:   variables  declared at class level are  called instance  varaibles
+
+   Ex:
+  class Person
+{
+   int age;// instance variable 
+String name//   instance  varaible
+
+}
+
+
+2) local variable:   variables  declared inside method/constructor/block
+are calles local  varibles.  Note  :
+ u cannot  use  static  keyword to declare  local variables
+
+ class  Student
+{
+      int id;   // instance varaible
+     String  name;// instance  variable
+     static   String cname="oxford";
+
+
+      void  insert(int id1, String name1) // id1,  name1  are local variable
+{
+           id=id1;   
+   name=name1;
+}
+
+3)   class varaibles: varaibles  decalred  at the  class level with static  key word
+are called class  varaibles stored in class area
+cannot be  declared  in methods class  Student
+{
+      int id;   // instance varaible
+     String  name;// instance  variable
+     static   String cname="oxford";// class variable
+}
+
+methods
+
+methods   contains  business logic
+it conatins the  behaviour of the  class
+
+
+if the  methods  have  body/ implementation  it is called   concrete methods
+
+if the  methods  does not have  body/ implementation  it is called abstract methods
+
+
+concrete methods
+
+syntax
+u can use    any  access specifier for methods
+
+
+public  void m()
+{
+   System.out.println("hi");
+}
+
+such  methods  cannot be  invoked  in println statements
+
+above one  is called  void method
+
+
+
+
+if the  method returns  any thing then it's  body must end with  return key word
+such  methods  can be  invoked  in println statements
+
+public  int  cube(int i)
+{
+   return i*i*i;
+}
+
+objects
+it is  real world entity
+it is an instance  of a class
+it can be a name of person thing place  product  e.t.c
+it has 3 properties
+1)  state: represents the  attributes of the object
+if the laptop is an object it's price/color/brand/model are  called state
+
+2) behaviour: represents the  functionality of the object
+if  person  is a object behaviour can be
+writing/walking/sleeping
+it is  represented in the  form of method
+
+3) id: represents the  reference id of an object
+java compiler provides a reference  id for each object when each time new object
+is created it is a  fully qualified  hexa decimal value
+Eg   praveen.Person@hgkafh679  //   reference  id 
+
+how to create  Object
+
+1) using  new key word
+2)  using factory method
+3) using newInstance method of class Class
+4) using clone() method of Object class
+
+
+using  new keyword
+
+it allocates  memory  to the  objects  dynamically at  runtime @contiguous location
+
+these will be  stored  in HEAP area
+
+Syntax
+
+class Man
+{
+
+  int id;String name;
+
+}
+public static  void main(String[] args
+{
+    Man m;   //  m is  null;
+    m=new Man();//   m can access the  instance  varaibles of  Man class
+
+    OR
+Man m=new Man()
+
+}
+}
+
+Create  a class called  Calculator   and  find the  sum and  product of 2  no
+using  methods  objects (oops)
+
+
+create   a  class  called Stdent  with id name and age
+create   Student array  of   3 and  insert  id name and age and display
+from  keyborad  using oops
+
+
+
+method   overloading
+
+in  a  same   class  when more than  1  method is defined  with  same name
+but  different NO OF parameter
+OR
+in  a  same   class  when more than  1  method is defined  with  same name
+same no of parameters But   data type  of  parameters  is  different
+
+Then  this is called  "METHOD OVERLOADING"
+it is also called  Compile  time polymorphism
+
+
+
+public class Mo {
+   void m(int a, long b)
+   {
+	   System.out.println("int long");
+	   System.out.println(a+b);
+   }
+   void m(long a, int b)
+   {
+	   System.out.println("long int");
+	   System.out.println(a+b);
+   }   
+   public static void main(String[] args) {
+	   Mo me=new Mo();
+	   me.m(11,11);
+	   me.m(1, 2);
+}
+}
+
+
+method  overloading  also   possible   when u overload the methods  with returns  some thing
+
+class A
+{
+    float  m(double a, double b)
+{
+      return  a+b;
+}
+    String m(char  a, char b)
+{
+      return a+b;
+}
+
+main...........
+{
+     A aa=new A();
+     s.o.p(aa.m(33.22,11.22);
+      s.o.p(aa.m('t', 'a'));
+}
+}
+
+advantages
+imporove  readability
+code optimization
+code reusability
+
+
+constructors
+
+contructors  are  used to initialize the state  of the  object
+if the  java  program  does  not contain   contructor then  compiler
+ creates the  default constructor
+contructor   looks   similiar  to methods  in syntax but does not have  return type
+contructors  can also  have  private/public/default and protected access specifiers
+
+apart from initializing  the  values/object  constructors  also  does  other
+functionalities  like  starting the thread  e.t.c
+
+contructors name  must be same as class name
+u can   perform   business logic in constructors
+contructors  can also  be overloaded
+
+Syntax
+
+class  Person
+{
+     Person()   // default constructors
+{}
+}
+
+
+
+2  types of   constrcutors
+
+1)    default   2) parameterized
+
+if the  contructors are private  then  they   cannot be instantiated from  out of the class
+
+
+this   keyword
+
+it is  used to refer  a   current class  instance   variable
+Syntax: this.instancevarname;
+
+it is   also  used to  invoke  the  current  class  constructor
+
+u can also   use  this   key word  to invoke the current class  constructor
+in this  case  call to this()   must  be  always  first  statement in the  constructor
+other  wise  u wll  get  compile time error
+Syntax:
+this();   this(a);  this(a,b);
+It is  also  constructor chaining  where  u  can call one  contructor
+from  another  constructor  order  must  top to bottom
+
+Find   sum of  2  and  3  nos
+
+
+it is  also  used to invoke the current  class method
+
+
+
+
+used as  parameter  in method  call
+
+note  : this  key  word  cannot be  used in static context
+
+
+
+
+
+create   a class  called  Employee   with  id, name   des and  basic  salary
+read  these  from  key board
+and   calculate  net salary
+net salary=   basic  salary+ da(150%bs)+hra(30%bs)-tax(2%bs)
+
+use   constructors and  methods
+
+
+
+
+            this
+ ------------------------>Object
+
+
+
+
+
+
+static   keyword
+
+static  key word is applied  to  nested classes  instance variables   methods
+and block
+
+static  key word is NOT applied  to  TOP LEVEL classes  LOCAL variables  
+and Constructors
+
+
+static   to a instance variable
+
+syntax  
+public static  int a=100;
+
+
+when  u apply static  to a  instance  variable   they  will be stored in class area
+these  varaibles  get  the  values at the class loading time
+static varaibles  shared  among multiple  objects
+they  represents the  common properties of the Object like
+emps of same company  students of same college
+used for memory  utilization
+these varaible  cannot be used in  costructors  for  initilaization
+u can modify static variables
+cannot  be used with this  keyword
+
+write   program  to implement  copy  constructor  in java
+used to copy the  values of one obj to other  object
+
+write  a program  to prove  that this  key word is  used  to  refers a current
+class instance  varaible
+
+create  a class called  Student with  id, name  subname and  marks
+Create  array   3  students and  enter  above info and display
+use   constructors   and methods
+
+
+
+
+

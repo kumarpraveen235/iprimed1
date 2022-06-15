@@ -1,0 +1,83 @@
+software:
+it is   more   than just a program code
+A program  is an executable  code which   serves   some computational purpose
+It is   considered to be a  collection of execuatble  programming code  associated libraries  and 
+documentations
+S/w   when  made   for a specific   requirement  is called s/w   product
+
+engineering
+it is all about  developping products using well  defined   sceintific
+principles and methods
+
+s/w  product   development involves   following steps
+
+
+requirements
+system analysis
+system design
+code design
+testing
+deploymnet
+maintainannce
+updates
+
+
+
+software   engineering    is an  engineering branch associated with development of s/w product
+using well defined  scientific  principles   methods and  procedures.
+
+
+According to IEEE
+S/W  engineering   is the 
+application of   a  systematic desciplined   quantifiable    approach   to the development
+operation and the maintainance of the  s/w 
+i.e
+  application of engineering to s/w
+
+
+SDLC
+
+it is  also  called  Software  development  life cycle   is a  well defined  structured    sequence
+of stages    in software engineering  to develop the   intended  s/w product
+
+SDLC  framework involves  following steps
+
+Communication
+Requirement  gathering
+Fasibility study
+System analysis
+S/W  design
+coding
+testing
+integration
+implementation
+operations and maintainance
+disposition
+
+
+
+u  can achieve   SDLC  by using   different models
+
+model: it is a  staergy   to develop the  s/w
+
+it has  it's  own set of tools methods  and procedures
+we can also call it as  
+s/w development paradigm
+
+
+waterfall model
+iterative model
+spiral model
+v-model
+big bang model
+
+agile  model
+the  meaning   of    agile is   switft or  versatile
+Agile  process model  refers  to     s/w  development
+approach  based on iterative development
+Agile methods  break  tasks into smaller iteartions  or parts and  do not involve directly
+into  long term planning
+
+
+every   must  create a  github account
+

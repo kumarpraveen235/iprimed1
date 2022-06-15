@@ -1,0 +1,182 @@
+HQL   
+Hibernate  Query  Language
+in this   java class name and  property names are used intead  of
+table name and column name  for mapping
+Class name and  property name are case sensitive
+
+
+SQL query
+select name, city, age  from  customer;
+here  name, city and age are column name and  customer is  table name
+these all are  case insensitive 
+
+HQL query
+select Name, City, Age  from  Customer;
+here  Name, City and Age are property name and  Customer is a POJO class name
+these all are  case sensitive  
+HQL  query to select  all columns
+"from  Customer"
+advantages
+
+it is  database indepenedent
+supports  polymorphic queries
+easy to learn
+
+how to create  HQL query?
+
+Query   q=session.createQuery(String hqlquery)
+
+methods
+int executeUpdate()   executes  DML statetements
+List list()      used  to retrieve  result as a  List
+Query  setFirstResult(int rowno)
+retrives  setof  rows  from  specified row no
+Query  setMaxResults(int rowno)
+retrieve  total  no of rows
+w.r.t  rowno
+Query setParameter(String name,  Object value)  sets  value for  named query parameter
+
+
+while   EXECUTING DML statements using HQL  queries  don't use   commit() method
+
+
+criteria  query
+HCQL(Hibernate  Criteria  Query Language)    is used to   fetch    the  records
+based  on    specific  criteria
+Hibernate  Criteria  Interface   provides   methods  to    apply   criteria  such  as
+retrieving the  records from student table  who are getting marks  between   70 to 90
+e.t.c
+
+Hibernate  has  a  Criteria  interface present  in org.hibernate.* pkg
+how  to create  Criteria  query?
+Criteria   c=session.createCriteria(Class pojoclassname)
+
+
+Criterion  interface
+it is  present in  org.hibernate.criterion pkg
+It acts as a  return  type  for  Restrictions  class method
+
+Restrictions  class
+it is  present in  org.hibernate.criterion pkg
+it  provides  lots  of methods to    filter the   results  based on Criteria
+
+public static  Criterion ne(String propertyname,  Object value)
+public static  Criterion ge(String propertyname,  Object value)
+public static  Criterion le(String propertyname,  Object value)
+public static  Criterion eq(String propertyname,  Object value)
+public static  Criterion between(String propertyname,  Object startvalue, Object endvalue)
+public static  Criterion like(String propertyname,  Object value)
+public static  Criterion in(String propertyname,  Object.... values)
+
+Order class
+it is  present in  org.hibernate.criterion pkg
+it  provides  lots  of methods to    order the   results  
+
+public  static  Order  asc(String propertyname)
+public  static  Order  desc(Strig  propertyname)
+
+
+Criteria  Interface  methods
+
+Criteria  add(Criterion  c)
+adds the  criteria
+Criteria addOrder(Order o)
+arrges  the  results  in order
+List list()      used  to retrieve  result as a  List
+Criteria  setFirstResult(int rowno)
+retrives  setof  rows  from  specified row no
+Criteria  setMaxResults(int rowno)
+retrieve  total  no of rows
+w.r.t  rowno
+
+Hibernate Inheritance
+
+Hibernate   supports   following  techniques  in Inheritance
+1)Table per  Hierachy
+2)Table  per concrete
+3)  Table  per sub class
+
+table per hierachy
+in this  mapping    single  table  is used
+single table  is required to map the   whole  hierachy
+an extra column   (descriminator column) is added  to identify   the  class
+but nullable  values are stored in the table
+
+Annotations
+@Inheritance (statergy=InheritanceType.SINGLE_TABLE)
+it is   a class level annotation
+
+@DescriminatorColumn(name="type",   discriminatorType=DescriminatorType.String)
+used  to specify the dsicriminator column and data type of the column
+it is a class level annotation
+
+@DescriminatorValue(value="classname")
+it is a class level annotation
+specifies  to  which  class mapped data belongs
+
+all above  3 annoations  present in javax.persistence.* pkg
+
+
+Table Per  Concrete    inheritance  mapping
+in this     tables are created    per class  so there  are  no    nullable   values
+in the table
+But  u can see  duplicate  columns  of  super class table  in  sub class  tables
+In this   we use  
+@Inheritance (statergy=InheritanceType.TABLE_PER_CLASS)
+it is   a class level annotation
+
+
+Table  Per  Sub class  using annotation
+in this  tables are created   per classes   but   they are treated   using Primary
+and  foreign key. So there  will   not be  any  duplicate   columns in   the  relation
+i.e  in the  sub class table  we create  column which acts as a foreign key
+w.r.t  primary key in parent table
+
+  we  use
+@Inheritance (statergy=InheritanceType.JOINED)
+annotation
+
+
+
+
+TO create   foreign  key column  in  sub class table   w.r.t.   parent table   primary key
+
+we use  @PrimaryKeyJoinColumn annottaion at class level
+THIS  has to be used in each sub  class
+
+
+course
+
+id
+name
+
+
+fulltimecourse     parttimecourse
+   duration           duration
+    university        university
+
+
+association   mapping
+
+Hibernate supports    
+4   kinds  
+of  association
+1)  1:1   both   unidirection and   bi direction
+@OneToOne  annotation
+2) 1:M  
+3)M:1
+4)M:M
+
+
+create  a   class called   Book   with id(primary key), name , price and author
+1) write   hibernate  program  to insert   5  objects  into Book table in mysql
+generate   value  for  id  automatically
+2) write  hibernate  program  to display the  name, author and  price of book id 3
+3)  write  HQL program  to   count the  rows of  author  column of book table
+4) write  HQL program to display all rows of book  table
+5) write HQL  program  to  update the   book name  to   python and price to 900
+whose id is 4
+6) write  HCQL program to  display  the   book  price which is > 500 
+7) write  HCQL program  to display names of books  in  ascending order 
+
+
