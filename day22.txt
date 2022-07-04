@@ -1,0 +1,184 @@
+Array  iterating method
+forEach(callback function)
+iterates the  array elements
+
+
+map(callbackfunction)
+used to create  new array     by performing   a   function on each array element
+
+
+filter(callback function) method   creates a  new Array      with  array elemenst   that  passes the test
+
+
+reduce(callbackfunction)
+
+returns a  fucntion    on each  array element to produce   a   single value
+
+
+
+Object  creation in  java script
+1)  key  value  pair
+2)  using new key word
+
+built in libarary functions  in JS
+Date Math String  function
+
+
+
+Java  ScriPT DOM
+Document  Object  Model?
+it is an API  used add remove  update and  retrive  HTML elements
+dynamically. It  treats  HTML document as a Tree
+structure. It is also  used to style the HTML document dynamically
+
+root object of DOM is  document
+methods
+getElementById(id)  gets the  location of  html  element  w.r.t  id  attribute
+getElementsByTagName(tagname) gets the  array  of  specified tag 
+getElementsByClassName(classattributename)  gets the array  of tag  w.r.t.  class attribute
+createElement(element) creates  a  new  HTML element
+createTextNode(data) creates  new text content
+appendChild(node)  adds  a  one  element to other
+removeChild(node) deletes the  element
+insertBefore(element1, element 2)
+
+properties
+innerHTML  retrieves  HTML content
+style   applys style to html  elements
+
+Note:IN DOM example  always  the  script will  execute  once
+Whole  html   document  downloaded
+i.e  always  include  js  in  <body> tag
+
+
+
+events and  Listeners
+events  : change  in the state of the Object
+it can  be  key press mouse  button press  load the image 
+focus on text field
+listeners:  it is  an  object  which notifies the  event  is  going to occur
+
+
+
+built  in events  in java script
+onFocus()
+onblur()
+onmouseup()
+onmousedown()
+onload()
+onunload()
+onselect()
+onresize()
+onkeyup()
+onkeydown()
+onclick()
+onsubmit()
+
+
+create  a  text field
+when u   type  inside  text field  set a  bckground color  for  txt  field to yellow
+when u stop  typing set a  bckground color  for  txt  field to blue
+
+
+
+create  a  text field
+when  u focus in text field   it must set to  magenta  color for  text  firld bck ground color
+
+when u   type  inside  text field  and remove
+cursor  from text field  text must be converted to uppercase letter
+
+
+
+create  a  textfield  called  phone no
+and insert    exactly  10 digit and  display using java script
+else  dislay  phone no is invalid
+
+
+JS  provides   eventlisteners for event handling
+syntax
+addEventListener(eventname, callbackfunction)
+u can  attach  many  event listeners  on same  object
+
+
+display the today date  when u click the  button
+
+
+
+java script timing functions
+
+
+setTimeout(callbackfunction,  millisec)
+in this  js  call  back function  is  executes  only  1 time
+after  specified  no of millisecs
+clearTimeout(var)
+stops the  excution   of the  function   executed by  setTimeout()
+setInterval(callbackfunction ,millisec)
+in this  js  call  back function  is  executes  INFINITE time
+after  specified  no of millisecs
+clearInterval(var)
+stops the  excution   of the  function   executed by  setInterval()
+
+
+display  clock
+
+
+JS  BOM(Browser  object  model)
+properties
+
+window
+window screen
+window location
+window history
+window  navigator
+tells  info  about visitor browser
+
+html  5  features
+
+1)   web storage
+in this      web appls can store data   locally   within user's  browser
+unlike cookies     the storage limit is  far  larger than   5 mb  and info is never  tarnsffered to server
+window.localStorage
+Stores the data with no expiry date
+i.e even you close the     browser window  /   close the session
+then  data  persists
+
+window.sessionStorage
+Stores the data  for one session   
+(data  lost when brower tab  closed)
+
+
+2) geo location
+
+HTML  5's  geolocation API  	USED  to locate the   geographical  position of   user
+u can  achieve it by using  window's navogator properties geolocation's getCurrentPosition()
+method
+
+3)  canvas
+
+used  to draw    graphics  on web page
+canvas is   rectangular area  in which  we can draw  diagrams
+it uses  js  script  to achieve this
+4) output tag
+
+
+1)
+write a  javs script  program  to create a  click  button
+when u click the  button display  confirm  dialogue box
+if i  clicked  ok button of  confirm dialogue box  display
+u clicked  ok
+else 
+if i  clicked  cancel button of  confirm dialogue box  display
+u clicked  cancel
+2)
+create  3 textfield and  one  product button
+enter  2 no in  first 2 text field and when i clicked  product button
+product of 2 no is displyed in 3rd text field
+
+3)write  program  to display image  in CANVAS
+
+4) WRITE  js  program  to display
+history of  privious  web page links  using window.history() property
+
+5)  write  js program to generate  n random no when  u resize the  browser window
+
+

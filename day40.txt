@@ -1,0 +1,72 @@
+Create  a  Microservice called   Product with  id  name and price
+
+register  it in  eureka  server and  consume  it
+
+
+cloud   version   are  w.r.t  spring boot   version
+
+for  spring boot  version 2.5.9  spring cloud  version is  2020.0.5
+
+what   is  spring cloud version  for   spring boot version 2.6.9?
+
+
+
+we  use  annotation
+@EnableEurekaServer
+to set up the  Eureka Server
+It is  present in
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer pkg
+
+
+
+
+we use annotation
+@EnableEurekaClient  to register  microservice in eureka server  it is present in
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+
+
+using    Micro service  name  for  processing in Consumer  intead of  using
+hardcoded   url  of  producer microservice
+
+
+NetFlix  Eureka Client  provides  a Interface called
+DiscoveryClient
+It  is present in 
+otg.springframework.cloud.client.discovery.* pkg
+it is  used to descover the  Microservices   registered  in eureka  server
+by providing name. It has a method  called
+List<ServiceInstance>   getInstances(Microservicename)
+returns  the  List  of  specific Microservice instance
+
+The  Instance is of Type  ServiceInstance interface present in
+otg.springframework.cloud.client.* pkg
+
+
+ServiceIntance  has  a following method  to return the  URL of  
+specific microservice
+    Uri    getUri();
+
+
+
+Client  Side  Load  balancing
+
+when  we  create   RestTemplate  annotated  with 
+@LoadBalanced  annotation  then  ribbon  is  automatically configured
+
+no need  to import  Ribbon depenedency inthe  pom.xml
+
+create  BookProducer and BookConsumer   
+microservicess applications  in spring boot using  Loadbalancing
+Ribbon cloud  component used  for  loadbalancing is removed  from
+
+latest  Spring Cloud Version  (from spring boot 2.3)
+
+Create a  class called  Student with id, name and marks
+insert    5 Objects   in to mysql database
+1) create  a  produccer rest microservice to  retrieve all   stdents and
+also  retrieve  student  w.r.t.  id
+2) create  a  consumer rest microservice to consume  above microservice
+
+  
+

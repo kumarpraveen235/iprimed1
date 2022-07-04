@@ -1,0 +1,268 @@
+injecting  props
+used to inject    a    collection of name  value  pair  whee  name and value  
+both  must be string
+
+<property  name=""> or <contructor-arg>
+<props>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+</props>
+
+</property  name=""> or </contructor-arg>
+You  can achieve   inheritance  in Spring using
+<bean> tag's   parent attribute
+<bean id="aaa"  class=""   parent="beanid"/>
+
+The   above is called  declarative  approach
+
+done through xml file
+
+
+Scopes of  Spring bean
+Spring  bean  has  5 scopes
+1) singleton scope
+
+
+when u  request   more than  1  instance  of a  same bean 
+only  1  instance  is  created  for   all requests   per container
+it is  called  singleton bean 
+i.e
+if the  bean  scope is  singleton
+if the  same  bean  instance is requested  for  5 time
+but for  all  5 request only  1 bean  instance  is created   /  per container
+
+by default  spring bean  instance  is  SINGLE TON
+
+to   specify the scope  we  use
+<bean id=""   class=""  scope="singleton|prototype"/>
+
+we can also  use  @Scope   annoatation
+
+
+2)  prototype  scope
+
+when u  request   more than  1  instance  of a  same bean 
+ each saperated instance  is  created  for  each request   per container
+it is  called prototype bean 
+i.e
+if the  bean  scope is  proptotype
+if the  same  bean  instance is requested  for  5 time
+ for each  5 request  5 different bean  instances  is created   per container
+
+
+
+
+
+
+above  2 scopes are  used  in  spring   Core  Context  bean  modules
+
+
+
+
+
+following  3 scopes are  used in spring  web  and  spring web mvc module
+
+
+3) session scope 
+4)  global  session  scope
+5) request  scope
+
+
+
+Spring   Bean  life  cycle
+
+
+u can achieve    life   cycle  of  spring  bean   in  3 ways
+1) by implementing  DisposableBean  and  InitializingBean   interfaces
+2)  by calling   custom init and custom destroy methods  through
+init-method and  destroy-method attributes of  bean tag
+
+create  custom  init() and destroy()   methods
+
+in bean tag
+<bean  class=""   init-method="custominitmethodname"
+destroy-method="customdestroymethodname"/>
+
+
+3)  by using @PostConstruct and @PreDestroy  anotated   lifecycle  methods
+
+1) by implementing  DisposableBean  and  InitializingBean   interfaces
+
+
+these   2 interfaces are present in org.springframework.beans.factory.* pkg
+ InitializingBean   interface  contains a  method called
+public  void afterPropertiesSet()  throws Exception
+used to initialize the  bean  at the  time  of  setting property  values
+of bean through  setter  /  constructor injection
+
+public  void destroy()  throws Exception
+used to destroy the  bean after the  bean   finishes  it's  business logic
+but  by calling this  method  bean   does not removed completely  from
+the  Container  
+for  that   developer has  to call
+AbstractApplicationContext  classe's  registerShutdownHook()  method
+
+AbstractApplicationContext class is  a  Form  of ApplicationContext
+
+used to loas XML definitions of bean and  used to  instantiate the bean
+
+methods
+Object  getBean(Sring beanid)
+Object   getBean(Class pojocassname)
+void registerShutdownHook()
+
+
+
+using  @PostConstruct and @Predestroy annotation
+
+These  are  not spring annotations
+
+these are  from javax.annotations.* pkg
+
+to make  enable  the  annotaions  in spring core
+u need  to import  context  name space in  xml file
+and 
+specify  tag <context:annotation-config/>
+in xml file  This  tag  enables  annotations
+
+
+to use  @PostConstruct and @Predestroy annotations
+u need  to specify following depenedency  in pom.xml
+
+javax.annotation-api  
+
+
+<dependency>
+    
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+    </dependency>
+
+
+Inner   BEANS
+
+INNER beans   that are  defined  within the scope of another
+bean. Thus  <bean/>element  inside the   <property/> or 
+<contructor-arg/> tag    element    is used  then it is called
+Inner Bean
+
+Syntax
+<bean id=""   class="">
+   <property  name="">
+   <bean id=""    class=""/>   // inner bean
+</property>
+</bean>
+
+
+also  used  in communicating with   2 beans
+
+AUTO WIRING
+auto  wiring   is used  to  communicate  with  one  or more than  1  bean
+4 types  of autowiring
+
+
+advantages
+
+
+less code
+eliminates   injecting   inner  bean in xml file
+elimibates   specifying  ref attribute  in  xml file
+
+how   to achieve  auto wiring
+1)  using autowire attribute  of <bean> tag
+2) using   @Autowired  annotation
+
+
+types   of autowiring
+1) byName
+in this   techniques  2  beans are  communicated  with each  other if
+
+id name of  one  bean  is same as property name of another  bean
+it  also   wires / communicates   2 beans  if  MORE THAN ONE INSTANCE  OF SAME
+BEAN EXISTS
+
+Error will be  thrown in case  id name of  one  bean  is 
+not same as property name of another  bean
+
+
+Find the points  of a  Triangle
+o/p will be
+(0,0) (10 10) (20, 20)
+
+
+2) byType
+in this   technique  2  beans are  communicated  with each  other by
+their property   type.
+IN THIS  CASE   it is  not mandatory that  id name of the  one
+bean  must be same  as the  property  name  of another bean
+ if  MORE THAN ONE INSTANCE  OF SAME
+BEAN EXISTS   it will  throw  error
+
+Find the  point of  center of a circle
+
+
+
+constructor
+in this   technique  2  beans are  communicated  with each  other by seeing 
+their property  types in  constructor arguments
+i.e it is  exactly same as   byType
+Instead  of setter  methods  contaructors are used
+IN THIS  CASE   it is  not mandatory that  id name of the  one
+bean  must be same  as the  property  name  of another bean
+ if  MORE THAN ONE INSTANCE  OF SAME
+BEAN EXISTS   it will  throw  error
+Find the  point of  center of a circle   using   autowire by constructor
+
+Spring  uses  lots  of annotations
+U can also   write   spring  programs   with out  xml   files
+it is  possible   only through annotation
+It is called  "PROGRAMATIC  APPROACH"   /  "JAVA  CONFIGURATION APPROACH"
+using xml  file is called    Decalarative approach
+
+@Autowired
+it is  a field  level/ method level/   constructor  level annotation
+used  to communicate/wire between  2 beans
+internally  uses  byType
+it is present in  org.springframework.beans.factory.annotation.Autowired;
+@Qualifier
+it is  field  level/method  level annotation
+used along  with  @Autowired  annotation
+if while wiring   2  beans  using  @Autowired  annotaions
+then  if there  exists  more than  1 instance  of same bean then
+Qualifier(beanname)   wires  with the  specified bean name
+
+Note:
+to make  enable  the  annotaions  in spring core
+u need  to import  context  name space in  xml file
+and 
+specify  tag <context:annotation-config/>
+in xml file  This  tag  enables  annotations
+
+@Component
+@Repository
+@Service
+@Controller
+@Value
+@PropertyResource
+@Scope
+
+assgn 1
+
+create  a  class called   Department  with name  and city
+Create  class called Employee  with  name  des  and  dept(Department type)
+using contructor  DI  wire  2  beans  using  @Autowired
+inject  2 emp objects  2   dept  object
+Expected  o/p
+ajay  a  engineer  working in   IT    department  at  goa    city
+vinay  a  programmer  working in   HR    department  at  pune    city
+
+
+
+assin2
+
+w.a.p  to  illistrate  scope  of bean  using @Scope  annotation
+
+
+

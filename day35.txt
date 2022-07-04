@@ -1,0 +1,138 @@
+Spring   with   database
+
+3   techniques
+1)   Using spring's JdbcTemplate  class
+2)  spring  with   hibernate
+3)   spring with JPA  throgh  SpringDataJpa  module
+
+1)   Using spring's JdbcTemplate  class
+it is present  in
+import org.springframework.jdbc.core.*;
+It  is  a predefined    template     provided by Spring Frame   work to connect to
+the  database. helps   to execute  all  kinds    of  SQL statements
+insert delete  update   select
+advantages
+no need to write a   code  to open connection
+close connection  handle  transaction and handle exception
+database  configuration can be done  declaratively
+(through xml) and   programmaically also   (through spring annotations)
+
+
+methods
+public  int   update(String query)
+public  int update(String  query, Object ....args)
+
+used to execute  DML statements
+
+public  void  execute(String  query)
+used to execute  DML DDL statements
+
+public  List   query(String  query,  RowMapper  m)
+used to execute   DQL   statement
+
+Here   RowMapper is   functional  interface used to  return data  from
+database
+present in org.springframework.jdbc.core.RowMapper;
+
+It has a  1 method called   mapRow()
+public   ClassType Object    mapRow(ResultSet  r, int rno)
+
+
+void setDataSource(DataSource  d)
+used to configure the datasource   for  JdbcTemplate
+through xml/programatically
+
+public    Object    queryForObject(String  query,
+RowMapper  r,  Object  o)
+returns   result  with respect to object
+
+
+
+develop  same  project  using  Java  based   Configuration
+
+@Value
+it is  a field level annotation
+used to extract  the  value  from properties  file  variable
+and  store it in corrosponding file
+present in 
+import org.springframework.beans.factory.annotation.Value;
+@PropertySource
+it is a class level annotation used  to   
+read the Properties file
+present in import org.springframework.context.annotation.PropertySource pkg
+
+
+   
+How to obtain the  DataSource  in the  JdbcTemplate
+DataSource is a  Object used to connect to the  database
+It is a  interface present in javax.sql.* pkg
+In JDBC we  obtain through DriverManager class
+But  Here   we obtain  DataSource  through DataSource class
+For  this  Spring provides  a class called
+
+DriverManagerDataSource it is  present in
+org.springframework.jdbc.datasource.* pkg
+
+Contructor
+DriverManagerDataSource ()
+methods
+void setDriverClassName(String drivername)
+void setUrl(String url)
+void setUsername(String username)
+void setPassword(String pass)
+
+create  a  class called Product with id name and price
+perform   Crud Operations in Spring  through JdbcTemplate
+in  mysql database  uisng   XML
+
+
+U can integrate   Hibernate  with Spring  USING spring's ORM module
+u can ahieve  it  by  configuring
+LocalSessionFactoryBean  class
+It is  present in
+org.springframework.orm.hibernate5.* pkg
+This  will  hepls  you to configure  Entity class
+Hibernate properties Datasource  Transaction managers  e.t.c
+
+It has  following properties
+dataSource
+annotatedClasses
+hibernateProperties
+
+Create  a  Class called   Book with  id name author and  price
+DEVELOP CRUD   console application using   hiberbate and Spring
+using   xml file  
+
+
+Spring  Data  Jpa  Module
+
+create   a  class  called   Employee   with
+id name   dname and   sal
+And  perform   CRUD  operations  using  Spring Data  Jpa
+
+Spring provides  a annotation called
+
+@EnableJpaRepositories enables  the  spring data  jpa annotations
+it is   a class level annottaion
+specified in   configuration file(java based)
+in this  file  u need to configure    JpaTransactionManager through
+PlatFormTransactionManager to handle
+the transaction as weell as  EntityManagerFactory  interface to look up
+Persistence Unit name   also
+JpaTransactionManager   is an interface   
+method
+void setEntityManagerFactory(EntityManagerFactory  emf)
+
+Spring Data  Jpa  Derived Query Methods
+through  this   u can  manufacture the  qurie by the  method names
+To do this   u need  define   custom  methods  in Repository interface
+
+
+to find the  employees  by the   dept name
+to find the  employees whose sal  > 40000
+
+to  find HR  dept employess who are  getting salary < 50000
+
+
+
+

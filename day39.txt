@@ -1,0 +1,153 @@
+SPRING BOOT  DATA JPA JSP MVC CRUD APPLICATION   with   validation
+
+
+
+SPRING BOOT  DATA JPA REST CRUD APPLICATION   with validation   +  ANGULAR
+
+
+
+class  Employee
+int id;
+String name;
+String des;
+Date  doj;
+int salary;
+
+
+Spring Boot Actuators
+THESE ARE THE  end points   lets  us to monitor      and interact with our application
+Spring actuator is a    spring  boot sub moduleand provides  built in end pints   that  
+we can enable and disable    for  our applications
+
+these  end points are  exposed over HTTP
+Most of the time  we use   HTTP  based actuator endpoints
+because they easy to access over the  browser
+
+
+we  can access these end points
+by configuring
+spring-boot-starter-actuator depenedency in the pom.xml of spring boot projects
+
+
+following  are actuator end points
+beans : lists  all the  beans  configured in your application
+env: info about the  spring environment properties
+health:  shows application health
+info: displays  application  information
+mappings: display the  list  of @RequestMappings  paths
+shutdown:   shutsdown the application
+threaddump  provides  threaddump of the application
+
+except  health  the  end points are  diabled
+to enable the  endpoint  we need  to use  following  property
+
+YAML  configuration
+(YET ANOTHER  MARK UP LANGUAGE)
+file  must be  saved  as  .yml /  .yaml
+it is  used  instead  of properties  file
+
+it   is  super script  of jason
+
+it uses  following syntax
+
+in properties  file
+server.port=9999
+spring.datasource.url
+spring.datasource.username
+
+
+in yaml file
+server:
+   port: 9999
+spring:
+  datasource:
+      url:
+      username:
+      password
+
+if i use  both   spring boot considers   properties  file  configuration
+
+
+
+how  to reload the  changes   without  restarting the server?
+If we made any changes in the  spring boot application
+to effect those  changes   we just add
+devtools  dependency
+then if we made any changes   then  u will get those  changes  to  application
+with out restarting the / re launching the application
+
+How  to consume   REST  WEB SERVICES?
+4 WAYS
+1)  using  POST MAN tools
+2)  running    REST applications  to  cross  pltforms  like  angular react
+3)  writing  conusmer program using RestTemplate class
+4)   using Swagger  REST  Documentation API
+
+
+RestTemplate class
+it is present in  org.springframework.web.client.*  pkg
+used  to Consume the   Rest services
+RestTemplate is a central  class within the  Spring Framework
+for  Executing the Synchronous Http Requests  on the  Client  Side
+
+Features  of RestTemplate
+creating URL object
+opening/establishing  Connection   with server  where  REST endpoint is running
+Configuring  HTTP requests
+interpretation of http responses
+converting the http response to java object
+Exception Handling
+
+
+methods  of RestTemplate  class
+T  getForObject(String url,  Class c)
+returns the  response Directly
+
+ResponseEntity<T> exchange(String url, HttpMethod type, HttpHeaders  headers,
+Class c)
+returns Response Entity   that  contains  both  HttpStatusCode
+and resource
+HttpStatusCode   contains Error  codes
+200   success   201   resource  created
+300
+400    client   side  errors   404  not found
+
+500   server   side  errors 
+ResponseEntity class is  present in
+org.springframework.http.* pkg
+holds the response of Rest  Request Method
+methods  of ResponseEntity
+String getBody()
+returns   Response Body
+
+HttpMethod
+it contains  static  fields as  method name  like GET POST PUT DELETE
+ present in
+org.springframework.http.* pkg
+HttpHeaders
+used  to set  data  type  for  the  request
+
+
+T  getForEntity(String url, Class c, Map paraneters)
+executes  GET request  and  returns  respnse entity that contains
+both status  code  and  resource
+
+T postForObject(String url, Object o,   Class c)
+processes the POST request and returns and saves  response
+
+
+T postForEntity(String url, Object o,  Class c)
+processes  the POST request
+and returns response entity that contains  both status code and resource
+void delete(String url, Map parameters)
+process delete request
+void put(String url,  Object o, Map parameters)
+process the PUT request and updates resources
+
+
+For  the morning  REST CRUD  application
+write the  consumer  program
+
+
+apply  validation for   Angular side  for  mornig   RestCrud   example
+  

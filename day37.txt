@@ -1,0 +1,200 @@
+To develop   MVC application   with ZERO   configuration  file
+we  need to create   2 class
+1)  for   web.xml
+we need to create  a  class   which extends 
+AbstractAnnotationConfigDispatcherServletInitializer    class
+
+u need to override  3 methods
+
+Class[]     getRootConfifClasses()
+Class[]  gerServletConfigClasses()
+String[]      getServletMappings()
+above class is present in
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+pkg
+2) for spring-servlet.xml
+we   need to create  another  class  which implements WebMvcConfigurer  interface
+this interface is present in
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer  pkg
+this  class  must  be   annotated   with
+@Configuration
+@ComponentScan
+@EnableWebMvc annoattion
+@EnableWebMvc annoattions  enables
+Spring MVC annoattions   it is equivalent  to
+<mvc:annotation-driven/> tag
+it is present in
+org.springframework.web.servlet.config.annotation.EnableWebMvc pkg
+
+
+develop   spring mvc  to crate  2  text fields   name and age
+and display  use   java  configuration
+
+
+
+Spring REST
+REST  means  Representation State   Transffer
+It is    type  of  web service   (architectural style)
+
+web service:
+it is  a  service  resides  on internet
+Eg     Reservation service   Banking Service   e.t.c
+when client   request  for  the   perticular  service
+request hits to web service  and  webservice  process the client request
+through server
+and response is generated to client
+
+
+REST  web services   always  performed through   client  server architecture
+i.e  client sends  request to server  server  process the request  and   response
+
+gets  generated.  Here   request  will sent by client  using HTTP protocol
+interaction between client and server  is stateless  as HTTP  is  a stateless
+protocol  i.e  HTTP does not maintain any info about client request
+
+when  every time client sends the request to server  it is  a new request to server
+
+By using COOKIES  SESSION TRACKING we can make interaction between client
+and server statefull
+here  client is called PRODUCER
+server  is   called CONSUMER
+
+REST  supports   multiple data  types  like
+JSON  XML   EXCEL IMAGE  TEXT   e.t.c
+
+The  heart   of REST  is  url / uri
+any resource  u want to  identify  then   url  is  one  which  identifies it
+url  is   hera  a  resource
+
+spring mvc   support  built in  REST    web service
+u need   confifure   jackson dependencies
+which are 
+ jackson-databind
+jackson-annotation
+jackson-core
+
+these   depenedecies  converts  java type  to  json type
+in spring     if  u are   not  mapping data  through java object
+then REST uses  HTML/TEXT as  default data  type
+
+in spring     if  u are     mapping data  through java object
+then REST uses JSON as  default data  type
+
+operations  of REST   architecture
+GET  used   to get the  resource  dynamically
+for this REST support  @GetMapping annotation
+it is present in  org.springframweork.web.bind.annotation.* pkg
+it is   equivelent  to
+@GetMapping("/get")    at a method level
+OR
+
+@RequestMapping(value="/get", method=RequestMethod.GET)
+
+POST
+POST  used   to SAVE/INSERT/ADD the  resource  dynamically
+for this REST support  @PostMapping annotation
+it is present in  org.springframweork.web.bind.annotation.* pkg
+it is   equivelent  to
+@PostMapping("/save")    at a method level
+OR
+
+@RequestMapping(value="/save", method=RequestMethod.POST)
+
+PUT
+PUT  used   to UPDATE the  resource  dynamically
+for this REST support  @PutMapping annotation
+it is present in  org.springframweork.web.bind.annotation.* pkg
+it is   equivelent  to
+@PutMapping("/update")    at a method level
+OR
+
+@RequestMapping(value="/update", method=RequestMethod.PUT)
+
+
+
+DELETE
+DELETE  used   to DELETE the  resource  dynamically
+for this REST support  @DeleteMapping annotation
+it is present in  org.springframweork.web.bind.annotation.* pkg
+it is   equivelent  to
+@DeleteMapping("/delete")    at a method level
+OR
+
+@RequestMapping(value="/delete", method=RequestMethod.DELETE)
+
+
+apart from   above annotations REST module also  support  other  annotations
+1)@RestController
+it is  introduced  in    spring 4.0
+@RestController=@ResponseBody+@Controller
+it is  class level annottaion
+
+when  u develop the Rest application  want to show to o/p  on  browser
+through  json  data type/ xml data type  then  we annotate   a class
+with @RestController annoattion
+U can  integate such application with   angular react  for front end
+when  u develop the web mvc application  want to show to o/p  on  browser
+through  JSP UI  then  we annotate   a class
+with @Controller annoattion
+it is present in  org.springframweork.web.bind.annotation.* pkg
+
+2)@ResponseBody
+it is present in  org.springframweork.web.bind.annotation.* pkg
+it is  method level annotation
+used to return  response  on browser throgh  xml/json /html/text data type
+if  u annotate  a  class with @RestController annotattion
+this  annotation  is not used
+But
+when  u develop the web rest application  want to show to o/p  on  browser
+through json/xml/html/text data  types  and  ur class annoatted  with @Controller
+annoattion the  method must annotate with @ResponseBody annotation
+
+3)@PathVariable 
+it is   a  field  level annottaion  used to inject
+i/p  values  for  the  URL  parameters  dynamically
+Eg
+@GetMapping("/get/{name}")
+public   String  show(@PathVariable("name")String n)
+{}
+
+4)@RequestBody
+it is also  a  Field level annotation
+used   provide   input  to parameters  in  the  body  of the  request
+through POST method
+
+
+create  a class  called  Emp  with id name  age   sal
+insert   5 objects in array list and display
+
+
+write   a  program to find  addition of  2  nos  using post  method
+
+
+develop a  CRUD  application   on 
+class Product
+{
+   int id;
+String name;
+   int price;
+}
+
+
+You can achieve the  Trasaction Handling  in spring  when u integrated with 
+hiberbate using
+@Transactional Annotation
+it is  class/method  level annotation
+it is present in org.springframework.transaction.annotation.Transactional;
+also  u need to configure in xml file
+by specifying tx  name space  in  spring servlet  configuration xml file
+
+
+
+when handling trasaction  with spring  and  not with hibernate
+
+Session is created  in Hibernate  through
+
+SessionFactory's  getCurrentSession() method
+not with openSession() method
+If u are handling transction in hibernate
+then  u can  create  session in hibernate  with openSession() method
+

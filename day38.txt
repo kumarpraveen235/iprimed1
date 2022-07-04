@@ -1,0 +1,239 @@
+Install  the STS  plugin     or   install  STS    IDE
+
+in sts  to  develop web  mvc applications  through  spring boot u need to install
+
+jsp  plugin   eclipse   enterprise  java and web developer tools
+
+what is  spring boot?
+  it is  a spring module     that privides    the RAD
+(rapid application development)    feature  to spring framework
+it is  built on top of spring framework
+it provides easier and faster way to   set up configure   and run  all
+kinds of  applications  (console, web mvc , web -REST)
+
+Spring boot=spring framework+embedded web server(jetty/tomcat)-  xml file
+
+
+reasons  for   useing spring boot
+spring boot uses  Depenedency injection
+it contains powerfull   database transaction   management capabilities
+it simplifies integration    with    other  java frameworks  like
+JPA  Hibernate   ORM struts  junit mockito
+reduces   the  cost and development time as  everything in spring boot
+is AUTO CONFIGURED
+
+
+ADVANTAGES
+creates   stand alone application
+u can develop   web mvc & web REST application
+provides  starter   POMs in the   maven's POM .xml
+i.e   no need to specify version of  jar it downloads the  correct version of depenedency 
+according to the version of  spring boot. This  is  ingerited in the  starter
+parent in pom
+provides  production ready features  like  matrix, health     actuators
+u can also configure the properties   externally
+no xml   configuration
+provides  CLI  to  to develop and  test applications
+supports  lots  of plug ins
+minimized  boiler plate  code
+increases the  productivity
+
+
+Goals   of spring boot
+provides the     opionionated   development appraoch
+avoids  defining more annotated  configuration
+avoids  writing lots of import statements
+avoids    xml configuration
+
+
+
+
+pre requisite  for   spring boot
+u must have  jdk 1.8
+u must have  a  build tool like  maven 3.0+ / gradle
+sts plugin  or  STS ide
+spring framework 5.0
+
+
+Spring boot  features
+web developement
+console application
+supports  events   and listeners
+supports  adminstration features
+externalized configurations
+supports  properties  file
+supports  YAML configuration
+type  safe configuration
+logging
+security
+
+
+curret version is  2.7
+
+architecture of spring boot
+it suites  for  Layered  architecture
+
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.9</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+above  element in   pom.xml  sets the  version of   jar file
+w.r.t  the  version  of  spring  boot
+no need of  version  tag  for  spring boot starter  depenedencies
+
+
+spring boot  provides   starter depenedencies
+like
+for  web   spring-boot-starter-web  configures  tomcat server  jackson depenedencies
+    jdbc  spring-boot-starter-jdbc  configures   jdbc tx  
+   validation  spring-boot-starter-validation     configures   hibernate validator
+   thymeleaf  spring-boot-starter-thymeleaf    configures  thymeleaf view
+   datajpa  spring-boot-starter-jpa    configures spring data jpa
+
+Spring  boot is    used for  Auto configuration   
+
+Autoconfiguration  means    FrontController  Dispatcher Sevlet
+for  MVC/REST application   automatically configured in the application 
+when u use   web dependency 
+no need specify it's name  in  web.xml
+
+Tomcat server   automatically  configured  in web application
+when u use   web dependency    how ever u can change it's port 
+in properties file  through server.port
+
+
+Jackson Data  bind   depenedency    which converts  java type  to jason
+types   automatically gets  configured
+when u use   web dependency 
+
+when u use   spring data jpa / jdbc depenedncy  application  will not start
+as  Spring boot internally uses in memory H2 database
+u need to set the  url of   H2 DATABASE
+else  u need  to set   URL of   respected database  in properties  file
+when u set driver class  name  url username  password of respective
+database  then  DATASOURCE  AUOMATICALLY gets  configured
+no need to configure it in spring-servlet.xml through  DriverManagerDataSource
+
+
+when  you are   serving with   views  like   jsp/ thyme leaf
+
+configure  the  jsp in properties  file through   spring.mvc.view.prefix/suffix
+then automatically   jsp  gets configured  no need  to configure
+in  spring-servlet.xml  through InternalResourceViewResolver
+
+
+hibernate  properties  like   hbm2ddl.auto  show sql   dialect properties
+are also  automatically configured in properties  file
+when u configured   spring data jpa  depenedency in pom.xml
+no need to configure LocalSessionFactoryBean in spring-servlet.xml
+
+
+who will   do auto configuration
+
+Entry point for  SpringBoot application  program is
+DemoApplication class
+This  class is annotated with   @SpringBootApplication annotation
+this  annotation  does  the  AutoConfiguration
+
+@SpringBootApplication=@EnableAutoConfiguration+@ComponentScan
+
+@EnableAutoConfiguration  it is  similiar to @Configuration
+it configures and wires beans    based  on bean  methods
+it also configures  extra things like   configuring tomcat server
+configures  helper classes  configure   jar depenedencies
+
+it is present in 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+
+
+
+@ComponentScan  will  scan th package for   classes   annotated  with
+stereotype  annoattions
+
+SpringApplication class
+
+it has  lots  of methods
+
+like  to   show off the banner 
+void setBannerMode(Banner.Mode.OFF)
+
+to customize application start  up
+
+void  run(args)
+
+
+to turn of   startup info logs
+void   setLogsStartupInfo(boolean flag)
+
+
+SpringApplication  s=new Stringapplication(MainClass c)
+constructor for  SpringApplication
+SpringApplication(Class c)
+it is  present in import org.springframework.boot.SpringApplication;
+
+
+
+
+
+
+when u use   spring data jpa / jdbc depenedncy  application  will not start
+as  Spring boot internally uses in memory H2 database
+u need to set the  url of   H2 DATABASE
+else  u need  to set   URL of   respected database  in properties  file
+when u set driver class  name  url username  password of respective
+database  then  DATASOURCE  AUOMATICALLY gets  configured
+no need to configure it in spring-servlet.xml through  DriverManagerDataSource
+
+
+perform the   CRUD  operations  in Mysql uisng  Jdbc Template
+in SpringBoot console application
+
+
+perform the   CRUD  operations  in Mysql uisng  Spring Data  Jpa
+in SpringBoot console application
+
+
+
+For this  u need to implement  CommandLineRunner interface
+in  Main  program and override  run() method
+In this  run() method  u need to invoke data  access logic
+
+developping  web application/ serving   JSP /html   in   spring boot
+
+following are  the   steps
+1)create  the     spring boot project and  change  packaging  to  war
+instead  of jar. This  create  webapp  folder  in  main
+and  adds   tomcat dependency  in  pom.xml
+if   u have  not changed the  packaging from jar  to war
+then  u need  to  manually create   webapp folder
+2)manually create   WEB-INF/jsp  folder in webapp  folder
+3) spring boot by default  uses  thymeleaf views
+to use  jsp  view  we need jsp compiler and  jstl view also
+
+so add  tomcat-embed-jasper  dependecy in pom.xml
+it is  a jsp  compiler  compiles  jsp page
+and also  add  jstl  depenedency in pom.xml
+
+4) configure   jsp  in properties  file
+with   spring.mvc.view.prefix & suffix
+
+5)annotate  Controller  with  @Controller  annotation
+instead  of @RestController
+
+
+create a class  called  product   with  id  name and  price
+insert  5 objects   in the   List and  display  in a Table
+through jsp  in  springboot
+Design table  with bootstrap
+
+
+create  a  class  called   Emp   with  id name and city   dob
+insert into   emp table  using   datajpa   with  validation and  display
+trough  jsp
+

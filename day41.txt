@@ -1,0 +1,96 @@
+use   spring  boot  version   2.5.9  and   cloud   2020.0.5
+and  cloud service  2.4.1
+
+
+
+Handling the  Cascading of  failure  through  FALL BACK  method  using
+Cloud  services  Cercuit Breaker METHOD
+For this you need to add  following depenedency
+spring-cloud-services-starter-cercuit-breaker
+
+For this  depenedency u need to eneble  resilence feature
+it  is  a  feature  which eliminates  cascading failure and
+will not effect  other micro services if the  error occurs and  handles
+the error
+   
+Hystrix  Cercuit breaker is removed from latest  spring  cloud  version
+
+add  following things  in pom
+
+use   spring  boot  version   2.5.9  and   cloud   2020.0.5
+and  cloud service  2.4.1
+
+
+<spring-cloud-services.version>2.4.1</spring-cloud-services.version>
+
+
+			
+			<dependency>
+				<groupId>io.pivotal.spring.cloud</groupId>
+				<artifactId>spring-cloud-services-dependencies</artifactId>
+				<version>${spring-cloud-services.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+
+
+		<dependency>
+		<groupId>io.pivotal.spring.cloud</groupId>
+				<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>
+		</dependency>
+		<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+		
+		</dependency>
+		
+
+create   a department micro service
+
+id
+name
+address
+code
+
+
+  create   2 methods   
+insert and  display  by did
+
+create   a user micro service
+
+id
+fname
+lname
+des
+deptid
+
+
+
+  create   2 methods   
+insert and  display
+
+insert and  display  by uid
+
+
+
+swagger?
+swagger is a  JSON based    interface   description language   for
+specifying   RESTfull APIs for    microservices/spring boot applications
+to  design to construct describe   and  CONSUME restfull web services   SWAGGER  is  
+used in conjunction with    open source s/w tools
+automated documentation   code generation and test case  generation  are
+all included in the swagger
+
+
+swagger  2  will not  works  afer  spring boot  2.5
+
+it  will  work  for spring boot betwen 2.0 to  2.5 version
+
+for   spring boot   2.6.9 we need to  swagger 3
+
+
+for  operations  u need to hit url  http://localhost:8888/swagger-ui.html
+documentaion   http://localhost:8888/v2/api-docs
+
+

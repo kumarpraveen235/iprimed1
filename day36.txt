@@ -1,0 +1,248 @@
+Limiting   query Results
+
+Sorting and  Pagination   using Spring Data Jpa
+
+
+U can achieve  it by using   PagingAndSorting Repository
+
+
+this  interface  provides   extra method called
+Iterable findAll(Sort s)
+
+where  Sort is  a  class   present  in
+org.springframework.data.domain.Sort pkg
+
+
+
+List the emp of HR department  where  each page contains   2 records 
+U can achieve  it by using   PagingAndSorting Repository
+
+
+this  interface  provides   extra method called
+Iterable findAll(Pagaeble p)
+
+where Pagaeble  is a  class present in
+org.springframework.data.domain.* pkg  used to achive  pagination
+
+
+
+Spring  MVC
+MVC   mean    model   view   controller
+It is a  design  pattern
+M  represents   Model   contains   business logic  it can  be  controller
+java bean   e.t.c
+V means   View   contains   presentaion logic   it can be  jsp   thymeleaf
+freemarker velocity tiles
+C means   Controoller    in  spring we have   built in  controller
+called  FrontController by the name   DispatcherServlet
+used  intecept the  request from  the   webserver
+
+
+Spring  MVC  is  a light weight  framework  based  on   MVC  used
+to develop   web / enterprise   / internet  applications
+
+advantages
+Saperate Roles
+Light   weight
+Powerful configuration
+it provides   couple  of xml files  
+web.xml  in this  u can  configure FrontController  Dispatcher servlet and
+  spring-servlet.xml
+in this   you can configure     ViewResolvers  DataSource, static   documents
+Transaction  Components   Hibernate  Properties  Mapping Files   e.t.c
+
+Rapid development
+Reusable  business code
+
+easy to test
+Flexible Mapping
+Spring MVC provides  lots  of annotation which makes the  flexible mapping
+Eg  @RequestMapping("/getEmployees")
+decalartive approach  & programmatic approach also
+
+
+Architecture   of Spring MVC
+
+1)   user types   request  on browser  and  hits  enter
+broweser   generates  http request  and  goes to webserver
+2) webserver receives the request  and checks  the  url pattern of request
+and   also checks   web.xml 
+3) if  web.xml  contains  Front Controller  entry  DispatcherServlet  means
+it usnderstands  it is  MVC request and web server   hand over  the request to  Dispatcher
+Servlet
+DispatcherServlet is present in org.springframework.web.servlet.DispatcherServlet
+pkg
+4)DispatcherServlet  checks   spring-servlet  config file and  and gets RequestMapping url
+through  Controller name . and  varifies  this request mapping url is  same  one
+which is appeared  in  mvc request. If both are  same  then DispatcherServlet
+executes  Controller code  (contains  buss logic)  and generates  Model and View Object
+(response) to DispatcherServet
+
+5)DispatcherServlet gets the name of view Resolver  from  spring-servlet.xml file
+and maps the  response to view like  jsp thymeleaf
+6)finally   view  is generated   dynamically to client through browser
+
+
+Like  Spring  core  Spring Mvc also  provides  lot of  annotations
+
+
+@Controller
+it is  a  steroetype  annotation
+it is  a  class level annottaion
+any class  annotated  with  this  annotation automatically registered  by
+ApplicationContext IOC.   For  this  IOC container   scans the  package
+rather than configuring this class in xml file
+THtough  <context:component-scan base-pacakges=""/>
+
+@RequestMapping("/urlpattern")
+it is a  class level & method level annotation
+specifies  by  what  url pattern request  is  mapped to which controller?
+it is present in
+import org.springframework.web.bind.annotation.RequestMapping pkg
+
+write  spring mvc  program to  dsiplay  HelloWorld
+
+we are using jsp  file
+we write  jsp logic using JSTL (java standered  tag  libaries)
+
+we need configure  JSTL jar
+in XML file   u need to enable   MVC  annotations through
+<mvc:annotation-driven/> tag
+
+
+
+Spring MVC  uses
+for  this u need to import   mvc   xml  name space  
+
+
+Spring MVC  uses   different ViewResolver classes  to resole the  views
+Popular  one is   InternalResourceViewResolver
+it  resolves  Jsp JSTL views
+it resolves the   views  by  following technique
+it has  2 properties
+prefix   identify the  location of the  view
+suffix  indentify the   technology of view
+it  must be configured in   spring-servlet.xml
+
+
+multiple request mapping
+
+multiple controller
+
+to  create   web app  maven   project   follow  these steps
+1)  create    a new  work space and  configure web server
+2) create   maven web app  project  using  web app   plugin
+3) configure web server  in the project
+4) create   java folder  by right clicking main folder
+
+
+Spring  MVC provides   an interface  called  Model
+used  hold  entire web application data
+Data  is  stored  in Model  interface through Strings   Maps  Objects
+Collection  e.t.c
+it is present in org.springframework.ui pkg
+methods
+void addAttribute(String attributename  String objectname)
+void addAllAttribute(Coolection c)
+void addAllAttrribute(Map m)
+
+
+@RequestParam
+it is  field level annotataion   used to bind the 
+jsp/view   form field  values  to the   controller  method  parameters
+
+
+create   a program  to design  login form  which contains username and password
+if  both are  iprimed  then  display   successfully logged in
+else   login credential are  invalid
+
+
+
+how  to display images  in  Spring MVC?
+1)  create  resources   folder  in  wepapp folder
+2) crate  images   css     js  folders  in  resources   folder and 
+store   documents  in that
+3) configure   resources folder   using
+<mvc:resources> tag in spring-servlet.xml
+4) import the  corrosponding document in  ralated jsp    using EL  
+
+Creating forms  using spring tags
+spring provides   lots  of tags
+they  are  basic  tags  form tags   e.t.c
+form tags are  imported  using
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+Some  of the  Form tags are
+<form:form>
+<form:input>
+<form:checkbox>
+<form:radiobutton>
+<form:button>
+<form:errors>
+<form:hidden>
+<form:password>
+
+
+@ModelAttribute
+it is  a  field  level attribute
+it is used  to bind the 
+jsp/view   form field  values  to the   controller  method  parameters(Model class
+Object) through    POJO class/ model class
+
+present  in
+import org.springframework.web.bind.annotation.ModelAttribute pkg  
+
+create  a  class  called   Employee
+with  name    age  languages  gender profession dob 
+and enter   from   jsp  form  and display  through Spring MVC application
+use  spring form  tags to design the  form
+
+
+
+Spring MVC validation
+
+spring mvc  uses   HibernateValidator   for  validation 
+u can  achieve  validation in spring using javax.validator  api
+which is  implemented by   HibernateValidator
+
+javax.validation.contraints  provides  lots  of annotations
+these are all  field level annotations
+
+@Size   tot no of characters  must be entered
+@Max     applied to   numeric  what is max value
+@Min    applied to   numeric  what is min value
+@Past   applied to   date   which is enetered < than  today date
+@Future  applied to   date   which is enetered > than  today date
+@Pattern    for  pattern matching
+@NotNull   value must  be  eneterd
+@NotEmpty  value  must be entered
+
+
+SpringFramework also provide  an  interface  called
+BindingResult used  check the  validation errors
+it has a  method called
+boolean  hasErrors()
+
+Another annottaion is
+@Valid  annotation   it is  a field level annotation
+used apply validation for   Model class
+it is present in javax.validation.* pkg
+
+for  this  we  need to configure hibernate  validator   dependency
+
+
+
+create  a  class called user  with id, name   age  city
+enter from jsp   and click  submit
+then  it must be inserted into mysql and  dispalyed in web page  through table
+use  JdbcTemplate
+
+
+1)develop MVC application   with   out xml file  using java  based configuration
+Hint
+use @EnableWebMvc  annotation
+
+
+2) apply  validation  for  the   Spring MVC JDBC example
+
+install  POSTMAN
+

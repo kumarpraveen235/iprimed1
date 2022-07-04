@@ -1,0 +1,84 @@
+@PreDestroy
+@PostConstruct
+@Component
+@Repository
+@Service
+@Controller
+
+
+we can also   write spring programs  with  out xml  file
+If  we write  spring programs  with out xml file  it is  called
+ZERO CONFIGURATION APPROACH / PROGRAMMATIC  APPROACH/  JAVA  ANNOTATED  CONFIGURATION
+
+@Bean
+it is  a  method level annotation
+when u annotate  method  with @Bean  annotation
+then   it is  equivelent to  <bean  id=""   class="" />
+tag in xml
+used to  configure the bean  programmatically
+present in
+import org.springframework.context.annotation.Bean;
+
+
+@Configuration
+
+it is a  class level  annotation
+when u annotate class  with above annotation
+then  no need of  xml file  It treats  it as   configuration file
+in this   u can configure  0 or more  methods  with @Bean  annotation
+present in
+
+import org.springframework.context.annotation.Configuration;
+@ComponentScan(pkgname)
+it is   a  class level annotation  when there  is  no xml  is used
+then  we use  this  annotation  to scan the packages  for  the classes
+annotated  with stereo type annotation
+it  is  equivelent  to
+<context:component-scan base-package="com.iprimed.fsd.training.*"> in xml
+it in
+
+import org.springframework.context.annotation.ComponentScan;
+
+
+This  annotation   will be  used  only  when
+we  use  stereo type  annotations
+
+To load  the   Configuration file  we use
+
+AnnotationConfigApplcationContext class  IOC container used to load the configuration file
+USED IN  java configuration (no xml file) approach
+Constructor
+AnnotationConfigApplcationContext(Class configclass)
+AnnotationConfigApplcationContext()
+methods
+
+Object  getBean(String beanname)
+Object   getBean(Class pojoclasS)
+used to INSTANTIATE THE  BEAN
+
+
+it is present in
+org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+create   a  class called  Product with   id name  and price
+and insert   5 objects  in the List and  display  
+use java  configuration
+
+
+create   a  class called  Book  with   id name  and price
+and insert   5 objects  in the List and  display  
+use java  configuration and  sort   on price  use  Stereo Type annoattions
+
+create   a  Prototype  scoped  Bean to display   welcome  to  spring and
+instantiate  using  IOC container  and display  use   java  based  configuraton
+
+
+create  a  class  called  person with  id name  and  des
+inject   few objects  in Map  and  perform  following operations
+insert the     person
+retrieve the  person w.r.t. id
+search the person by name
+delete the person by id
+display  all  persons
+
+use  java based  configuration

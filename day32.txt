@@ -1,0 +1,415 @@
+Spring framework
+it was developed by Rod  Johnson in 2003
+it is also  called  Frame work of frame works
+it is a  light weight   framework
+spring   helps you   to integrate  with     different  modules like
+IOC AOP  DAO   Context   ORM WEB MVC   e.t.c
+spring   supports   depenedency  injection
+
+advantages  of  spring frame work
+1)   predefined  templates
+Spring  provides   built in templates  like  JdbcTemplate  class  to connect
+to the database
+2)loose coupling
+since   spring supports   Depenedecy  injection  , it helps to write loosely coupled code
+as  part  of the  dependency is saperated  from  code and kept in another  file
+3)Easy to test: since   spring supports   Depenedecy  injection and
+ part  of the  dependency is saperated  from  code and kept in another  file
+each   files  contains  their own logic like  buss logic  presentation logic
+data access logic   Such  files are  easy  to test
+4)   fast development
+spring   is a  framework  so it has  built  in interafces and classes whose  methods
+are already implementated. So usage  of these methods  reduces lot of code and
+saves lot of developemnt  time. More  importantly   it  also  used to  develop
+MVC application  which   follows  the  MVC architecture  in which  every component
+has it's own role. It also  improves  productivity
+5)  Power  full abstraction 
+spring supports  various  modules like  Context beans   AOP  JDBC  DAO   ORM
+JMS  JTA  TRANSACTIONS EJB  e.t.c
+6) declarative  supports   spring programs  can be written  using  xml  file also
+where  u  can configure  hibernate/jpa  roperties  data source  properties
+transaction properties   resource  bundle  in xml  file
+no need to write  programmatic code
+how ever u can also   configure   through  programatically also
+using annotations
+7) light   weight
+spring frame  work is a  light  weight framework
+no need to install  spring as  u can configure   spring  jars  in   java 
+web/rest/console application project
+
+
+What is  Depenedency  Injection
+part  of the  dependency is saperated  from  code and kept or  injected  in another  file
+it is called   depenedecy  injection
+advantages
+1) makes the   code  loosely coupled  
+2) makes the code  easy  to maintain
+3) makes the code easy to test
+
+
+class Student
+{
+    int id;
+  String name;
+ Student(int id, String name)
+{
+   this.id=id;this.name=name;
+}
+  void d()
+{
+   System.out.println(id+"   "+name);
+}
+   public static  void main(String args[])
+{
+    Student  s=new Student(1, "raj");
+     s.d();
+}
+}
+
+in the   above  code presentation logic   businss logic  
+every thing is  mixed  up in one program
+this  code is tightly coupled and very difficult  to test
+
+in this  program 1st  object is  created  then  buss  logic is  executed
+
+
+to eliminate   above  issues  we use  Depenedency  Injection
+in this part  of the  dependency is saperated  from  code and kept in another  file
+
+eg  in the  above  program  we write  business logic  in a saperate file
+using  setter  methods  /  cosntructors
+Eg
+class Student
+{
+    int id;
+  String name;
+  //    costructors
+    OR
+// setter  methods
+}
+above class is also called  POJO class
+
+
+using   this  business logic (setter  methods/ constructors)
+i/p   values  are  substituted (depenedency injection) in  another  file  
+which is  an xml file   through  tags
+
+if   the business  logic is  written  using constructors  then  in xml
+i/p values  are  injected using <contructor-arg> tag
+
+if   the business  logic is  written  using setter methods  then  in xml
+i/p values  are  injected using <property> tag
+
+this   entire  responsibility is taken care  by spring container
+i.e in this spring developer  will not create  Object  
+Spring container will  create  instantiate  configure assemble   object
+in this  approach  first  business logic is executed , based on buss logic  
+values are injected  and the  objects  are  created. it is  a Inverse  process
+That is why it is called  Inversion Of Control  Container
+IOC  container.
+It is  completley  controllled  by  spring container
+
+
+Difference between  traditional approach and spring depenedency injection
+ traditional approach:
+in this   every thing  is seen  in one file  code  is tightly couple
+in this  first  objects  are created then  buss  logic executed
+it is  non IOC  approach
+in this   developer creates object
+
+
+Depenedency injection approach
+
+in this  part  of depenedency is  saperated and  kept in saperate  file
+code is loosely coupled
+in this  first   buss  logic executed then objects are created
+it follows IOC  approach
+in this  spring container creates object
+
+
+how the  depenedency  injection achieved  for  depenedent object?
+class Emp{}
+class  Address{}
+
+emp class  depends on address
+
+
+non  DI  approach
+
+class  Employee
+{
+     Address  addr;
+  Employee()
+{
+  addr=new Address();   // developer creates  object here
+}}
+in this  case   depenedency between address and employee is  tightly coupled
+
+DI  approach
+
+class  Employee
+{
+     Address  addr;
+  Employee(Address  addr)
+{
+  this.addr=addr;   
+}}
+the  above code is called  loosely coupled
+in this  values  for  Address  class is  injected in xml file
+which is achieved  by  spring container
+in this  case   depenedency between address and employee is  loosely coupled
+
+
+
+modules of spring  frame work
+
+
+
+Types  of  depenedency  injection
+
+there are   2 types
+1)  setter   injetion
+in this   projo class  created  with  setter  methods  and spring container
+
+looks   the   setter  methods  to  achive  depenedency  injection
+it  will achieve  it through <property> tag  in xml file
+
+2)  constructor   injetion
+in this   projo class  created  with  constructors  and spring container
+
+looks   the  constructors  to  achieve  depenedency  injection
+it  will achieve  it through <constructor-arg> tag  in xml file
+
+
+
+what is  spring container
+it is  a  component used  to configure  instantiate  asssemble
+spring bean  objects. Spring bean is  POJO class
+which contains  setter methods / constructors
+It is  also called  IOC container
+2 types  of  spring IOC containers
+1) BeanFactory
+it is  present in org.springframework.bean.factory.* package
+it is an  interface
+it is  used  to configure  instantiate  asssemble
+spring bean  objects.
+it does not supports  other features  like annotations  I18N  validation
+jms  e.t.c
+it is  implemented  by  XmlBeanFactory  class  present in 
+org.springframework.bean.factory.xml.* pkg
+
+
+How  to  load the   xml  definitions/files   in  Spring IOC container  BeanFactory?
+
+Resource  interface  present in   
+org.springframework.core.io pkg loads the  XML file
+it is  implemented by   ClassPathResource  class 
+present  in org.springframework.core.io pkg
+
+Resource  r=new ClassPathResource("s.xml");
+BeanFactory b=new XmlBeanFactory(r);
+ load the   xml  definitions/files   in  Spring IOC container  BeanFactory
+
+methods  of BeanFactory
+
+Object  getBean(String beanid)  used  when more than one instance  of bean   present
+Object  getBean(Class c)  used  only one instance  of bean  must present
+
+instantiates the Bean /  creates the Object of the Bean
+
+create a  Class called Product with id name and price
+instantiate  1 Object of Product using DI  using spring
+using   setter  injection
+
+
+If   u r using  spring < 5.0   there  is  no jcl  jar
+u need  download   commons-logging 2.x  jar  which  contains  logging info
+
+create a  Class called Student with id name and   age
+instantiate  1 Object of Student using DI  using spring
+using  constructor  injection
+
+
+difference between   setter and  constructor injection
+
+
+if u mention   both  setter and  constructor in
+the  program   spring container   chooses   setter  injection as 
+setter injection overrides  constructor injection
+
+
+through setter  injection  u can inject the  values  for  selected properties
+of bean
+but this  is not possible in constructor injection
+here  Container  expects  that   type of  constructor
+
+
+in setter  injection   we need to remember the   the property  names
+but in costructor  injection  no need to remember property names
+of POJO class
+
+ApplicationContext  IOC container
+It sits  on top of BeanFactory
+It supports  Validation   ,    I18N, annotations , JMS  module  e.t.c
+it is  an interface   present in
+org.springframework.context.* pkg
+
+It is  implemented  by
+ClassPathXmlApplicationContext   class 
+present in org.springframework.context.support.* pkg
+
+Constructor
+ClassPathXmlApplicationContext(String xmlfile)
+loads the  XML file in ApplicationContext container
+
+methods
+Object  getBean(String beanid)  used  when more than one instance  of bean   present
+Object  getBean(Class c)  used  only one instance  of bean  must present
+
+
+Different types  of injection
+
+1) injecting  primitive  type
+2) injecting  dependent object
+
+we can  achieve  it by using ref attribute of <property>  or <constructor-arg> tag
+
+<property name=""  ref="beannameof dependent  object"/>
+
+we can also achieve  it by using ref  tag 
+
+<property>
+<ref bean=""/>
+<property>
+
+ 3) injecting  collection  non depenedent  objects 
+
+<construcor-arg>   OR  <property name="">
+<list>
+<value>....</value> <value>....</value>  <value>....</value>  
+</list>
+</constructor-arg>   OR  </property>
+
+
+  
+4) injecting collection depenedent  objects
+
+
+
+<construcor-arg>   OR  <property  name="">
+<list>
+<ref  bean="beanname"/><ref  bean="beanname1"/><ref  bean="beanname2"/>
+</list>
+</constructor-arg>   OR  </property>
+
+
+
+
+
+5) injecting map  non  depenedent objects
+
+<construcor-arg>   OR  <property name="">
+<map>
+<entry key=""   value=""/><entry key=""   value=""/><entry key=""   value=""/>
+</map>
+</constructor-arg>   OR  </property>
+
+
+6) injecting  map depenedent  object
+
+<construcor-arg>   OR  <property name="">
+<map>
+<entry key-ref="beanname"   value-ref="beanname"/>
+<entry key-ref=""   value-ref=""/><entry key-ref=""   value-ref=""/>
+</map>
+</constructor-arg>   OR  </property>
+
+
+7) injecting  props
+used to inject    a    collection of name  value  pair  whee  name and value  
+both  must be string
+
+<property  name=""> or <contructor-arg>
+<props>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+</props>
+
+</property  name=""> or </contructor-arg>
+
+
+
+create  a  class  called Address   with   streetno,  city, state  and country
+Create  a  class called Emp  with  id name and adresss
+Emp depends  on Address   Using DI  create  1 object  of Emp class
+
+use  maven  project
+
+class Course
+{
+   int id;
+String name;
+  List<String> module;
+}
+use  constructor injection
+
+class Skills
+{
+    int id;
+String skillname;
+}
+
+
+class Emp
+{
+   int id;
+String name;
+  List<Skills>  skills;
+}
+use  constructor injection
+
+
+create  a  class  called Person  with  following
+
+class  Person
+{
+  int id;
+ String name;
+ Map<String , Integer>    skillsexp;
+}
+
+use  setter  method  to inject 
+
+
+class   User
+{
+     String postedby;
+}
+class Answer
+{
+   String name;
+}
+class   Question
+{
+   int id;
+
+   String qname;
+   Map<Answer, User>    answers;
+}
+
+
+
+1)w.a.p  to  find the  sum  of   2 integer no  using  dependency  injection  (setter)
+2)w.a.p  to  find the  factorial of no  using  dependency  injection  (constructor)
+3) write  a  program  to inject props where key and values  both must be string
+Hint
+<property  name=""> or <contructor-arg>
+<props>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+<prop  key="">value</prop>
+</props>
+
+</property  name=""> or </contructor-arg>
+   

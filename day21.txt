@@ -1,0 +1,212 @@
+text properties
+table  properties
+
+Link  properties
+a:link    unvisited link  psedoclass
+a:visited visited link
+a:hover  keep the  curson on link
+a:active   about  to visit the  resource through link
+
+
+
+css  3.0
+supports  follwing features
+1)  border radius
+2) coloring through  linerargardient and  radialgradient
+3)  animation
+4) transition
+5) word  wrap
+6) box sizing
+7)  transformation
+8) multiple columnrule
+
+9) text shadow
+
+
+#ffcc00
+rgb(255,100,50)
+rgba(255,200, 100, 0.5)   a is a opacity  ranges  between 0 to 1
+represents   darkness or bright  ness
+
+hue   color  wheel  0 to 360 degree
+stauration  % of color
+lihgtning  % of  black or white
+
+
+transformation
+specifies changing the state  of the Object
+i.e  u can  change  position, size, direction  shape e.t.c
+
+CSS 3  supports  2D  3D  transformations
+
+transform:translate(xpx, ypx)    changes the position
+transform:translate3d(xpx, ypx, zpx)    changes the position
+
+transform:rotate(xdeg)  rotates  in x with specified degree
+transform:rotate3d(xdeg, ydeg, zdeg)rotates in 3d
+
+transform:scale(x , y)    changes the size
+transform:scale3d(x,y,z)    changes the  size
+
+transition
+changes the  property value of the Object
+transition:height
+
+
+
+
+animation :changes  property values positions and   state of the  object
+CSS3 uses @keyframes  animation
+
+css  uses  following properties  to achieve animation
+animation-name
+animation-duration
+animation-delay
+animation-iteration-count
+aniation-direction
+
+
+text effect
+word-wrap
+allows long words  to be able to  broken and wrap to next line
+
+
+word break
+specifies the line breaking rule
+
+
+multiple column rule
+breaks  paragraph into multiple columns
+
+text  shadow
+
+box sizing
+this  property allows us to include the padding and border in an element' total
+width and height
+
+Java  Script
+it is  object based  language   every  thng js is  OBJECT
+root   object in js  is  window  then  document
+
+invented in 1995  by netscape navigator
+it is   brower/platform indepenedent
+used to generate dynamic web pages
+it is  LOOSLEY typed  language
+supports  loose coupling
+supports   validation events  listeners  date math  regular expression   string  functions
+timing functions  
+supports DOM BOM
+js is executed by js engine  in  browser
+it is  inetrepreted language  
+js statements  are interpreted  by browser
+used to write business logic
+
+
+
+js is  inserted in HTML in 3 ways
+1) in <script> tag in <head> tag
+2) in <script> tag in <body> tag
+3)  through external js file
+
+js  language  fundamentals
+
+js  has  5  important functions
+1) write(String s) writes  o/p on browser
+2) confirm(String s) displays   confirm dialogue box
+3)     alert(String s) dispalys  alert dialogue box
+4)   prompt(String s) displays  prompt dialogue box
+used to read  data  from key borad
+5) focus()  used to focus  in  html element
+
+
+datatypes    supports   numeric  string   undefined null  boolean
+
+variables  decalred  with  var/let/const  keyword
+var has  global scope
+let has block  scope
+const has  like  final in java  it's  value  cannot be changed
+
+operators
+like  java  it supports   arithmetic, relational, logical,  short cercuit AND OR operators
+one  extra  operator in  js is provided === compares values along with  types
+in case of boolean logical  operators 
+it supports  only && ||   
+it does  not supports & |
+in case of bit wise logical  operators 
+it supports  all && ||    & |
+
+write a  JS  program  to find  product of couple of  nos by reading I/P from  key board
+
+loops
+like  java js also  supports  if if else  nested if  if else ladder  switch case
+break continue  for  nested  for  while  do  while  loops
+instead  of for each loop  js supports  for in loop
+
+functions
+arrays
+array methods
+objects
+String Math Date  functions
+1010
+1010
+
+
+
+
+
+
+array
+array in java  script   is   sequence of   elements  of   a   same  datatype
+size  of  array is  NOT FIXED It is  DYNAMIC
+It  works  on index basis
+0 to n-1
+supports  random access
+functions
+3  types  of  functions
+1)  functions  which   returns /  does not returns
+2) anonymous  functions   if the   function  does not have name it is called
+anonymous  function
+
+3) closures
+a closure is  a function  which is wriiten in  anotther  function  having an access to the parent
+scope   even after the parent  function is closed
+
+
+
+syntax
+function  functionname()
+{
+   statements;
+}
+
+write  a  function to divide   2  no
+read  i/p key board and  call  from  clicking button
+
+
+
+js  array methods
+
+push()
+pop()
+length()
+delete()
+splice()   adds  new item to array
+
+slice()    slices  out piece of an array
+
+sort()
+
+1)write   a  progarm  to   display an image
+write  css  script  that  when  u place the  cursor on image
+image must look very bright
+when  u remove the  cursor from image
+image must look very dull/faded
+
+2) write css  to convert  first  letter of  each  word must be  capital
+
+3)  read    10 integers and store in  array  from  key  board in js and display
+
+4)  write  a  function the  calculate the  factorial of a no
+
+5)  write a  js to check  entered no is arm strong or not
+

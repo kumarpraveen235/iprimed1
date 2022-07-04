@@ -1,0 +1,29 @@
+deveopment of   Spring REST CRUD application using   spring data  jpa
+To configure the  Hibernate  Properties   fro  JPA/SPRING DATA JPA
+we need to use   class  called  LocalContainerEntityManagerFactoryBean class
+
+It is present in   orm's   jpa module
+"org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean pkg
+it  has  following properties
+1)  dataSource   used   to specify data source/database properties
+2) packagesToScan   scans   the  packages of   Model class
+3) jpaProperties  used to specify hibernate  properties
+4) persistenecProvider   used  to specify the   framework name  which  provides
+JPA implementation
+
+In this   Transaction  class  is  configured    by
+org.springframework.orm.jpa.JpaTransactionManager  Class
+it has  property class   
+dataSource
+
+when i am  using  the   SpringDataJpa  for  java  configuration
+we  use  EnableJpaRepositories annotation
+
+here  to enable  Spring Data Jpa  in xml we  need to use
+
+
+<jpa:repositories base-package="praveen"
+ entity-manager-factory-ref="emf"></jpa:repositories>
+
+for this  we need to import  following name space
+xmlns:jpa="http://www.springframework.org/schema/data/jpa"

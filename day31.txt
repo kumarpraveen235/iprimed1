@@ -1,0 +1,203 @@
+
+
+association   mapping
+
+Hibernate supports    
+4   kinds  
+of  association
+1)  1:1   both   unidirection and   bi direction
+@OneToOne  annotation
+2) 1:M  
+3)M:1
+4)M:M
+
+@OneToOne(cascade = CascadeType.ALL)
+   Address  addr;
+
+
+here     1 student is  associated with 1 address
+
+if u   perform  any opertion  in Student  table it  will  cascade to /
+it will effect to it's associated table called address
+
+
+
+@Temporal  annotation
+it is  present in  javax.persistence.* pkg
+used  to map the  date
+
+Syntax
+@Temporal(TemporalType.DATE)
+@Temporal(TemporalType.TIME)
+
+class Author
+{
+   int aid  ; (pk)
+   String aname;
+     String email;
+}
+
+
+class Book
+{
+     int bookid (pk);
+    String  title;
+     int price;
+    Date  publisheddate;
+    int author_id ; (fk)
+}
+
+
+@JoinColumn   
+it is   field  level annotation  used   to create a  Foreign  key
+
+all  the  JPA  annotations  can  also be used to getter  methods
+
+
+
+1  university  many students  are  studying
+it is    1 to many
+
+many  students are  studying in one  university
+
+it is  many to  one
+
+2  annottaions are  used
+@OneToMany
+@ManyToOne
+
+
+ManyToMany mapping
+
+
+student   table   to course  table
+
+ram and raj   students  study  both  java and  angular
+
+simillarly   java and  anagular  both  are studied by Ram and  Raj  students
+
+for  this   we use @ManyToMany  annotation
+it is  field level annotaion
+
+
+
+@JoinTable
+this is also a  field  level annotation creates a  Table
+with   foreign  key columns  through  @JoinColumn  annotation
+by using      inverseJoinColumns  attribute
+
+
+@JoinColumn  creates  a  Foreign  key column
+
+JPA  api
+java persistence  API
+IT is a   collection    of   classes and  methods    to    persistently
+store the   vast  amounts   of data   into the database
+it is provided   by Oracle corporation
+
+Where to use  JPA
+To reduce   the   burden  of writing codes for  relational  object management
+a  programmer follows  a JPA provider  framework  which allows   easy interaction with
+database  instance
+current JPA  version is 2.0
+Some  of the  JPA  providers are
+Hibernate   Eclipse Link   Toplink   Spring Data  JPA
+
+JPA  architecture
+
+JPA   is a  source   to store    business  entities
+as a relational  entities
+It shos how  to  define  POJO   as an entiu   and how to manage  entity with relations
+
+it provides  followinf   interfaces and classes
+EntityManagerFactory
+it is an  interface  present in javax.persistence.* pkg
+it   is a  factory for  EntityManager 
+Used to  get the reference  of EntityManager
+method
+EntityManager  createEntityManager()
+
+EntityManager
+it is an  interface  present in javax.persistence.* pkg
+it   is a  factory for  Query , EntityTransaction  e.t.c
+it contains  lots  of methods  to  access the  data from  database
+
+methods
+Object  find(Class pojoclass,  int  primary key)
+void  persist(Object o)
+void  remove(Object o)
+EntityTransaction getTransaction()
+Query createQuery(String jpqlquery)
+void close()
+Persistence  class
+it is  present in javax.persistence.* pkg
+it contains  static  method to Obtain the reference  of EntityManagerFactory
+interface
+method  
+static EntityManagerFactory   createEntityManagerFactory(String persistenceunitname)
+
+persistence unit name  is specified in  persistence.xml file
+
+EntityTransaction
+
+IT is an  interface present in javax.persistence.* pkg
+used  to manage the transaction
+it has 1:1  RELATIONSHIP with EntityManager
+methods
+void  begin()
+void commit()
+
+Query interface
+it is  similiar to  org.hibernate pkg
+in this  it is present in javax.persistence.* pkg
+used to create JPQL  queries
+Like  HQL  JPQL also  supports  database indepenedent  queries
+here again  java class names and  java class property names are  used for
+mapping instead of table names and column names
+
+supports  aggregate  functions   group by order by cluases e.t.c
+methods
+List  getResultList()  returns  all rows
+Query  setFirstResult(int r)
+Query setMaxResults(int r)
+int executeUpdate()
+Query  Parameter(String name, Object value)
+Note:To write   JPQL queries  no need  of transaction
+
+Entity
+it is  used  to persist  pojo class  into the  database
+these are  persistent object   stores as records in database
+
+for this  we are using  
+org.hibernate.jpa.HibernatePersistenceProvider class
+for  JPA
+
+How  to write JPA  program?
+
+1)   create   maven  project
+2)   create   a    a POJO class with  JPA annotations in   src/main/java  folder  
+
+3)  create  META-INF folder in java  folder
+4) create    persistence.xml file
+it is  used  instead  of  hibernate.cfg.xml   which contains the information
+about  JPA  provider and Hibernate and Database configuration
+5) write  a JPA  program to access database
+
+create  a  class called  Book with id, name , author and price
+persist  1 row  into book table  using JPA
+
+
+uisng Hibernate JPA  
+do following assignments
+
+
+create  a   class called   Book   with id(primary key), name , price and author
+1) write   hibernate jpa program  to insert   5  objects  into Book table in mysql
+generate   value  for  id  automatically
+2) write  hibernate  jpa program  to display the  name, author and  price of book id 3
+3)  write  JPQL program  to   count the  rows of  author  column of book table
+4) write  JPQL program to display all rows of book  table
+5) write HQL  program  to  update the   book name  to   python and price to 900
+whose id is 4
+6) write  JPQL program to  display  the   book  price which is > 500 
+7) write  JPQL program  to display names of books  in  ascending order 
